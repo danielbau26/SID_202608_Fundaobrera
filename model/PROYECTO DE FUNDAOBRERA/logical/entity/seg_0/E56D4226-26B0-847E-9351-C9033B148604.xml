@@ -1,7 +1,7 @@
 <?xml version = '1.0' encoding = 'UTF-8'?>
-<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="37B5631F-53B8-170A-EAD3-CC8A54F02F21" name="SUBJECT">
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="E56D4226-26B0-847E-9351-C9033B148604" name="ATTENDANCE">
 <createdBy>Usuario</createdBy>
-<createdTime>2026-08-26 14:48:24 UTC</createdTime>
+<createdTime>2026-09-05 23:06:23 UTC</createdTime>
 <ownerDesignName>PROYECTO DE FUNDAOBRERA</ownerDesignName>
 <engineerTo>
 <item key="678A0AFF-7580-8F3D-5E3F-EB23D0BE930E" value="true"/>
@@ -15,9 +15,9 @@
 <minVolumes>0</minVolumes>
 <normalForm>Third</normalForm>
 <attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
-<Attribute name="subject_id" id="421DFB37-70C7-A1B0-CFB0-239923C66585">
+<Attribute name="attendance_id" id="B1D1D952-C73A-07EA-7DDF-FA463E1B4DAE">
 <createdBy>Usuario</createdBy>
-<createdTime>2026-08-26 14:49:43 UTC</createdTime>
+<createdTime>2026-09-05 23:07:16 UTC</createdTime>
 <ownerDesignName>PROYECTO DE FUNDAOBRERA</ownerDesignName>
 <engineerTo>
 <item key="678A0AFF-7580-8F3D-5E3F-EB23D0BE930E" value="true"/>
@@ -25,9 +25,19 @@
 <use>0</use>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="name" id="44B000A3-FD86-E2E5-E76B-E62415D8F282">
+<Attribute name="date" id="543E0A5F-2131-85C3-EAF4-5B9C885558CE">
 <createdBy>Usuario</createdBy>
-<createdTime>2026-08-26 14:49:47 UTC</createdTime>
+<createdTime>2026-09-05 23:06:45 UTC</createdTime>
+<ownerDesignName>PROYECTO DE FUNDAOBRERA</ownerDesignName>
+<engineerTo>
+<item key="678A0AFF-7580-8F3D-5E3F-EB23D0BE930E" value="true"/>
+</engineerTo>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="attended" id="8479B29A-42D2-C4E3-7341-FDBFA2302414">
+<createdBy>Usuario</createdBy>
+<createdTime>2026-09-05 23:06:55 UTC</createdTime>
 <ownerDesignName>PROYECTO DE FUNDAOBRERA</ownerDesignName>
 <engineerTo>
 <item key="678A0AFF-7580-8F3D-5E3F-EB23D0BE930E" value="true"/>
@@ -37,16 +47,16 @@
 </Attribute>
 </attributes>
 <identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
-<identifier id="EADB457C-F0D3-1465-9314-CDD8EC1613FA" name="SUBJECT PK">
+<identifier id="A0E4ACE0-F6C8-4BBD-DA4A-2A25F655479A" name="ATTENDANCE PK">
 <createdBy>Usuario</createdBy>
-<createdTime>2026-08-26 14:49:45 UTC</createdTime>
+<createdTime>2026-09-05 23:07:19 UTC</createdTime>
 <ownerDesignName>PROYECTO DE FUNDAOBRERA</ownerDesignName>
 <engineerTo>
 <item key="678A0AFF-7580-8F3D-5E3F-EB23D0BE930E" value="true"/>
 </engineerTo>
 <pk>true</pk>
 <usedAttributes>
-<attributeRef>421DFB37-70C7-A1B0-CFB0-239923C66585</attributeRef>
+<attributeRef>B1D1D952-C73A-07EA-7DDF-FA463E1B4DAE</attributeRef>
 </usedAttributes>
 </identifier>
 </identifiers>

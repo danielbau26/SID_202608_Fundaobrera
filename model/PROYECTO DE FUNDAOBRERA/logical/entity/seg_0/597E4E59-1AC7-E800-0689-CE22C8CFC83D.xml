@@ -1,7 +1,7 @@
 <?xml version = '1.0' encoding = 'UTF-8'?>
-<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="37B5631F-53B8-170A-EAD3-CC8A54F02F21" name="SUBJECT">
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="597E4E59-1AC7-E800-0689-CE22C8CFC83D" name="PROGRAM_SUBJECT">
 <createdBy>Usuario</createdBy>
-<createdTime>2026-08-26 14:48:24 UTC</createdTime>
+<createdTime>2026-09-05 22:32:20 UTC</createdTime>
 <ownerDesignName>PROYECTO DE FUNDAOBRERA</ownerDesignName>
 <engineerTo>
 <item key="678A0AFF-7580-8F3D-5E3F-EB23D0BE930E" value="true"/>
@@ -15,19 +15,33 @@
 <minVolumes>0</minVolumes>
 <normalForm>Third</normalForm>
 <attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
-<Attribute name="subject_id" id="421DFB37-70C7-A1B0-CFB0-239923C66585">
+<Attribute name="program_id" id="1EEF14B3-7AAF-111B-7CA9-36C76B093C87">
 <createdBy>Usuario</createdBy>
-<createdTime>2026-08-26 14:49:43 UTC</createdTime>
+<createdTime>2026-09-05 22:32:41 UTC</createdTime>
+<generatorID>06EE5810-53BC-3E23-4A2D-36A5503E7DA3</generatorID>
 <ownerDesignName>PROYECTO DE FUNDAOBRERA</ownerDesignName>
 <engineerTo>
 <item key="678A0AFF-7580-8F3D-5E3F-EB23D0BE930E" value="true"/>
 </engineerTo>
+<referedAttribute>B7408D25-5C5D-0A2D-99D4-ED384E61BFFD</referedAttribute>
 <use>0</use>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="name" id="44B000A3-FD86-E2E5-E76B-E62415D8F282">
+<Attribute name="subject_id" id="5FEF5431-81FC-7494-1BD1-B5590899A61F">
 <createdBy>Usuario</createdBy>
-<createdTime>2026-08-26 14:49:47 UTC</createdTime>
+<createdTime>2026-09-05 22:32:47 UTC</createdTime>
+<generatorID>ED125A30-EED9-AF03-2A3B-5E6B26F1F26D</generatorID>
+<ownerDesignName>PROYECTO DE FUNDAOBRERA</ownerDesignName>
+<engineerTo>
+<item key="678A0AFF-7580-8F3D-5E3F-EB23D0BE930E" value="true"/>
+</engineerTo>
+<referedAttribute>421DFB37-70C7-A1B0-CFB0-239923C66585</referedAttribute>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="semester" id="7EB77220-0A72-9AC0-3368-61F7DFD7E980">
+<createdBy>Usuario</createdBy>
+<createdTime>2026-09-05 22:32:53 UTC</createdTime>
 <ownerDesignName>PROYECTO DE FUNDAOBRERA</ownerDesignName>
 <engineerTo>
 <item key="678A0AFF-7580-8F3D-5E3F-EB23D0BE930E" value="true"/>
@@ -37,16 +51,17 @@
 </Attribute>
 </attributes>
 <identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
-<identifier id="EADB457C-F0D3-1465-9314-CDD8EC1613FA" name="SUBJECT PK">
+<identifier id="BC181690-FD03-7798-2E2E-E26AAC9DC8C2" name="PROGRAM_SUBJECT PK">
 <createdBy>Usuario</createdBy>
-<createdTime>2026-08-26 14:49:45 UTC</createdTime>
+<createdTime>2026-09-05 22:32:41 UTC</createdTime>
 <ownerDesignName>PROYECTO DE FUNDAOBRERA</ownerDesignName>
 <engineerTo>
 <item key="678A0AFF-7580-8F3D-5E3F-EB23D0BE930E" value="true"/>
 </engineerTo>
 <pk>true</pk>
 <usedAttributes>
-<attributeRef>421DFB37-70C7-A1B0-CFB0-239923C66585</attributeRef>
+<attributeRef>1EEF14B3-7AAF-111B-7CA9-36C76B093C87</attributeRef>
+<attributeRef>5FEF5431-81FC-7494-1BD1-B5590899A61F</attributeRef>
 </usedAttributes>
 </identifier>
 </identifiers>

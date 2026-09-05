@@ -1,7 +1,7 @@
 <?xml version = '1.0' encoding = 'UTF-8'?>
-<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="37B5631F-53B8-170A-EAD3-CC8A54F02F21" name="SUBJECT">
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="05A9AFA0-EFD2-15D6-6AB2-1720ABCE88E8" name="WITHDRAWAL">
 <createdBy>Usuario</createdBy>
-<createdTime>2026-08-26 14:48:24 UTC</createdTime>
+<createdTime>2026-09-05 23:18:13 UTC</createdTime>
 <ownerDesignName>PROYECTO DE FUNDAOBRERA</ownerDesignName>
 <engineerTo>
 <item key="678A0AFF-7580-8F3D-5E3F-EB23D0BE930E" value="true"/>
@@ -11,13 +11,14 @@
 <fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
 <growthPercent>0</growthPercent>
 <growthType>Year</growthType>
+<hierarchicalParent>27E4AE00-C421-F819-703A-7D4906AA7F7D</hierarchicalParent>
 <maxVolumes>9999999</maxVolumes>
 <minVolumes>0</minVolumes>
 <normalForm>Third</normalForm>
 <attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
-<Attribute name="subject_id" id="421DFB37-70C7-A1B0-CFB0-239923C66585">
+<Attribute name="withdrawal_date" id="7DABF322-9D0B-D892-7371-844CD04D6C99">
 <createdBy>Usuario</createdBy>
-<createdTime>2026-08-26 14:49:43 UTC</createdTime>
+<createdTime>2026-09-05 23:18:29 UTC</createdTime>
 <ownerDesignName>PROYECTO DE FUNDAOBRERA</ownerDesignName>
 <engineerTo>
 <item key="678A0AFF-7580-8F3D-5E3F-EB23D0BE930E" value="true"/>
@@ -25,9 +26,9 @@
 <use>0</use>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="name" id="44B000A3-FD86-E2E5-E76B-E62415D8F282">
+<Attribute name="reason" id="6B63FAF0-B67E-2150-C719-3D8087AB5A6E">
 <createdBy>Usuario</createdBy>
-<createdTime>2026-08-26 14:49:47 UTC</createdTime>
+<createdTime>2026-09-05 23:18:58 UTC</createdTime>
 <ownerDesignName>PROYECTO DE FUNDAOBRERA</ownerDesignName>
 <engineerTo>
 <item key="678A0AFF-7580-8F3D-5E3F-EB23D0BE930E" value="true"/>
@@ -36,18 +37,4 @@
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
 </attributes>
-<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
-<identifier id="EADB457C-F0D3-1465-9314-CDD8EC1613FA" name="SUBJECT PK">
-<createdBy>Usuario</createdBy>
-<createdTime>2026-08-26 14:49:45 UTC</createdTime>
-<ownerDesignName>PROYECTO DE FUNDAOBRERA</ownerDesignName>
-<engineerTo>
-<item key="678A0AFF-7580-8F3D-5E3F-EB23D0BE930E" value="true"/>
-</engineerTo>
-<pk>true</pk>
-<usedAttributes>
-<attributeRef>421DFB37-70C7-A1B0-CFB0-239923C66585</attributeRef>
-</usedAttributes>
-</identifier>
-</identifiers>
 </Entity>

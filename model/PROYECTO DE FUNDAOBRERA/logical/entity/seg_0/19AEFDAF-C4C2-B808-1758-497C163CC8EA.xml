@@ -15,7 +15,7 @@
 <minVolumes>0</minVolumes>
 <normalForm>Third</normalForm>
 <attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
-<Attribute name="id" id="66614BC5-32DB-C1BD-6B3D-806936267C4D">
+<Attribute name="academic_term_id" id="66614BC5-32DB-C1BD-6B3D-806936267C4D">
 <createdBy>Usuario</createdBy>
 <createdTime>2026-08-26 15:14:53 UTC</createdTime>
 <ownerDesignName>PROYECTO DE FUNDAOBRERA</ownerDesignName>

@@ -1,7 +1,7 @@
 <?xml version = '1.0' encoding = 'UTF-8'?>
-<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="37B5631F-53B8-170A-EAD3-CC8A54F02F21" name="SUBJECT">
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="0DA6882B-9A28-AAAF-C92E-0E9121F760E5" name="GRADUATED">
 <createdBy>Usuario</createdBy>
-<createdTime>2026-08-26 14:48:24 UTC</createdTime>
+<createdTime>2026-09-05 23:17:15 UTC</createdTime>
 <ownerDesignName>PROYECTO DE FUNDAOBRERA</ownerDesignName>
 <engineerTo>
 <item key="678A0AFF-7580-8F3D-5E3F-EB23D0BE930E" value="true"/>
@@ -11,13 +11,14 @@
 <fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
 <growthPercent>0</growthPercent>
 <growthType>Year</growthType>
+<hierarchicalParent>27E4AE00-C421-F819-703A-7D4906AA7F7D</hierarchicalParent>
 <maxVolumes>9999999</maxVolumes>
 <minVolumes>0</minVolumes>
 <normalForm>Third</normalForm>
 <attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
-<Attribute name="subject_id" id="421DFB37-70C7-A1B0-CFB0-239923C66585">
+<Attribute name="graduation_date" id="FC65B00C-847A-036A-6B5E-07EBC9653803">
 <createdBy>Usuario</createdBy>
-<createdTime>2026-08-26 14:49:43 UTC</createdTime>
+<createdTime>2026-09-05 23:17:41 UTC</createdTime>
 <ownerDesignName>PROYECTO DE FUNDAOBRERA</ownerDesignName>
 <engineerTo>
 <item key="678A0AFF-7580-8F3D-5E3F-EB23D0BE930E" value="true"/>
@@ -25,9 +26,19 @@
 <use>0</use>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="name" id="44B000A3-FD86-E2E5-E76B-E62415D8F282">
+<Attribute name="certificate_number" id="5D7EE089-E6C6-BD3C-8E0A-8C28EE6C712C">
 <createdBy>Usuario</createdBy>
-<createdTime>2026-08-26 14:49:47 UTC</createdTime>
+<createdTime>2026-09-05 23:17:50 UTC</createdTime>
+<ownerDesignName>PROYECTO DE FUNDAOBRERA</ownerDesignName>
+<engineerTo>
+<item key="678A0AFF-7580-8F3D-5E3F-EB23D0BE930E" value="true"/>
+</engineerTo>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="certificate_document" id="A1D9220D-93CC-2FBC-7A10-BE2A4EEB1F21">
+<createdBy>Usuario</createdBy>
+<createdTime>2026-09-05 23:18:02 UTC</createdTime>
 <ownerDesignName>PROYECTO DE FUNDAOBRERA</ownerDesignName>
 <engineerTo>
 <item key="678A0AFF-7580-8F3D-5E3F-EB23D0BE930E" value="true"/>
@@ -36,18 +47,4 @@
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
 </attributes>
-<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
-<identifier id="EADB457C-F0D3-1465-9314-CDD8EC1613FA" name="SUBJECT PK">
-<createdBy>Usuario</createdBy>
-<createdTime>2026-08-26 14:49:45 UTC</createdTime>
-<ownerDesignName>PROYECTO DE FUNDAOBRERA</ownerDesignName>
-<engineerTo>
-<item key="678A0AFF-7580-8F3D-5E3F-EB23D0BE930E" value="true"/>
-</engineerTo>
-<pk>true</pk>
-<usedAttributes>
-<attributeRef>421DFB37-70C7-A1B0-CFB0-239923C66585</attributeRef>
-</usedAttributes>
-</identifier>
-</identifiers>
 </Entity>
