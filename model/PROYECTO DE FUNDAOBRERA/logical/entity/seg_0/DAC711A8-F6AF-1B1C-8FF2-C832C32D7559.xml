@@ -15,7 +15,7 @@
 <minVolumes>0</minVolumes>
 <normalForm>Third</normalForm>
 <attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
-<Attribute name="id" id="B7408D25-5C5D-0A2D-99D4-ED384E61BFFD">
+<Attribute name="program_id" id="B7408D25-5C5D-0A2D-99D4-ED384E61BFFD">
 <createdBy>Usuario</createdBy>
 <createdTime>2026-08-26 14:46:30 UTC</createdTime>
 <ownerDesignName>PROYECTO DE FUNDAOBRERA</ownerDesignName>
@@ -35,9 +35,9 @@
 <use>0</use>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="cost" id="39886321-07C0-1DD4-1F54-E56D91681DA3">
+<Attribute name="duration" id="94B5935C-CC0D-0C65-C4B7-A0752038048E">
 <createdBy>Usuario</createdBy>
-<createdTime>2026-08-26 14:47:24 UTC</createdTime>
+<createdTime>2026-08-26 15:40:25 UTC</createdTime>
 <ownerDesignName>PROYECTO DE FUNDAOBRERA</ownerDesignName>
 <engineerTo>
 <item key="678A0AFF-7580-8F3D-5E3F-EB23D0BE930E" value="true"/>
@@ -45,9 +45,9 @@
 <use>0</use>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="duration" id="94B5935C-CC0D-0C65-C4B7-A0752038048E">
+<Attribute name="cost" id="DBC7790C-7EAE-C44A-7730-B8D0BE2B0373">
 <createdBy>Usuario</createdBy>
-<createdTime>2026-08-26 15:40:25 UTC</createdTime>
+<createdTime>2026-09-05 23:26:20 UTC</createdTime>
 <ownerDesignName>PROYECTO DE FUNDAOBRERA</ownerDesignName>
 <engineerTo>
 <item key="678A0AFF-7580-8F3D-5E3F-EB23D0BE930E" value="true"/>
