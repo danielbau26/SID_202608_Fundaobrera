@@ -1,0 +1,93 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="E4658E97-240D-42C7-9D18-0998B5662AE0" name="TEACHER">
+<createdBy>Usuario</createdBy>
+<createdTime>2026-08-26 15:18:30 UTC</createdTime>
+<ownerDesignName>PROYECTO DE FUNDAOBRERA</ownerDesignName>
+<engineerTo>
+<item key="678A0AFF-7580-8F3D-5E3F-EB23D0BE930E" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="document_number" id="FAA6D703-EE2B-7B7F-33CE-D8280CDAF3BA">
+<createdBy>Usuario</createdBy>
+<createdTime>2026-08-26 15:19:03 UTC</createdTime>
+<ownerDesignName>PROYECTO DE FUNDAOBRERA</ownerDesignName>
+<engineerTo>
+<item key="678A0AFF-7580-8F3D-5E3F-EB23D0BE930E" value="true"/>
+</engineerTo>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="full_name" id="6A3F20F1-54E3-23A8-9274-B311C6C9E15D">
+<createdBy>Usuario</createdBy>
+<createdTime>2026-08-26 15:18:36 UTC</createdTime>
+<ownerDesignName>PROYECTO DE FUNDAOBRERA</ownerDesignName>
+<engineerTo>
+<item key="678A0AFF-7580-8F3D-5E3F-EB23D0BE930E" value="true"/>
+</engineerTo>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="document_type" id="E8D46358-D741-76A4-C8F7-81719F851F41">
+<createdBy>Usuario</createdBy>
+<createdTime>2026-08-26 15:18:43 UTC</createdTime>
+<ownerDesignName>PROYECTO DE FUNDAOBRERA</ownerDesignName>
+<engineerTo>
+<item key="678A0AFF-7580-8F3D-5E3F-EB23D0BE930E" value="true"/>
+</engineerTo>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="address" id="58A4E9F2-1D33-6B3E-FA63-61EEDD91E472">
+<createdBy>Usuario</createdBy>
+<createdTime>2026-08-26 15:19:17 UTC</createdTime>
+<ownerDesignName>PROYECTO DE FUNDAOBRERA</ownerDesignName>
+<engineerTo>
+<item key="678A0AFF-7580-8F3D-5E3F-EB23D0BE930E" value="true"/>
+</engineerTo>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="email" id="F0921F4A-E8A1-416B-42A5-A631B76574C9">
+<createdBy>Usuario</createdBy>
+<createdTime>2026-08-26 15:19:37 UTC</createdTime>
+<ownerDesignName>PROYECTO DE FUNDAOBRERA</ownerDesignName>
+<engineerTo>
+<item key="678A0AFF-7580-8F3D-5E3F-EB23D0BE930E" value="true"/>
+</engineerTo>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="phone" id="38CEDC0C-3AA3-6B6B-342E-3F467A7F2094">
+<createdBy>Usuario</createdBy>
+<createdTime>2026-08-26 15:19:23 UTC</createdTime>
+<ownerDesignName>PROYECTO DE FUNDAOBRERA</ownerDesignName>
+<engineerTo>
+<item key="678A0AFF-7580-8F3D-5E3F-EB23D0BE930E" value="true"/>
+</engineerTo>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="E27FE08E-192B-F8C2-B1D1-7E4CBC6827CC" name="TEACHER PK">
+<createdBy>Usuario</createdBy>
+<createdTime>2026-08-26 15:19:14 UTC</createdTime>
+<ownerDesignName>PROYECTO DE FUNDAOBRERA</ownerDesignName>
+<engineerTo>
+<item key="678A0AFF-7580-8F3D-5E3F-EB23D0BE930E" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>FAA6D703-EE2B-7B7F-33CE-D8280CDAF3BA</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

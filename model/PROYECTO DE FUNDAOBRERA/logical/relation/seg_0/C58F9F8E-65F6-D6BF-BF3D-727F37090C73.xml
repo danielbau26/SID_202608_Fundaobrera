@@ -1,0 +1,19 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="Relation_12" directorySegmentName="seg_0" id="C58F9F8E-65F6-D6BF-BF3D-727F37090C73">
+<createdBy>Usuario</createdBy>
+<createdTime>2026-09-05 22:41:49 UTC</createdTime>
+<ownerDesignName>PROYECTO DE FUNDAOBRERA</ownerDesignName>
+<engineerTo>
+<item key="678A0AFF-7580-8F3D-5E3F-EB23D0BE930E" value="true"/>
+</engineerTo>
+<sourcePk>72A20AD6-6ADA-EDC7-AA0F-715150F76695</sourcePk>
+<identifying>true</identifying>
+<optionalSource>true</optionalSource>
+<optionalTarget>false</optionalTarget>
+<sourceCardinality>1</sourceCardinality>
+<sourceEntity>DAC711A8-F6AF-1B1C-8FF2-C832C32D7559</sourceEntity>
+<targetCardinalityString>*</targetCardinalityString>
+<targetEntity>27E4AE00-C421-F819-703A-7D4906AA7F7D</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+</Relation>
