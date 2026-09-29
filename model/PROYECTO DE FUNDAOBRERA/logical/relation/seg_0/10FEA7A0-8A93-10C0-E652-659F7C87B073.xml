@@ -8,8 +8,8 @@
 </engineerTo>
 <sourcePk>60D358C4-6809-76CD-8CAC-54BB8C18AEA1</sourcePk>
 <identifying>true</identifying>
-<nameOnSource>associate to</nameOnSource>
-<nameOnTarget>                      has</nameOnTarget>
+<nameOnSource>includes</nameOnSource>
+<nameOnTarget>occurs during</nameOnTarget>
 <optionalSource>true</optionalSource>
 <optionalTarget>false</optionalTarget>
 <sourceCardinality>1</sourceCardinality>

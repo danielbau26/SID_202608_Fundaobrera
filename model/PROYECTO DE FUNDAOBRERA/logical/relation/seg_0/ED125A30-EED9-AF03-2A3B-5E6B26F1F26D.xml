@@ -8,6 +8,8 @@
 </engineerTo>
 <sourcePk>EADB457C-F0D3-1465-9314-CDD8EC1613FA</sourcePk>
 <identifying>true</identifying>
+<nameOnSource>is included in</nameOnSource>
+<nameOnTarget>refers to</nameOnTarget>
 <optionalSource>false</optionalSource>
 <optionalTarget>false</optionalTarget>
 <sourceCardinality>1</sourceCardinality>

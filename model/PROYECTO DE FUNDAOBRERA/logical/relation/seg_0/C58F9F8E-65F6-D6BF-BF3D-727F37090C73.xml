@@ -8,6 +8,8 @@
 </engineerTo>
 <sourcePk>72A20AD6-6ADA-EDC7-AA0F-715150F76695</sourcePk>
 <identifying>true</identifying>
+<nameOnSource>is offered through</nameOnSource>
+<nameOnTarget>corresponds to</nameOnTarget>
 <optionalSource>true</optionalSource>
 <optionalTarget>false</optionalTarget>
 <sourceCardinality>1</sourceCardinality>

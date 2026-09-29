@@ -8,6 +8,8 @@
 </engineerTo>
 <targetPk>687E4F33-A41F-DFED-E510-17F0AC995FE1</targetPk>
 <identifying>true</identifying>
+<nameOnSource>corresponds to</nameOnSource>
+<nameOnTarget>generates</nameOnTarget>
 <optionalSource>false</optionalSource>
 <optionalTarget>true</optionalTarget>
 <sourceCardinality>*</sourceCardinality>

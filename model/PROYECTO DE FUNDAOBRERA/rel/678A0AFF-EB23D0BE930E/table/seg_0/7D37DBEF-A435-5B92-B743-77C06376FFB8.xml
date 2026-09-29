@@ -1,0 +1,84 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="7D37DBEF-A435-5B92-B743-77C06376FFB8" name="PROGRAM_SUBJECT">
+<createdBy>Usuario</createdBy>
+<createdTime>2026-09-29 02:39:48 UTC</createdTime>
+<generatorID>597E4E59-1AC7-E800-0689-CE22C8CFC83D</generatorID>
+<ownerDesignName>PROYECTO DE FUNDAOBRERA</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="PROGRAM_program_id" id="9F42C434-CEE1-FADA-D9BB-A8A3F753F1FB">
+<createdBy>Usuario</createdBy>
+<createdTime>2026-09-29 02:39:48 UTC</createdTime>
+<generatorID>1EEF14B3-7AAF-111B-7CA9-36C76B093C87</generatorID>
+<ownerDesignName>PROYECTO DE FUNDAOBRERA</ownerDesignName>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="2BCE97ED-49B0-66B4-BA5A-D4564859AC60" referredColumn="32111492-3F42-7E9E-02D2-B24BFFCD3050"/>
+</associations>
+</Column>
+<Column name="SUBJECT_subject_id" id="3B7D3BCC-7849-265B-A544-D6DC8AD95458">
+<createdBy>Usuario</createdBy>
+<createdTime>2026-09-29 02:39:48 UTC</createdTime>
+<generatorID>5FEF5431-81FC-7494-1BD1-B5590899A61F</generatorID>
+<ownerDesignName>PROYECTO DE FUNDAOBRERA</ownerDesignName>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="904C580C-98D9-CF64-E5FD-8AD4FD98B4FC" referredColumn="B125FAA9-BD0C-FF39-13C5-57D73C1DE1B1"/>
+</associations>
+</Column>
+<Column name="semester" id="14B9E0CC-B70A-DE1C-7EC6-F096A07E1781">
+<createdBy>Usuario</createdBy>
+<createdTime>2026-09-29 02:39:48 UTC</createdTime>
+<generatorID>7EB77220-0A72-9AC0-3368-61F7DFD7E980</generatorID>
+<ownerDesignName>PROYECTO DE FUNDAOBRERA</ownerDesignName>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="DD45D956-404D-0A40-4F1C-4B7B9AD632A2" name="PROGRAM_SUBJECT_PK">
+<createdBy>Usuario</createdBy>
+<createdTime>2026-09-29 02:39:48 UTC</createdTime>
+<generatorID>BC181690-FD03-7798-2E2E-E26AAC9DC8C2</generatorID>
+<ownerDesignName>PROYECTO DE FUNDAOBRERA</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="9F42C434-CEE1-FADA-D9BB-A8A3F753F1FB"/>
+<colUsage columnID="3B7D3BCC-7849-265B-A544-D6DC8AD95458"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="82A1BAA4-EFA8-271F-5B1E-7E93AD40946D" name="PROGRAM_SUBJECT_PROGRAM_FK">
+<createdBy>Usuario</createdBy>
+<createdTime>2026-09-29 02:39:48 UTC</createdTime>
+<generatorID>06EE5810-53BC-3E23-4A2D-36A5503E7DA3</generatorID>
+<ownerDesignName>PROYECTO DE FUNDAOBRERA</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="9F42C434-CEE1-FADA-D9BB-A8A3F753F1FB"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="8AC57A8A-0C3B-7C55-3217-A57B6FAEE230" name="PROGRAM_SUBJECT_SUBJECT_FK">
+<createdBy>Usuario</createdBy>
+<createdTime>2026-09-29 02:39:48 UTC</createdTime>
+<generatorID>ED125A30-EED9-AF03-2A3B-5E6B26F1F26D</generatorID>
+<ownerDesignName>PROYECTO DE FUNDAOBRERA</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="3B7D3BCC-7849-265B-A544-D6DC8AD95458"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>
