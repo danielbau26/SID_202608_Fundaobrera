@@ -1,0 +1,17 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="36951979-A526-280A-C863-E4C1CC711646" containerWithKeyObject="9D106BDE-9CED-5B49-8ECF-85EFD28FFB6F" localFKIndex="F0F4198B-9E40-E84A-B210-D9C39F715700" name="DETAIL_ENRROLMENT_ENROLLMENT_FK">
+<createdBy>Usuario</createdBy>
+<createdTime>2026-09-29 02:39:48 UTC</createdTime>
+<generatorID>B2682E5C-0B78-406A-0DFA-CC698B78E4CC</generatorID>
+<ownerDesignName>PROYECTO DE FUNDAOBRERA</ownerDesignName>
+<referredTableLongName>ENROLLMENT</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>09CF03D5-905F-6CBF-36B6-3B963031CDE5</referredTableID>
+<keyObject>D86ACA34-77D1-6664-CBE6-F8C01C1A676D</keyObject>
+<referredKeyID>D86ACA34-77D1-6664-CBE6-F8C01C1A676D</referredKeyID>
+<mandatory>true</mandatory>
+<refColNames>STUDENT_document_number,enrollment_id,PROGRAM_program_id,ACADEMIC_TERM_academic_term_id,STATUS_name</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

@@ -8,8 +8,8 @@
 </engineerTo>
 <targetPk>C1796C0C-AC7C-A1D0-97DD-D2690B5B4D98</targetPk>
 <identifying>true</identifying>
-<nameOnSource>belong to</nameOnSource>
-<nameOnTarget>has</nameOnTarget>
+<nameOnSource>belongs to</nameOnSource>
+<nameOnTarget>registers</nameOnTarget>
 <optionalSource>false</optionalSource>
 <optionalTarget>true</optionalTarget>
 <sourceCardinality>*</sourceCardinality>

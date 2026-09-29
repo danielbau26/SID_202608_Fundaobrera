@@ -6,7 +6,10 @@
 <engineerTo>
 <item key="678A0AFF-7580-8F3D-5E3F-EB23D0BE930E" value="true"/>
 </engineerTo>
+<sourcePk>687E4F33-A41F-DFED-E510-17F0AC995FE1</sourcePk>
 <identifying>true</identifying>
+<nameOnSource>belongs to</nameOnSource>
+<nameOnTarget>generates</nameOnTarget>
 <optionalSource>true</optionalSource>
 <optionalTarget>false</optionalTarget>
 <sourceCardinality>1</sourceCardinality>

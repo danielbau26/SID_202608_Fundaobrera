@@ -1,0 +1,75 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="406F538A-99CE-978A-DC88-02EE366EB007" name="WORK_EXPERIENCE">
+<createdBy>Usuario</createdBy>
+<createdTime>2026-09-29 02:08:36 UTC</createdTime>
+<ownerDesignName>PROYECTO DE FUNDAOBRERA</ownerDesignName>
+<engineerTo>
+<item key="678A0AFF-7580-8F3D-5E3F-EB23D0BE930E" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="experience_id" id="3899DCA5-D9EA-4FE0-B60B-2BBF898E4700">
+<createdBy>Usuario</createdBy>
+<createdTime>2026-09-29 02:08:57 UTC</createdTime>
+<ownerDesignName>PROYECTO DE FUNDAOBRERA</ownerDesignName>
+<engineerTo>
+<item key="678A0AFF-7580-8F3D-5E3F-EB23D0BE930E" value="true"/>
+</engineerTo>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="company_name" id="4563C841-26DB-BA10-268C-ADAA5FAB5C1B">
+<createdBy>Usuario</createdBy>
+<createdTime>2026-09-29 02:09:10 UTC</createdTime>
+<ownerDesignName>PROYECTO DE FUNDAOBRERA</ownerDesignName>
+<engineerTo>
+<item key="678A0AFF-7580-8F3D-5E3F-EB23D0BE930E" value="true"/>
+</engineerTo>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="job" id="1CCF77CE-F323-AC3B-02EA-2E418C8A732C">
+<createdBy>Usuario</createdBy>
+<createdTime>2026-09-29 02:09:19 UTC</createdTime>
+<ownerDesignName>PROYECTO DE FUNDAOBRERA</ownerDesignName>
+<engineerTo>
+<item key="678A0AFF-7580-8F3D-5E3F-EB23D0BE930E" value="true"/>
+</engineerTo>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="document_number" id="5DDCB2B5-3BAF-83FA-A2D9-7181216C5708">
+<createdBy>Usuario</createdBy>
+<createdTime>2026-09-29 02:09:54 UTC</createdTime>
+<generatorID>D2049FBA-C694-C00C-D2AA-02F0D87DC698</generatorID>
+<ownerDesignName>PROYECTO DE FUNDAOBRERA</ownerDesignName>
+<engineerTo>
+<item key="678A0AFF-7580-8F3D-5E3F-EB23D0BE930E" value="true"/>
+</engineerTo>
+<referedAttribute>16ADF24B-5CCE-CCDC-DF5F-990768EB06CE</referedAttribute>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="4B832550-6FD2-1705-462B-5C9488310AF0" name="WORK_EXPERIENCE PK">
+<createdBy>Usuario</createdBy>
+<createdTime>2026-09-29 02:09:05 UTC</createdTime>
+<ownerDesignName>PROYECTO DE FUNDAOBRERA</ownerDesignName>
+<engineerTo>
+<item key="678A0AFF-7580-8F3D-5E3F-EB23D0BE930E" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>3899DCA5-D9EA-4FE0-B60B-2BBF898E4700</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

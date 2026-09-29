@@ -7,9 +7,9 @@
 <item key="678A0AFF-7580-8F3D-5E3F-EB23D0BE930E" value="true"/>
 </engineerTo>
 <sourcePk>E27FE08E-192B-F8C2-B1D1-7E4CBC6827CC</sourcePk>
-<identifying>false</identifying>
-<nameOnSource>associate to</nameOnSource>
-<nameOnTarget>has</nameOnTarget>
+<identifying>true</identifying>
+<nameOnSource>teaches</nameOnSource>
+<nameOnTarget>is taught by</nameOnTarget>
 <optionalSource>true</optionalSource>
 <optionalTarget>false</optionalTarget>
 <sourceCardinality>1</sourceCardinality>

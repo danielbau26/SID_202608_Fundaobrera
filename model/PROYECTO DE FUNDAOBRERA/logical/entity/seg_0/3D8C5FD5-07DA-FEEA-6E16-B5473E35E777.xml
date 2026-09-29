@@ -95,16 +95,6 @@
 <use>0</use>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="work_experience" id="7FB850B3-804D-7088-0A01-93C93E1EFD81">
-<createdBy>Usuario</createdBy>
-<createdTime>2026-08-26 15:13:00 UTC</createdTime>
-<ownerDesignName>PROYECTO DE FUNDAOBRERA</ownerDesignName>
-<engineerTo>
-<item key="678A0AFF-7580-8F3D-5E3F-EB23D0BE930E" value="true"/>
-</engineerTo>
-<use>0</use>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
-</Attribute>
 </attributes>
 <identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
 <identifier id="C1796C0C-AC7C-A1D0-97DD-D2690B5B4D98" name="STUDENT PK">

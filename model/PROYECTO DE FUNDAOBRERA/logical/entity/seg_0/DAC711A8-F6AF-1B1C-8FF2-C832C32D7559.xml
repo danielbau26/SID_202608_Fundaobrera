@@ -45,7 +45,7 @@
 <use>0</use>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="cost" id="DBC7790C-7EAE-C44A-7730-B8D0BE2B0373">
+<Attribute name="cost_semester" id="DBC7790C-7EAE-C44A-7730-B8D0BE2B0373">
 <createdBy>Usuario</createdBy>
 <createdTime>2026-09-05 23:26:20 UTC</createdTime>
 <ownerDesignName>PROYECTO DE FUNDAOBRERA</ownerDesignName>

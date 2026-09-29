@@ -1,0 +1,203 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="CE9AE3EA-431E-5310-0181-F3A581E3CF38" name="ATTENDANCE">
+<createdBy>Usuario</createdBy>
+<createdTime>2026-09-29 02:39:48 UTC</createdTime>
+<generatorID>E56D4226-26B0-847E-9351-C9033B148604</generatorID>
+<ownerDesignName>PROYECTO DE FUNDAOBRERA</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="attendance_id" id="F4CDE500-59A0-212C-926D-D40A76313D9E">
+<createdBy>Usuario</createdBy>
+<createdTime>2026-09-29 02:39:48 UTC</createdTime>
+<generatorID>B1D1D952-C73A-07EA-7DDF-FA463E1B4DAE</generatorID>
+<ownerDesignName>PROYECTO DE FUNDAOBRERA</ownerDesignName>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="date" id="66FA0EB4-E371-40F8-3D50-7D4DCD092535">
+<createdBy>Usuario</createdBy>
+<createdTime>2026-09-29 02:39:48 UTC</createdTime>
+<generatorID>543E0A5F-2131-85C3-EAF4-5B9C885558CE</generatorID>
+<ownerDesignName>PROYECTO DE FUNDAOBRERA</ownerDesignName>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="attended" id="C62E72F4-6C8A-7511-4DBC-3581EC842B1B">
+<createdBy>Usuario</createdBy>
+<createdTime>2026-09-29 02:39:48 UTC</createdTime>
+<generatorID>8479B29A-42D2-C4E3-7341-FDBFA2302414</generatorID>
+<ownerDesignName>PROYECTO DE FUNDAOBRERA</ownerDesignName>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="DETAIL_ENRROLMENT_GROUP_nrc" id="1BC1E1BD-B564-9180-9B51-BC14FDE7BB41">
+<createdBy>Usuario</createdBy>
+<createdTime>2026-09-29 02:39:48 UTC</createdTime>
+<generatorID>C50EFE63-F39A-8116-6A66-494AC2AF7936</generatorID>
+<ownerDesignName>PROYECTO DE FUNDAOBRERA</ownerDesignName>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="816141E9-A535-E2B5-627C-334EEB78F2D7" referredColumn="55515571-302D-D8E1-587D-442BBD360497"/>
+</associations>
+</Column>
+<Column name="DETAIL_ENRROLMENT_GROUP_academic_term_id" id="B2062335-AC1F-6CF1-1398-F4890DFE5A9F">
+<createdBy>Usuario</createdBy>
+<createdTime>2026-09-29 02:39:48 UTC</createdTime>
+<generatorID>BF8BB3C3-182D-6EFC-ADDB-28443CE4B599</generatorID>
+<ownerDesignName>PROYECTO DE FUNDAOBRERA</ownerDesignName>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="816141E9-A535-E2B5-627C-334EEB78F2D7" referredColumn="66D52E4B-0D03-6353-E7DC-D75384169E84"/>
+</associations>
+</Column>
+<Column name="DETAIL_ENRROLMENT_ENROLLMENT_document_number" id="22425376-7A0B-6205-E05C-51C393EB29EB">
+<createdBy>Usuario</createdBy>
+<createdTime>2026-09-29 02:39:48 UTC</createdTime>
+<generatorID>771D171C-D7C8-F6AD-DF6F-94924A30EF1B</generatorID>
+<ownerDesignName>PROYECTO DE FUNDAOBRERA</ownerDesignName>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="816141E9-A535-E2B5-627C-334EEB78F2D7" referredColumn="8B775935-6F40-27D5-5DD9-F638C991041F"/>
+</associations>
+</Column>
+<Column name="DETAIL_ENRROLMENT_ENROLLMENT_enrollment_id" id="63693FB6-E8A8-6824-2E80-F6D688487FF2">
+<createdBy>Usuario</createdBy>
+<createdTime>2026-09-29 02:39:48 UTC</createdTime>
+<generatorID>42B783FF-9A41-8A83-34F2-C84854DF032F</generatorID>
+<ownerDesignName>PROYECTO DE FUNDAOBRERA</ownerDesignName>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="816141E9-A535-E2B5-627C-334EEB78F2D7" referredColumn="05ABB84A-785D-A5F8-FFDA-F208D1D172EB"/>
+</associations>
+</Column>
+<Column name="DETAIL_ENRROLMENT_ENROLLMENT_PROGRAM_program_id" id="8C8E7213-B380-54B3-C959-CE33461CDEDA">
+<createdBy>Usuario</createdBy>
+<createdTime>2026-09-29 02:39:48 UTC</createdTime>
+<generatorID>6116947C-F859-1AB6-93FC-2162327F30FC</generatorID>
+<ownerDesignName>PROYECTO DE FUNDAOBRERA</ownerDesignName>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="816141E9-A535-E2B5-627C-334EEB78F2D7" referredColumn="E065F5AD-2B23-2E28-2B08-1D010D29C10D"/>
+</associations>
+</Column>
+<Column name="DETAIL_ENRROLMENT_ENROLLMENT_academic_term_id" id="813EF6C2-07B3-321B-1AC2-50BF9AD8EAB2">
+<createdBy>Usuario</createdBy>
+<createdTime>2026-09-29 02:39:48 UTC</createdTime>
+<generatorID>69FC78A7-1AE7-589F-E1EE-2563CB7FD5B7</generatorID>
+<ownerDesignName>PROYECTO DE FUNDAOBRERA</ownerDesignName>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="816141E9-A535-E2B5-627C-334EEB78F2D7" referredColumn="3C7760D4-F3BB-3515-A426-C3F1C33046FF"/>
+</associations>
+</Column>
+<Column name="DETAIL_ENRROLMENT_GROUP_document_number" id="C9AC7FDA-5626-DBB4-C888-EFA5F5187E43">
+<createdBy>Usuario</createdBy>
+<createdTime>2026-09-29 02:39:48 UTC</createdTime>
+<generatorID>2593FE69-B0F0-4A50-4E22-5209ADE0C05E</generatorID>
+<ownerDesignName>PROYECTO DE FUNDAOBRERA</ownerDesignName>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="816141E9-A535-E2B5-627C-334EEB78F2D7" referredColumn="CC17FC7C-E6A9-301B-A34E-5447804877A1"/>
+</associations>
+</Column>
+<Column name="DETAIL_ENRROLMENT_GROUP_program_id" id="29BF7F7A-1F3B-5244-9BAE-1A3739906083">
+<createdBy>Usuario</createdBy>
+<createdTime>2026-09-29 02:39:48 UTC</createdTime>
+<generatorID>F4DB0A91-5482-60D3-A38A-916FE2CB5AF4</generatorID>
+<ownerDesignName>PROYECTO DE FUNDAOBRERA</ownerDesignName>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="816141E9-A535-E2B5-627C-334EEB78F2D7" referredColumn="8D0A4FAF-7288-5D2A-B12A-14FFB940EC18"/>
+</associations>
+</Column>
+<Column name="DETAIL_ENRROLMENT_GROUP_subject_id" id="BA37B331-7ED2-4921-F062-992938C19D68">
+<createdBy>Usuario</createdBy>
+<createdTime>2026-09-29 02:39:48 UTC</createdTime>
+<generatorID>30BCB750-A499-5647-4B62-1FC976DF9869</generatorID>
+<ownerDesignName>PROYECTO DE FUNDAOBRERA</ownerDesignName>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="816141E9-A535-E2B5-627C-334EEB78F2D7" referredColumn="B4302542-DD63-D610-B090-1B2BB267290B"/>
+</associations>
+</Column>
+<Column name="DETAIL_ENRROLMENT_ENROLLMENT_name" id="CE61E608-C7AF-5897-CFEC-BBD8CB818061">
+<createdBy>Usuario</createdBy>
+<createdTime>2026-09-29 02:39:48 UTC</createdTime>
+<generatorID>1EFE4DAE-5CCA-0D0E-C5B0-5EECE14A6E80</generatorID>
+<ownerDesignName>PROYECTO DE FUNDAOBRERA</ownerDesignName>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="816141E9-A535-E2B5-627C-334EEB78F2D7" referredColumn="EA0CAB3B-FA02-5C69-CF73-5E9249F96966"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="DB2A05B9-6FEE-AA76-4761-0AC7DFF0D6C7" name="ATTENDANCE_PK">
+<createdBy>Usuario</createdBy>
+<createdTime>2026-09-29 02:39:48 UTC</createdTime>
+<generatorID>A0E4ACE0-F6C8-4BBD-DA4A-2A25F655479A</generatorID>
+<ownerDesignName>PROYECTO DE FUNDAOBRERA</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="F4CDE500-59A0-212C-926D-D40A76313D9E"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="C2EC9A44-0A82-2DE0-682B-05972B56F7AD" name="ATTENDANCE_DETAIL_ENRROLMENT_FK">
+<createdBy>Usuario</createdBy>
+<createdTime>2026-09-29 02:39:48 UTC</createdTime>
+<generatorID>E06FC687-016C-07A0-01F9-FFBA03BA4764</generatorID>
+<ownerDesignName>PROYECTO DE FUNDAOBRERA</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="1BC1E1BD-B564-9180-9B51-BC14FDE7BB41"/>
+<colUsage columnID="B2062335-AC1F-6CF1-1398-F4890DFE5A9F"/>
+<colUsage columnID="C9AC7FDA-5626-DBB4-C888-EFA5F5187E43"/>
+<colUsage columnID="29BF7F7A-1F3B-5244-9BAE-1A3739906083"/>
+<colUsage columnID="BA37B331-7ED2-4921-F062-992938C19D68"/>
+<colUsage columnID="22425376-7A0B-6205-E05C-51C393EB29EB"/>
+<colUsage columnID="63693FB6-E8A8-6824-2E80-F6D688487FF2"/>
+<colUsage columnID="8C8E7213-B380-54B3-C959-CE33461CDEDA"/>
+<colUsage columnID="813EF6C2-07B3-321B-1AC2-50BF9AD8EAB2"/>
+<colUsage columnID="CE61E608-C7AF-5897-CFEC-BBD8CB818061"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

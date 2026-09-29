@@ -61,7 +61,7 @@
 <use>0</use>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="semester" id="76507F06-8E2B-602D-2AD1-214238DB1C05">
+<Attribute name="semester_number" id="76507F06-8E2B-602D-2AD1-214238DB1C05">
 <createdBy>Usuario</createdBy>
 <createdTime>2026-09-05 23:32:32 UTC</createdTime>
 <ownerDesignName>PROYECTO DE FUNDAOBRERA</ownerDesignName>
@@ -71,13 +71,47 @@
 <use>0</use>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="amount_semester" id="7C0087BF-914B-AA05-04DB-3E9F84C696BF">
+<Attribute name="semester_fee" id="7C0087BF-914B-AA05-04DB-3E9F84C696BF">
 <createdBy>Usuario</createdBy>
 <createdTime>2026-09-05 23:33:30 UTC</createdTime>
 <ownerDesignName>PROYECTO DE FUNDAOBRERA</ownerDesignName>
 <engineerTo>
 <item key="678A0AFF-7580-8F3D-5E3F-EB23D0BE930E" value="true"/>
 </engineerTo>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="name" id="64774EC0-756E-2799-0CAA-EBEEB9FF12A6">
+<createdBy>Usuario</createdBy>
+<createdTime>2026-09-29 02:25:00 UTC</createdTime>
+<generatorID>4ED486BE-2769-8EC1-1262-90001083C8DA</generatorID>
+<ownerDesignName>PROYECTO DE FUNDAOBRERA</ownerDesignName>
+<engineerTo>
+<item key="678A0AFF-7580-8F3D-5E3F-EB23D0BE930E" value="true"/>
+</engineerTo>
+<referedAttribute>FE76DE36-6A81-0B05-4F2E-8037B16A8B53</referedAttribute>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="withdrawal_date" id="48A1E3C9-1F36-69A0-2D75-76B834B5CC5E">
+<createdBy>Usuario</createdBy>
+<createdTime>2026-09-29 02:26:36 UTC</createdTime>
+<ownerDesignName>PROYECTO DE FUNDAOBRERA</ownerDesignName>
+<engineerTo>
+<item key="678A0AFF-7580-8F3D-5E3F-EB23D0BE930E" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="withdrawal_reason" id="8BF8A917-8001-51BB-91E6-2C7723A6F755">
+<createdBy>Usuario</createdBy>
+<createdTime>2026-09-29 02:26:49 UTC</createdTime>
+<ownerDesignName>PROYECTO DE FUNDAOBRERA</ownerDesignName>
+<engineerTo>
+<item key="678A0AFF-7580-8F3D-5E3F-EB23D0BE930E" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
 <use>0</use>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
@@ -96,6 +130,7 @@
 <attributeRef>A22BAAAA-94BC-5A45-11C2-329CB1FDFC91</attributeRef>
 <attributeRef>F2D4941D-4962-BED5-3041-F3EE89173346</attributeRef>
 <attributeRef>261890B1-636A-37E3-534C-63A10E23157C</attributeRef>
+<attributeRef>64774EC0-756E-2799-0CAA-EBEEB9FF12A6</attributeRef>
 </usedAttributes>
 </identifier>
 </identifiers>

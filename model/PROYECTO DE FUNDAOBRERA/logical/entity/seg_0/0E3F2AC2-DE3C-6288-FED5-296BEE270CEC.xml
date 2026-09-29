@@ -113,6 +113,18 @@
 <use>0</use>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
+<Attribute name="name" id="79CD55C3-D3AB-4481-1117-1CCD5ABF2203">
+<createdBy>Usuario</createdBy>
+<createdTime>2026-09-29 02:25:10 UTC</createdTime>
+<generatorID>8BC3D44F-FFC7-E7C8-7F2E-77A6FA9C21F6</generatorID>
+<ownerDesignName>PROYECTO DE FUNDAOBRERA</ownerDesignName>
+<engineerTo>
+<item key="678A0AFF-7580-8F3D-5E3F-EB23D0BE930E" value="true"/>
+</engineerTo>
+<referedAttribute>64774EC0-756E-2799-0CAA-EBEEB9FF12A6</referedAttribute>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
 </attributes>
 <identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
 <identifier id="A3B3B7DB-8879-FF77-1E5C-D35A89B4BBBB" name="PAYMENT PK">
@@ -129,6 +141,7 @@
 <attributeRef>48BD8DA7-68CD-311B-333C-98E184F6B930</attributeRef>
 <attributeRef>2ECBA612-1882-224B-2A90-B3F3D110550B</attributeRef>
 <attributeRef>716D3802-EC76-F106-2293-A11E2AEDAC88</attributeRef>
+<attributeRef>79CD55C3-D3AB-4481-1117-1CCD5ABF2203</attributeRef>
 </usedAttributes>
 </identifier>
 </identifiers>

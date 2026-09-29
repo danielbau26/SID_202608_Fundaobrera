@@ -1,0 +1,89 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="32968872-2AE6-7457-40D8-265C29A14174" name="GRADUATED">
+<createdBy>Usuario</createdBy>
+<createdTime>2026-09-29 02:39:48 UTC</createdTime>
+<generatorID>0DA6882B-9A28-AAAF-C92E-0E9121F760E5</generatorID>
+<ownerDesignName>PROYECTO DE FUNDAOBRERA</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="graduation_date" id="59EB37BE-1E97-9502-18F6-E61D9BD9C4ED">
+<createdBy>Usuario</createdBy>
+<createdTime>2026-09-29 02:39:48 UTC</createdTime>
+<generatorID>FC65B00C-847A-036A-6B5E-07EBC9653803</generatorID>
+<ownerDesignName>PROYECTO DE FUNDAOBRERA</ownerDesignName>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="certificate_number" id="8243F38E-26C9-1565-B16C-6C28E81592D4">
+<createdBy>Usuario</createdBy>
+<createdTime>2026-09-29 02:39:48 UTC</createdTime>
+<generatorID>5D7EE089-E6C6-BD3C-8E0A-8C28EE6C712C</generatorID>
+<ownerDesignName>PROYECTO DE FUNDAOBRERA</ownerDesignName>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="certificate_document" id="BA8906EB-BD2D-B48F-F06E-3F65ABDFCDCB">
+<createdBy>Usuario</createdBy>
+<createdTime>2026-09-29 02:39:48 UTC</createdTime>
+<generatorID>A1D9220D-93CC-2FBC-7A10-BE2A4EEB1F21</generatorID>
+<ownerDesignName>PROYECTO DE FUNDAOBRERA</ownerDesignName>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="STUDENT_document_number" id="D0FDE410-4151-980B-3654-59583A7C4989">
+<createdBy>Usuario</createdBy>
+<createdTime>2026-09-29 02:39:48 UTC</createdTime>
+<generatorID>FEF8E0BC-E942-8F92-53CC-97FDCACA4FAA</generatorID>
+<ownerDesignName>PROYECTO DE FUNDAOBRERA</ownerDesignName>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="91EB0040-1D59-CA10-FB39-CD2F98AEADF2" referredColumn="2268510C-1431-96EF-AB30-F3ABA115E5B5"/>
+</associations>
+</Column>
+<Column name="PROGRAM_program_id" id="194A47C2-F05B-563C-CC83-7EAD0D260B63">
+<createdBy>Usuario</createdBy>
+<createdTime>2026-09-29 02:39:48 UTC</createdTime>
+<generatorID>2DAFF97F-A676-A394-F38E-8F134028140D</generatorID>
+<ownerDesignName>PROYECTO DE FUNDAOBRERA</ownerDesignName>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="75A4F7F2-8CCB-F915-520F-3CDA748A28A2" referredColumn="32111492-3F42-7E9E-02D2-B24BFFCD3050"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="ED36DCD9-A4AE-2C0B-DBCB-716D320A1B82" name="GRADUATED_STUDENT_FK">
+<createdBy>Usuario</createdBy>
+<createdTime>2026-09-29 02:39:48 UTC</createdTime>
+<generatorID>8053E756-CF22-9D05-B1AC-3DAE652379FD</generatorID>
+<ownerDesignName>PROYECTO DE FUNDAOBRERA</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="D0FDE410-4151-980B-3654-59583A7C4989"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="76D2C329-BC10-6039-4591-4DCF01F61CB3" name="GRADUATED_PROGRAM_FK">
+<createdBy>Usuario</createdBy>
+<createdTime>2026-09-29 02:39:48 UTC</createdTime>
+<generatorID>F48EE7F9-F013-C0FF-A260-D31DBCC186F7</generatorID>
+<ownerDesignName>PROYECTO DE FUNDAOBRERA</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="194A47C2-F05B-563C-CC83-7EAD0D260B63"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

@@ -1,0 +1,21 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="Relation_23" directorySegmentName="seg_0" id="F48EE7F9-F013-C0FF-A260-D31DBCC186F7">
+<createdBy>Usuario</createdBy>
+<createdTime>2026-09-29 02:29:50 UTC</createdTime>
+<ownerDesignName>PROYECTO DE FUNDAOBRERA</ownerDesignName>
+<engineerTo>
+<item key="678A0AFF-7580-8F3D-5E3F-EB23D0BE930E" value="true"/>
+</engineerTo>
+<sourcePk>72A20AD6-6ADA-EDC7-AA0F-715150F76695</sourcePk>
+<identifying>false</identifying>
+<nameOnSource>has</nameOnSource>
+<nameOnTarget>belong to</nameOnTarget>
+<optionalSource>true</optionalSource>
+<optionalTarget>false</optionalTarget>
+<sourceCardinality>1</sourceCardinality>
+<sourceEntity>DAC711A8-F6AF-1B1C-8FF2-C832C32D7559</sourceEntity>
+<targetCardinalityString>*</targetCardinalityString>
+<targetEntity>0DA6882B-9A28-AAAF-C92E-0E9121F760E5</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+</Relation>
