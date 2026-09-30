@@ -165,6 +165,18 @@
 <use>0</use>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
+<Attribute name="id_enrollment_group" id="87A23666-6173-6907-A035-EDAE3B321CB9">
+<createdBy>Usuario</createdBy>
+<createdTime>2026-09-30 15:33:04 UTC</createdTime>
+<generatorID>E06FC687-016C-07A0-01F9-FFBA03BA4764</generatorID>
+<ownerDesignName>PROYECTO DE FUNDAOBRERA</ownerDesignName>
+<engineerTo>
+<item key="678A0AFF-7580-8F3D-5E3F-EB23D0BE930E" value="true"/>
+</engineerTo>
+<referedAttribute>80A8E8BE-D3C3-4FDF-D766-D83F063FE2F7</referedAttribute>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
 </attributes>
 <identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
 <identifier id="A0E4ACE0-F6C8-4BBD-DA4A-2A25F655479A" name="ATTENDANCE PK">

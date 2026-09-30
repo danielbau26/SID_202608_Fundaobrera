@@ -26,7 +26,7 @@
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
-<Column name="job" id="9752695C-A785-C89A-A881-8E45E092354D">
+<Column name="position" id="9752695C-A785-C89A-A881-8E45E092354D">
 <createdBy>Usuario</createdBy>
 <createdTime>2026-09-29 02:39:48 UTC</createdTime>
 <generatorID>1CCF77CE-F323-AC3B-02EA-2E418C8A732C</generatorID>
