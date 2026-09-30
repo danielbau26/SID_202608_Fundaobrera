@@ -1,5 +1,5 @@
 <?xml version = '1.0' encoding = 'UTF-8'?>
-<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="333DF936-C284-848D-D811-53273FB455E4" name="DETAIL_ENRROLMENT">
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="333DF936-C284-848D-D811-53273FB455E4" name="ENROLLMENT_GROUP">
 <createdBy>Usuario</createdBy>
 <createdTime>2026-09-05 22:47:22 UTC</createdTime>
 <ownerDesignName>PROYECTO DE FUNDAOBRERA</ownerDesignName>
@@ -15,17 +15,6 @@
 <minVolumes>0</minVolumes>
 <normalForm>Third</normalForm>
 <attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
-<Attribute name="grade" id="2E8E1AD0-6D62-4613-7650-E205F8E10424">
-<createdBy>Usuario</createdBy>
-<createdTime>2026-09-05 23:05:16 UTC</createdTime>
-<ownerDesignName>PROYECTO DE FUNDAOBRERA</ownerDesignName>
-<engineerTo>
-<item key="678A0AFF-7580-8F3D-5E3F-EB23D0BE930E" value="true"/>
-</engineerTo>
-<nullsAllowed>true</nullsAllowed>
-<use>0</use>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
-</Attribute>
 <Attribute name="nrc" id="0EC092A5-EEEF-5009-72FD-7211BEDE04E9">
 <createdBy>Usuario</createdBy>
 <createdTime>2026-09-05 23:29:28 UTC</createdTime>
@@ -146,6 +135,16 @@
 <use>0</use>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
+<Attribute name="id_enrollment_group" id="80A8E8BE-D3C3-4FDF-D766-D83F063FE2F7">
+<createdBy>Usuario</createdBy>
+<createdTime>2026-09-30 15:32:55 UTC</createdTime>
+<ownerDesignName>PROYECTO DE FUNDAOBRERA</ownerDesignName>
+<engineerTo>
+<item key="678A0AFF-7580-8F3D-5E3F-EB23D0BE930E" value="true"/>
+</engineerTo>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
 </attributes>
 <identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
 <identifier id="809287D4-835E-959D-76B9-71F3FC68855F" name="DETAIL_ENRROLMENT PK">
@@ -167,6 +166,7 @@
 <attributeRef>EFAC600F-39B0-97F6-B144-13440727D884</attributeRef>
 <attributeRef>7B8D056D-7856-E5AE-577A-AC2F42FB711C</attributeRef>
 <attributeRef>4A93C121-5A81-9296-5734-97B8E5D92A74</attributeRef>
+<attributeRef>80A8E8BE-D3C3-4FDF-D766-D83F063FE2F7</attributeRef>
 </usedAttributes>
 </identifier>
 </identifiers>

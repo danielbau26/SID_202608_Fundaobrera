@@ -165,6 +165,19 @@
 <colAssociation fkAssociation="816141E9-A535-E2B5-627C-334EEB78F2D7" referredColumn="EA0CAB3B-FA02-5C69-CF73-5E9249F96966"/>
 </associations>
 </Column>
+<Column name="id_enrollment_group" id="DA26BE08-3CE3-F655-857D-33FFA3B92C4C">
+<createdBy>Usuario</createdBy>
+<createdTime>2026-09-30 15:41:27 UTC</createdTime>
+<generatorID>87A23666-6173-6907-A035-EDAE3B321CB9</generatorID>
+<ownerDesignName>PROYECTO DE FUNDAOBRERA</ownerDesignName>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="816141E9-A535-E2B5-627C-334EEB78F2D7" referredColumn="0AF94F41-4FA7-96E1-4A1A-0B060CCD1B7E"/>
+</associations>
+</Column>
 </columns>
 <indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
 <ind_PK_UK id="DB2A05B9-6FEE-AA76-4761-0AC7DFF0D6C7" name="ATTENDANCE_PK">
@@ -197,6 +210,7 @@
 <colUsage columnID="8C8E7213-B380-54B3-C959-CE33461CDEDA"/>
 <colUsage columnID="813EF6C2-07B3-321B-1AC2-50BF9AD8EAB2"/>
 <colUsage columnID="CE61E608-C7AF-5897-CFEC-BBD8CB818061"/>
+<colUsage columnID="DA26BE08-3CE3-F655-857D-33FFA3B92C4C"/>
 </indexColumnUsage>
 </ind_PK_UK>
 </indexes>

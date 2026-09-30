@@ -1,7 +1,7 @@
 <?xml version = '1.0' encoding = 'UTF-8'?>
-<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="0E3F2AC2-DE3C-6288-FED5-296BEE270CEC" name="PAYMENT">
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="67174970-D03E-4A7C-5E26-9809FA90D69E" name="ACTIVITY">
 <createdBy>Usuario</createdBy>
-<createdTime>2026-09-05 22:58:35 UTC</createdTime>
+<createdTime>2026-09-30 15:15:32 UTC</createdTime>
 <ownerDesignName>PROYECTO DE FUNDAOBRERA</ownerDesignName>
 <engineerTo>
 <item key="678A0AFF-7580-8F3D-5E3F-EB23D0BE930E" value="true"/>
@@ -15,9 +15,9 @@
 <minVolumes>0</minVolumes>
 <normalForm>Third</normalForm>
 <attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
-<Attribute name="payment_id" id="624CD8E8-CD5D-0099-0942-50F7441F230C">
+<Attribute name="activity_id" id="75FC7F28-28D9-C28C-2E04-21757085C2F2">
 <createdBy>Usuario</createdBy>
-<createdTime>2026-09-05 23:24:06 UTC</createdTime>
+<createdTime>2026-09-30 15:30:51 UTC</createdTime>
 <ownerDesignName>PROYECTO DE FUNDAOBRERA</ownerDesignName>
 <engineerTo>
 <item key="678A0AFF-7580-8F3D-5E3F-EB23D0BE930E" value="true"/>
@@ -25,9 +25,9 @@
 <use>0</use>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="amount" id="BC341337-06F5-1855-4B80-9E8B35305CEB">
+<Attribute name="name" id="71601711-4EB8-B25E-23B7-15BEB88FAF81">
 <createdBy>Usuario</createdBy>
-<createdTime>2026-09-05 23:24:12 UTC</createdTime>
+<createdTime>2026-09-30 15:15:45 UTC</createdTime>
 <ownerDesignName>PROYECTO DE FUNDAOBRERA</ownerDesignName>
 <engineerTo>
 <item key="678A0AFF-7580-8F3D-5E3F-EB23D0BE930E" value="true"/>
@@ -35,9 +35,9 @@
 <use>0</use>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="payment_date" id="C503A3C4-1B28-3B96-A98A-7B57C5F1C2A1">
+<Attribute name="percentage" id="6442B54F-E1DE-9C81-FE2A-29F49023D93C">
 <createdBy>Usuario</createdBy>
-<createdTime>2026-09-05 23:24:22 UTC</createdTime>
+<createdTime>2026-09-30 15:29:50 UTC</createdTime>
 <ownerDesignName>PROYECTO DE FUNDAOBRERA</ownerDesignName>
 <engineerTo>
 <item key="678A0AFF-7580-8F3D-5E3F-EB23D0BE930E" value="true"/>
@@ -45,103 +45,88 @@
 <use>0</use>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="payment_method" id="4F28BC96-A348-42D8-0323-4184FCCAA971">
+<Attribute name="nrc" id="7AA9CB04-3747-E160-6ED5-375593B458AD">
 <createdBy>Usuario</createdBy>
-<createdTime>2026-09-05 23:24:32 UTC</createdTime>
+<createdTime>2026-09-30 15:40:06 UTC</createdTime>
+<generatorID>D8A11C76-DF3C-CEF7-91A1-075116EC4E36</generatorID>
 <ownerDesignName>PROYECTO DE FUNDAOBRERA</ownerDesignName>
 <engineerTo>
 <item key="678A0AFF-7580-8F3D-5E3F-EB23D0BE930E" value="true"/>
 </engineerTo>
+<referedAttribute>76222CD8-DD7B-1C52-12F9-F6ED0BF64DD5</referedAttribute>
 <use>0</use>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="description" id="ED277A28-1356-A4F5-03DB-27D254397D99">
+<Attribute name="academic_term_id" id="995F7137-AC5F-A24D-AC60-4EBD4F142D8D">
 <createdBy>Usuario</createdBy>
-<createdTime>2026-09-05 23:24:44 UTC</createdTime>
+<createdTime>2026-09-30 15:40:06 UTC</createdTime>
+<generatorID>D8A11C76-DF3C-CEF7-91A1-075116EC4E36</generatorID>
 <ownerDesignName>PROYECTO DE FUNDAOBRERA</ownerDesignName>
 <engineerTo>
 <item key="678A0AFF-7580-8F3D-5E3F-EB23D0BE930E" value="true"/>
 </engineerTo>
+<referedAttribute>CCE59D0C-D4A4-711C-401E-85DC6DDAFAAE</referedAttribute>
 <use>0</use>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="document_number" id="B94103B0-4DD5-3B6E-DAE6-9ACCEC80EF24">
+<Attribute name="document_number" id="5295BF5F-4EAC-7810-37F1-B8DE59B8CF4C">
 <createdBy>Usuario</createdBy>
-<createdTime>2026-09-05 23:26:36 UTC</createdTime>
-<generatorID>8BC3D44F-FFC7-E7C8-7F2E-77A6FA9C21F6</generatorID>
+<createdTime>2026-09-30 15:40:06 UTC</createdTime>
+<generatorID>D8A11C76-DF3C-CEF7-91A1-075116EC4E36</generatorID>
 <ownerDesignName>PROYECTO DE FUNDAOBRERA</ownerDesignName>
 <engineerTo>
 <item key="678A0AFF-7580-8F3D-5E3F-EB23D0BE930E" value="true"/>
 </engineerTo>
-<referedAttribute>3C4CD689-6493-B413-942F-1DD036C6C931</referedAttribute>
+<referedAttribute>254928E4-A95A-25C6-7312-30E2AC04BFA6</referedAttribute>
 <use>0</use>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="enrollment_id" id="48BD8DA7-68CD-311B-333C-98E184F6B930">
+<Attribute name="program_id" id="ADE06BB5-4BD2-D7BB-05D5-B6BE07AFF55D">
 <createdBy>Usuario</createdBy>
-<createdTime>2026-09-05 23:26:36 UTC</createdTime>
-<generatorID>8BC3D44F-FFC7-E7C8-7F2E-77A6FA9C21F6</generatorID>
+<createdTime>2026-09-30 15:40:06 UTC</createdTime>
+<generatorID>D8A11C76-DF3C-CEF7-91A1-075116EC4E36</generatorID>
 <ownerDesignName>PROYECTO DE FUNDAOBRERA</ownerDesignName>
 <engineerTo>
 <item key="678A0AFF-7580-8F3D-5E3F-EB23D0BE930E" value="true"/>
 </engineerTo>
-<referedAttribute>A22BAAAA-94BC-5A45-11C2-329CB1FDFC91</referedAttribute>
+<referedAttribute>C061B48B-C25E-B918-4A99-A6CE4DD7590B</referedAttribute>
 <use>0</use>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="program_id" id="2ECBA612-1882-224B-2A90-B3F3D110550B">
+<Attribute name="subject_id" id="C9020203-83CA-EF37-A840-52157B938679">
 <createdBy>Usuario</createdBy>
-<createdTime>2026-09-05 23:26:36 UTC</createdTime>
-<generatorID>8BC3D44F-FFC7-E7C8-7F2E-77A6FA9C21F6</generatorID>
+<createdTime>2026-09-30 15:40:06 UTC</createdTime>
+<generatorID>D8A11C76-DF3C-CEF7-91A1-075116EC4E36</generatorID>
 <ownerDesignName>PROYECTO DE FUNDAOBRERA</ownerDesignName>
 <engineerTo>
 <item key="678A0AFF-7580-8F3D-5E3F-EB23D0BE930E" value="true"/>
 </engineerTo>
-<referedAttribute>F2D4941D-4962-BED5-3041-F3EE89173346</referedAttribute>
+<referedAttribute>73B45331-8224-04DC-330F-09DEB1FC9358</referedAttribute>
 <use>0</use>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="academic_term_id" id="716D3802-EC76-F106-2293-A11E2AEDAC88">
+<Attribute name="date" id="85D49006-E483-0648-1EF9-B5D6FA7632E9">
 <createdBy>Usuario</createdBy>
-<createdTime>2026-09-05 23:31:34 UTC</createdTime>
-<generatorID>8BC3D44F-FFC7-E7C8-7F2E-77A6FA9C21F6</generatorID>
+<createdTime>2026-09-30 15:40:27 UTC</createdTime>
 <ownerDesignName>PROYECTO DE FUNDAOBRERA</ownerDesignName>
 <engineerTo>
 <item key="678A0AFF-7580-8F3D-5E3F-EB23D0BE930E" value="true"/>
 </engineerTo>
-<referedAttribute>261890B1-636A-37E3-534C-63A10E23157C</referedAttribute>
-<use>0</use>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
-</Attribute>
-<Attribute name="name" id="79CD55C3-D3AB-4481-1117-1CCD5ABF2203">
-<createdBy>Usuario</createdBy>
-<createdTime>2026-09-29 02:25:10 UTC</createdTime>
-<generatorID>8BC3D44F-FFC7-E7C8-7F2E-77A6FA9C21F6</generatorID>
-<ownerDesignName>PROYECTO DE FUNDAOBRERA</ownerDesignName>
-<engineerTo>
-<item key="678A0AFF-7580-8F3D-5E3F-EB23D0BE930E" value="true"/>
-</engineerTo>
-<referedAttribute>64774EC0-756E-2799-0CAA-EBEEB9FF12A6</referedAttribute>
 <use>0</use>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
 </attributes>
 <identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
-<identifier id="A3B3B7DB-8879-FF77-1E5C-D35A89B4BBBB" name="PAYMENT PK">
+<identifier id="AC2FCBAF-D9F7-04B0-67B2-07EDF75F99E4" name="ACTIVITY PK">
 <createdBy>Usuario</createdBy>
-<createdTime>2026-09-05 23:24:10 UTC</createdTime>
+<createdTime>2026-09-30 15:17:57 UTC</createdTime>
 <ownerDesignName>PROYECTO DE FUNDAOBRERA</ownerDesignName>
 <engineerTo>
 <item key="678A0AFF-7580-8F3D-5E3F-EB23D0BE930E" value="true"/>
 </engineerTo>
 <pk>true</pk>
 <usedAttributes>
-<attributeRef>624CD8E8-CD5D-0099-0942-50F7441F230C</attributeRef>
-<attributeRef>B94103B0-4DD5-3B6E-DAE6-9ACCEC80EF24</attributeRef>
-<attributeRef>48BD8DA7-68CD-311B-333C-98E184F6B930</attributeRef>
-<attributeRef>2ECBA612-1882-224B-2A90-B3F3D110550B</attributeRef>
-<attributeRef>716D3802-EC76-F106-2293-A11E2AEDAC88</attributeRef>
-<attributeRef>79CD55C3-D3AB-4481-1117-1CCD5ABF2203</attributeRef>
+<attributeRef>75FC7F28-28D9-C28C-2E04-21757085C2F2</attributeRef>
 </usedAttributes>
 </identifier>
 </identifiers>

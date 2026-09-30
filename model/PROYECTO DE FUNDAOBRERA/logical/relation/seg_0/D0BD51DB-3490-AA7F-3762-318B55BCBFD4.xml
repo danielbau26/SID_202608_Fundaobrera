@@ -1,7 +1,7 @@
 <?xml version = '1.0' encoding = 'UTF-8'?>
-<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="Relation_17" directorySegmentName="seg_0" id="E06FC687-016C-07A0-01F9-FFBA03BA4764">
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="Relation_31" directorySegmentName="seg_0" id="D0BD51DB-3490-AA7F-3762-318B55BCBFD4">
 <createdBy>Usuario</createdBy>
-<createdTime>2026-09-05 23:10:47 UTC</createdTime>
+<createdTime>2026-09-30 15:32:01 UTC</createdTime>
 <ownerDesignName>PROYECTO DE FUNDAOBRERA</ownerDesignName>
 <engineerTo>
 <item key="678A0AFF-7580-8F3D-5E3F-EB23D0BE930E" value="true"/>
@@ -15,7 +15,7 @@
 <sourceCardinality>1</sourceCardinality>
 <sourceEntity>333DF936-C284-848D-D811-53273FB455E4</sourceEntity>
 <targetCardinalityString>*</targetCardinalityString>
-<targetEntity>E56D4226-26B0-847E-9351-C9033B148604</targetEntity>
+<targetEntity>565F53F4-5323-F7BB-D0B3-8BD4CF686CAF</targetEntity>
 <transferable>true</transferable>
 <deleteRule>NO ACTION</deleteRule>
 </Relation>

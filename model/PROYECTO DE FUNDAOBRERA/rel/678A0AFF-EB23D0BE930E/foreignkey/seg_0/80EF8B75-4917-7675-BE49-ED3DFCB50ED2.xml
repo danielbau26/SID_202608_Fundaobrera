@@ -1,0 +1,17 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="80EF8B75-4917-7675-BE49-ED3DFCB50ED2" containerWithKeyObject="5ED52F31-48CA-1603-F774-2D70DE97F70C" localFKIndex="7949C87B-B025-F08B-4E21-9C8BDE62642F" name="ACTIVITY_GRADE_ENROLLMENT_GROUP_FK">
+<createdBy>Usuario</createdBy>
+<createdTime>2026-09-30 15:41:28 UTC</createdTime>
+<generatorID>D0BD51DB-3490-AA7F-3762-318B55BCBFD4</generatorID>
+<ownerDesignName>PROYECTO DE FUNDAOBRERA</ownerDesignName>
+<referredTableLongName>ENROLLMENT_GROUP</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>9D106BDE-9CED-5B49-8ECF-85EFD28FFB6F</referredTableID>
+<keyObject>788BFBAE-789A-A5BE-E59A-5939EA2E3DE7</keyObject>
+<referredKeyID>788BFBAE-789A-A5BE-E59A-5939EA2E3DE7</referredKeyID>
+<mandatory>true</mandatory>
+<refColNames>GROUP_nrc,GROUP_ACADEMIC_TERM_academic_term_id,GROUP_TEACHER_document_number,GROUP_PROGRAM_SUBJECT_PROGRAM_program_id,GROUP_PROGRAM_SUBJECT_SUBJECT_subject_id,ENROLLMENT_STUDENT_document_number,ENROLLMENT_enrollment_id,ENROLLMENT_PROGRAM_program_id,ENROLLMENT_ACADEMIC_TERM_academic_term_id,ENROLLMENT_STATUS_name,id_enrollment_group</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>
