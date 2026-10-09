@@ -13,8 +13,11 @@
 <createdTime>2026-09-29 02:39:48 UTC</createdTime>
 <generatorID>624CD8E8-CD5D-0099-0942-50F7441F230C</generatorID>
 <ownerDesignName>PROYECTO DE FUNDAOBRERA</ownerDesignName>
-<use>0</use>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20</dataTypeSize>
+<ownDataTypeParameters>20,,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
 <Column name="amount" id="A14747A1-6A71-2CF7-6120-AC18C4FD57EF">
@@ -22,8 +25,12 @@
 <createdTime>2026-09-29 02:39:48 UTC</createdTime>
 <generatorID>BC341337-06F5-1855-4B80-9E8B35305CEB</generatorID>
 <ownerDesignName>PROYECTO DE FUNDAOBRERA</ownerDesignName>
-<use>0</use>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<dataTypeScale>2</dataTypeScale>
+<ownDataTypeParameters>,10,2</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
 <Column name="payment_date" id="FD861151-5B83-B48A-78D5-2D1C48C65704">
@@ -31,7 +38,9 @@
 <createdTime>2026-09-29 02:39:48 UTC</createdTime>
 <generatorID>C503A3C4-1B28-3B96-A98A-7B57C5F1C2A1</generatorID>
 <ownerDesignName>PROYECTO DE FUNDAOBRERA</ownerDesignName>
-<use>0</use>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
@@ -40,8 +49,11 @@
 <createdTime>2026-09-29 02:39:48 UTC</createdTime>
 <generatorID>4F28BC96-A348-42D8-0323-4184FCCAA971</generatorID>
 <ownerDesignName>PROYECTO DE FUNDAOBRERA</ownerDesignName>
-<use>0</use>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>30</dataTypeSize>
+<ownDataTypeParameters>30,,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
 <Column name="description" id="1C8163F9-5A39-7C36-53A0-4D2A101CF8DA">
@@ -49,8 +61,11 @@
 <createdTime>2026-09-29 02:39:48 UTC</createdTime>
 <generatorID>ED277A28-1356-A4F5-03DB-27D254397D99</generatorID>
 <ownerDesignName>PROYECTO DE FUNDAOBRERA</ownerDesignName>
-<use>0</use>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>200</dataTypeSize>
+<ownDataTypeParameters>200,,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
 <Column name="ENROLLMENT_document_number" id="72ABA3E7-0B9C-A250-2592-46E8782C3E5B">
@@ -58,7 +73,10 @@
 <createdTime>2026-09-29 02:39:48 UTC</createdTime>
 <generatorID>B94103B0-4DD5-3B6E-DAE6-9ACCEC80EF24</generatorID>
 <ownerDesignName>PROYECTO DE FUNDAOBRERA</ownerDesignName>
-<use>0</use>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20</dataTypeSize>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 <previousColumn>false</previousColumn>
 <autoIncrementCycle>false</autoIncrementCycle>
@@ -71,7 +89,10 @@
 <createdTime>2026-09-29 02:39:48 UTC</createdTime>
 <generatorID>48BD8DA7-68CD-311B-333C-98E184F6B930</generatorID>
 <ownerDesignName>PROYECTO DE FUNDAOBRERA</ownerDesignName>
-<use>0</use>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20</dataTypeSize>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 <previousColumn>false</previousColumn>
 <autoIncrementCycle>false</autoIncrementCycle>
@@ -84,7 +105,10 @@
 <createdTime>2026-09-29 02:39:48 UTC</createdTime>
 <generatorID>2ECBA612-1882-224B-2A90-B3F3D110550B</generatorID>
 <ownerDesignName>PROYECTO DE FUNDAOBRERA</ownerDesignName>
-<use>0</use>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20</dataTypeSize>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 <previousColumn>false</previousColumn>
 <autoIncrementCycle>false</autoIncrementCycle>
@@ -97,7 +121,10 @@
 <createdTime>2026-09-29 02:39:48 UTC</createdTime>
 <generatorID>716D3802-EC76-F106-2293-A11E2AEDAC88</generatorID>
 <ownerDesignName>PROYECTO DE FUNDAOBRERA</ownerDesignName>
-<use>0</use>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20</dataTypeSize>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 <previousColumn>false</previousColumn>
 <autoIncrementCycle>false</autoIncrementCycle>
@@ -110,7 +137,10 @@
 <createdTime>2026-09-29 02:39:48 UTC</createdTime>
 <generatorID>79CD55C3-D3AB-4481-1117-1CCD5ABF2203</generatorID>
 <ownerDesignName>PROYECTO DE FUNDAOBRERA</ownerDesignName>
-<use>0</use>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20</dataTypeSize>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 <previousColumn>false</previousColumn>
 <autoIncrementCycle>false</autoIncrementCycle>
@@ -129,12 +159,12 @@
 <indexState>Primary Constraint</indexState>
 <isSurrogateKey>false</isSurrogateKey>
 <indexColumnUsage>
-<colUsage columnID="F0DE1D0F-3B95-9315-EAD6-CACC2593F682"/>
 <colUsage columnID="72ABA3E7-0B9C-A250-2592-46E8782C3E5B"/>
 <colUsage columnID="293A1F06-0C12-2EDD-A285-C05725FA2014"/>
 <colUsage columnID="C91B3F4B-922F-BC2B-D4E1-A6481C687EC6"/>
 <colUsage columnID="0A7DBA34-2018-85C5-EECA-88305F85CA33"/>
 <colUsage columnID="4666B303-7799-AD12-8AAF-522932527C13"/>
+<colUsage columnID="F0DE1D0F-3B95-9315-EAD6-CACC2593F682"/>
 </indexColumnUsage>
 </ind_PK_UK>
 <ind_PK_UK id="35787D5B-B624-EBE2-48AA-62926AFE0B00" name="PAYMENT_ENROLLMENT_FK">

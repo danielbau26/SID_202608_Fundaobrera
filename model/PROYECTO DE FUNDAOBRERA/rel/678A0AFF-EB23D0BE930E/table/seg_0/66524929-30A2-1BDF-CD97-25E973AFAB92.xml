@@ -8,12 +8,27 @@
 <existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
 <parsed>true</parsed>
 <columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="nrc" id="66DD7C9C-7BB4-7F22-DEF0-43A79B00AEBF">
+<createdBy>Usuario</createdBy>
+<createdTime>2026-09-29 02:39:48 UTC</createdTime>
+<generatorID>76222CD8-DD7B-1C52-12F9-F6ED0BF64DD5</generatorID>
+<ownerDesignName>PROYECTO DE FUNDAOBRERA</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>10</dataTypeSize>
+<ownDataTypeParameters>10,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
 <Column name="ACADEMIC_TERM_academic_term_id" id="F38C7832-1ED3-D4B4-A09C-C55322F42DBA">
 <createdBy>Usuario</createdBy>
 <createdTime>2026-09-29 02:39:48 UTC</createdTime>
 <generatorID>CCE59D0C-D4A4-711C-401E-85DC6DDAFAAE</generatorID>
 <ownerDesignName>PROYECTO DE FUNDAOBRERA</ownerDesignName>
-<use>0</use>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20</dataTypeSize>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 <previousColumn>false</previousColumn>
 <autoIncrementCycle>false</autoIncrementCycle>
@@ -26,7 +41,10 @@
 <createdTime>2026-09-29 02:39:48 UTC</createdTime>
 <generatorID>254928E4-A95A-25C6-7312-30E2AC04BFA6</generatorID>
 <ownerDesignName>PROYECTO DE FUNDAOBRERA</ownerDesignName>
-<use>0</use>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20</dataTypeSize>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 <previousColumn>false</previousColumn>
 <autoIncrementCycle>false</autoIncrementCycle>
@@ -39,7 +57,10 @@
 <createdTime>2026-09-29 02:39:48 UTC</createdTime>
 <generatorID>C061B48B-C25E-B918-4A99-A6CE4DD7590B</generatorID>
 <ownerDesignName>PROYECTO DE FUNDAOBRERA</ownerDesignName>
-<use>0</use>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20</dataTypeSize>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 <previousColumn>false</previousColumn>
 <autoIncrementCycle>false</autoIncrementCycle>
@@ -52,22 +73,16 @@
 <createdTime>2026-09-29 02:39:48 UTC</createdTime>
 <generatorID>73B45331-8224-04DC-330F-09DEB1FC9358</generatorID>
 <ownerDesignName>PROYECTO DE FUNDAOBRERA</ownerDesignName>
-<use>0</use>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20</dataTypeSize>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 <previousColumn>false</previousColumn>
 <autoIncrementCycle>false</autoIncrementCycle>
 <associations>
 <colAssociation fkAssociation="E8C1A6EA-9333-C7EE-E0E5-D1FB82525E2F" referredColumn="3B7D3BCC-7849-265B-A544-D6DC8AD95458"/>
 </associations>
-</Column>
-<Column name="nrc" id="66DD7C9C-7BB4-7F22-DEF0-43A79B00AEBF">
-<createdBy>Usuario</createdBy>
-<createdTime>2026-09-29 02:39:48 UTC</createdTime>
-<generatorID>76222CD8-DD7B-1C52-12F9-F6ED0BF64DD5</generatorID>
-<ownerDesignName>PROYECTO DE FUNDAOBRERA</ownerDesignName>
-<use>0</use>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
-<autoIncrementCycle>false</autoIncrementCycle>
 </Column>
 </columns>
 <indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">

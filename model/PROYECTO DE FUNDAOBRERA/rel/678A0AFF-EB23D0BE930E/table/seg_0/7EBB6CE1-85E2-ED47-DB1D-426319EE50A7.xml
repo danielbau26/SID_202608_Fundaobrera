@@ -13,8 +13,11 @@
 <createdTime>2026-09-29 02:39:48 UTC</createdTime>
 <generatorID>3899DCA5-D9EA-4FE0-B60B-2BBF898E4700</generatorID>
 <ownerDesignName>PROYECTO DE FUNDAOBRERA</ownerDesignName>
-<use>0</use>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<ownDataTypeParameters>,10,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
 <Column name="company_name" id="C73BE6CC-82BC-C105-2049-3EB6D8965757">
@@ -22,8 +25,11 @@
 <createdTime>2026-09-29 02:39:48 UTC</createdTime>
 <generatorID>4563C841-26DB-BA10-268C-ADAA5FAB5C1B</generatorID>
 <ownerDesignName>PROYECTO DE FUNDAOBRERA</ownerDesignName>
-<use>0</use>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100</dataTypeSize>
+<ownDataTypeParameters>100,,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
 <Column name="position" id="9752695C-A785-C89A-A881-8E45E092354D">
@@ -31,8 +37,11 @@
 <createdTime>2026-09-29 02:39:48 UTC</createdTime>
 <generatorID>1CCF77CE-F323-AC3B-02EA-2E418C8A732C</generatorID>
 <ownerDesignName>PROYECTO DE FUNDAOBRERA</ownerDesignName>
-<use>0</use>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100</dataTypeSize>
+<ownDataTypeParameters>100,,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
 <Column name="STUDENT_document_number" id="740DF52C-735B-0747-20DB-FF832BC6F7D6">
@@ -40,7 +49,10 @@
 <createdTime>2026-09-29 02:39:48 UTC</createdTime>
 <generatorID>5DDCB2B5-3BAF-83FA-A2D9-7181216C5708</generatorID>
 <ownerDesignName>PROYECTO DE FUNDAOBRERA</ownerDesignName>
-<use>0</use>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20</dataTypeSize>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 <previousColumn>false</previousColumn>
 <autoIncrementCycle>false</autoIncrementCycle>
