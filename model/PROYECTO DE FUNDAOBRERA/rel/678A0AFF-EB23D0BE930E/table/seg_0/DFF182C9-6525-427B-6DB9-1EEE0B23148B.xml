@@ -13,8 +13,11 @@
 <createdTime>2026-09-29 02:39:48 UTC</createdTime>
 <generatorID>16ADF24B-5CCE-CCDC-DF5F-990768EB06CE</generatorID>
 <ownerDesignName>PROYECTO DE FUNDAOBRERA</ownerDesignName>
-<use>0</use>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20</dataTypeSize>
+<ownDataTypeParameters>20,,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
 <Column name="full_name" id="E3C58628-AB43-CBFB-85C0-FE3D8358FAC1">
@@ -22,8 +25,11 @@
 <createdTime>2026-09-29 02:39:48 UTC</createdTime>
 <generatorID>64D603C3-5506-56BB-396F-2C692173C8C8</generatorID>
 <ownerDesignName>PROYECTO DE FUNDAOBRERA</ownerDesignName>
-<use>0</use>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100</dataTypeSize>
+<ownDataTypeParameters>100,,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
 <Column name="document_type" id="E2AFB0CB-E3D7-DBEF-0CF1-D1B84EAC9918">
@@ -31,8 +37,11 @@
 <createdTime>2026-09-29 02:39:48 UTC</createdTime>
 <generatorID>5BFD9814-D477-1DD1-CF17-F44187095967</generatorID>
 <ownerDesignName>PROYECTO DE FUNDAOBRERA</ownerDesignName>
-<use>0</use>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>5</dataTypeSize>
+<ownDataTypeParameters>5,,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
 <Column name="birth_date" id="680F0ECD-5689-DF80-8DA5-5E4E7D7471D1">
@@ -40,7 +49,9 @@
 <createdTime>2026-09-29 02:39:48 UTC</createdTime>
 <generatorID>E3AE306D-2C8E-9023-5A8C-8F4F2AF7E290</generatorID>
 <ownerDesignName>PROYECTO DE FUNDAOBRERA</ownerDesignName>
-<use>0</use>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
@@ -49,8 +60,11 @@
 <createdTime>2026-09-29 02:39:48 UTC</createdTime>
 <generatorID>2EBC4801-477D-A1B2-E1B6-AD4346B27921</generatorID>
 <ownerDesignName>PROYECTO DE FUNDAOBRERA</ownerDesignName>
-<use>0</use>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>15</dataTypeSize>
+<ownDataTypeParameters>15,,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
 <Column name="address" id="0BD9D789-9549-1FDE-F7AD-5D91353A89DE">
@@ -58,8 +72,11 @@
 <createdTime>2026-09-29 02:39:48 UTC</createdTime>
 <generatorID>393AE06D-D1FE-10DF-73EF-0F93D9DE0C07</generatorID>
 <ownerDesignName>PROYECTO DE FUNDAOBRERA</ownerDesignName>
-<use>0</use>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>150</dataTypeSize>
+<ownDataTypeParameters>150,,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
 <Column name="email" id="66923D86-C9DE-F4D4-ED44-BBA2E0A2D49B">
@@ -67,8 +84,11 @@
 <createdTime>2026-09-29 02:39:48 UTC</createdTime>
 <generatorID>01E4A5D1-2A42-F4E5-2C83-3983F733A575</generatorID>
 <ownerDesignName>PROYECTO DE FUNDAOBRERA</ownerDesignName>
-<use>0</use>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>120</dataTypeSize>
+<ownDataTypeParameters>120,,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
 <Column name="stratum" id="175F38B2-5E58-B5EE-E986-4D275631485B">
@@ -76,8 +96,11 @@
 <createdTime>2026-09-29 02:39:48 UTC</createdTime>
 <generatorID>DCC50789-35EE-FDA9-8115-193450E4B3B0</generatorID>
 <ownerDesignName>PROYECTO DE FUNDAOBRERA</ownerDesignName>
-<use>0</use>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>1</dataTypePrecision>
+<ownDataTypeParameters>,1,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
 </columns>

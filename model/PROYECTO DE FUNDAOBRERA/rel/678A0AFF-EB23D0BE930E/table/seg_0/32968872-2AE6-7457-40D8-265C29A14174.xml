@@ -13,7 +13,9 @@
 <createdTime>2026-09-29 02:39:48 UTC</createdTime>
 <generatorID>FC65B00C-847A-036A-6B5E-07EBC9653803</generatorID>
 <ownerDesignName>PROYECTO DE FUNDAOBRERA</ownerDesignName>
-<use>0</use>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
@@ -22,8 +24,11 @@
 <createdTime>2026-09-29 02:39:48 UTC</createdTime>
 <generatorID>5D7EE089-E6C6-BD3C-8E0A-8C28EE6C712C</generatorID>
 <ownerDesignName>PROYECTO DE FUNDAOBRERA</ownerDesignName>
-<use>0</use>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>30</dataTypeSize>
+<ownDataTypeParameters>30,,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
 <Column name="certificate_document" id="BA8906EB-BD2D-B48F-F06E-3F65ABDFCDCB">
@@ -31,8 +36,11 @@
 <createdTime>2026-09-29 02:39:48 UTC</createdTime>
 <generatorID>A1D9220D-93CC-2FBC-7A10-BE2A4EEB1F21</generatorID>
 <ownerDesignName>PROYECTO DE FUNDAOBRERA</ownerDesignName>
-<use>0</use>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>255</dataTypeSize>
+<ownDataTypeParameters>255,,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
 <Column name="STUDENT_document_number" id="D0FDE410-4151-980B-3654-59583A7C4989">
@@ -40,7 +48,10 @@
 <createdTime>2026-09-29 02:39:48 UTC</createdTime>
 <generatorID>FEF8E0BC-E942-8F92-53CC-97FDCACA4FAA</generatorID>
 <ownerDesignName>PROYECTO DE FUNDAOBRERA</ownerDesignName>
-<use>0</use>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20</dataTypeSize>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 <previousColumn>false</previousColumn>
 <autoIncrementCycle>false</autoIncrementCycle>
@@ -53,7 +64,10 @@
 <createdTime>2026-09-29 02:39:48 UTC</createdTime>
 <generatorID>2DAFF97F-A676-A394-F38E-8F134028140D</generatorID>
 <ownerDesignName>PROYECTO DE FUNDAOBRERA</ownerDesignName>
-<use>0</use>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20</dataTypeSize>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 <previousColumn>false</previousColumn>
 <autoIncrementCycle>false</autoIncrementCycle>
