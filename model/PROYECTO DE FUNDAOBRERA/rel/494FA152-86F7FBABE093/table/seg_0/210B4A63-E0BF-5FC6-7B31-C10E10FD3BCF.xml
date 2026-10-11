@@ -13,8 +13,11 @@
 <createdTime>2026-10-04 02:18:20 UTC</createdTime>
 <generatorID>75FC7F28-28D9-C28C-2E04-21757085C2F2</generatorID>
 <ownerDesignName>PROYECTO DE FUNDAOBRERA</ownerDesignName>
-<use>0</use>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20</dataTypeSize>
+<ownDataTypeParameters>20,,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
 <Column name="name" id="D4327AD8-B17D-4A1E-FE0E-38AA2DEAC17F">
@@ -22,8 +25,11 @@
 <createdTime>2026-10-04 02:18:20 UTC</createdTime>
 <generatorID>71601711-4EB8-B25E-23B7-15BEB88FAF81</generatorID>
 <ownerDesignName>PROYECTO DE FUNDAOBRERA</ownerDesignName>
-<use>0</use>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>30</dataTypeSize>
+<ownDataTypeParameters>30,,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
 <Column name="percentage" id="5F39D441-5593-8CCB-BE9E-83985DC39428">
@@ -31,8 +37,12 @@
 <createdTime>2026-10-04 02:18:20 UTC</createdTime>
 <generatorID>6442B54F-E1DE-9C81-FE2A-29F49023D93C</generatorID>
 <ownerDesignName>PROYECTO DE FUNDAOBRERA</ownerDesignName>
-<use>0</use>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>5</dataTypePrecision>
+<dataTypeScale>2</dataTypeScale>
+<ownDataTypeParameters>,5,2</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
 <Column name="GROUP_nrc" id="AB2723F1-2C12-62A4-5D4E-FC4535461CC4">
@@ -40,7 +50,10 @@
 <createdTime>2026-10-04 02:18:20 UTC</createdTime>
 <generatorID>7AA9CB04-3747-E160-6ED5-375593B458AD</generatorID>
 <ownerDesignName>PROYECTO DE FUNDAOBRERA</ownerDesignName>
-<use>0</use>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>10</dataTypeSize>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 <previousColumn>false</previousColumn>
 <autoIncrementCycle>false</autoIncrementCycle>
