@@ -1,0 +1,88 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="C9194D77-A0E1-DFC9-D49C-E4BC8B843BBE" name="WORK_EXPERIENCE">
+<createdBy>jeanf</createdBy>
+<createdTime>2026-10-04 02:18:20 UTC</createdTime>
+<generatorID>406F538A-99CE-978A-DC88-02EE366EB007</generatorID>
+<ownerDesignName>PROYECTO DE FUNDAOBRERA</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="experience_id" id="0EA7A435-458B-1591-E7FD-F1836A2C5EED">
+<createdBy>jeanf</createdBy>
+<createdTime>2026-10-04 02:18:20 UTC</createdTime>
+<generatorID>3899DCA5-D9EA-4FE0-B60B-2BBF898E4700</generatorID>
+<ownerDesignName>PROYECTO DE FUNDAOBRERA</ownerDesignName>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="company_name" id="78ECF137-2022-66E9-3688-37AAF9D9F3ED">
+<createdBy>jeanf</createdBy>
+<createdTime>2026-10-04 02:18:20 UTC</createdTime>
+<generatorID>4563C841-26DB-BA10-268C-ADAA5FAB5C1B</generatorID>
+<ownerDesignName>PROYECTO DE FUNDAOBRERA</ownerDesignName>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="position" id="43F1DD48-6983-01A8-4AD3-4BF20538F517">
+<createdBy>jeanf</createdBy>
+<createdTime>2026-10-04 02:18:20 UTC</createdTime>
+<generatorID>1CCF77CE-F323-AC3B-02EA-2E418C8A732C</generatorID>
+<ownerDesignName>PROYECTO DE FUNDAOBRERA</ownerDesignName>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="STUDENT_document_number" id="674D3ED3-27EA-37AC-E789-8D04E8B99877">
+<createdBy>jeanf</createdBy>
+<createdTime>2026-10-04 02:18:20 UTC</createdTime>
+<generatorID>5DDCB2B5-3BAF-83FA-A2D9-7181216C5708</generatorID>
+<ownerDesignName>PROYECTO DE FUNDAOBRERA</ownerDesignName>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="7C7ADA08-5383-808A-F337-B074B0D52F0E" referredColumn="EE25405E-3F56-82CA-1A9C-8897DD5CFA56"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="31657F56-2E78-CDA4-892B-D47E63CC1702" name="WORK_EXPERIENCE_PK">
+<createdBy>jeanf</createdBy>
+<createdTime>2026-10-04 02:18:20 UTC</createdTime>
+<generatorID>4B832550-6FD2-1705-462B-5C9488310AF0</generatorID>
+<ownerDesignName>PROYECTO DE FUNDAOBRERA</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="0EA7A435-458B-1591-E7FD-F1836A2C5EED"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="437AA4FA-CA86-E37C-A1B2-C1F85D4C9ED6" name="WORK_EXPERIENCE__IDX">
+<createdBy>jeanf</createdBy>
+<createdTime>2026-10-04 02:18:20 UTC</createdTime>
+<ownerDesignName>PROYECTO DE FUNDAOBRERA</ownerDesignName>
+<indexState>Unique Plain Index</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<relationGeneratorID>D2049FBA-C694-C00C-D2AA-02F0D87DC698</relationGeneratorID>
+<indexColumnUsage>
+<colUsage columnID="674D3ED3-27EA-37AC-E789-8D04E8B99877"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="43B782F5-B8D8-5A7F-E168-4D37287DCFD2" name="WORK_EXPERIENCE_STUDENT_FK">
+<createdBy>jeanf</createdBy>
+<createdTime>2026-10-04 02:18:20 UTC</createdTime>
+<generatorID>D2049FBA-C694-C00C-D2AA-02F0D87DC698</generatorID>
+<ownerDesignName>PROYECTO DE FUNDAOBRERA</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="674D3ED3-27EA-37AC-E789-8D04E8B99877"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

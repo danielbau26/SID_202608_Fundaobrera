@@ -1,0 +1,94 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="C514E8CC-9872-4758-7774-3E05808CBE4A" name="ENROLLMENT_GROUP">
+<createdBy>jeanf</createdBy>
+<createdTime>2026-10-04 02:18:20 UTC</createdTime>
+<generatorID>333DF936-C284-848D-D811-53273FB455E4</generatorID>
+<ownerDesignName>PROYECTO DE FUNDAOBRERA</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="GROUP_nrc" id="1FF496C6-88C8-1A73-AA59-A71EE592C94F">
+<createdBy>jeanf</createdBy>
+<createdTime>2026-10-04 02:18:20 UTC</createdTime>
+<generatorID>0EC092A5-EEEF-5009-72FD-7211BEDE04E9</generatorID>
+<ownerDesignName>PROYECTO DE FUNDAOBRERA</ownerDesignName>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="A24EBACF-29A5-E913-3DBB-C94660DD3BC4" referredColumn="131F312C-7DFA-F4F0-B731-0ED1B6999A74"/>
+</associations>
+</Column>
+<Column name="ENROLLMENT_enrollment_id" id="E5EFABA5-C01C-2F57-6338-428730A54C73">
+<createdBy>jeanf</createdBy>
+<createdTime>2026-10-04 02:18:20 UTC</createdTime>
+<generatorID>C79F1747-2E75-E1B8-0CCD-7EA5A595BFB1</generatorID>
+<ownerDesignName>PROYECTO DE FUNDAOBRERA</ownerDesignName>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="6AB06713-23BC-7D4B-017F-F3699F5E2565" referredColumn="63F82F3D-BD8A-8293-47C9-4572A7863A3F"/>
+</associations>
+</Column>
+<Column name="id_enrollment_group" id="2005E236-4E36-8894-4941-54D716765B5F">
+<createdBy>jeanf</createdBy>
+<createdTime>2026-10-04 02:18:20 UTC</createdTime>
+<generatorID>80A8E8BE-D3C3-4FDF-D766-D83F063FE2F7</generatorID>
+<ownerDesignName>PROYECTO DE FUNDAOBRERA</ownerDesignName>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="DA8CF8FD-2D51-93FD-3AA5-8A65BE1341F4" name="ENROLLMENT_GROUP_PK">
+<createdBy>jeanf</createdBy>
+<createdTime>2026-10-04 02:18:20 UTC</createdTime>
+<generatorID>809287D4-835E-959D-76B9-71F3FC68855F</generatorID>
+<ownerDesignName>PROYECTO DE FUNDAOBRERA</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="2005E236-4E36-8894-4941-54D716765B5F"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="DEA8CEA6-54BD-B366-D189-231ED1EF08CD" name="ENROLLMENT_GROUP__UN">
+<createdBy>jeanf</createdBy>
+<createdTime>2026-10-04 02:35:38 UTC</createdTime>
+<ownerDesignName>PROYECTO DE FUNDAOBRERA</ownerDesignName>
+<indexState>Unique Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="E5EFABA5-C01C-2F57-6338-428730A54C73"/>
+<colUsage columnID="1FF496C6-88C8-1A73-AA59-A71EE592C94F"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="9B84FE21-DE8A-247A-6CDA-D3DC096B4F52" name="ENROLLMENT_GROUP_ENROLLMENT_FK">
+<createdBy>jeanf</createdBy>
+<createdTime>2026-10-04 02:18:20 UTC</createdTime>
+<generatorID>B2682E5C-0B78-406A-0DFA-CC698B78E4CC</generatorID>
+<ownerDesignName>PROYECTO DE FUNDAOBRERA</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="E5EFABA5-C01C-2F57-6338-428730A54C73"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="637DC20F-6CA6-9F86-470E-0B1141C009EF" name="ENROLLMENT_GROUP_GROUP_FK">
+<createdBy>jeanf</createdBy>
+<createdTime>2026-10-04 02:18:20 UTC</createdTime>
+<generatorID>F9279AD4-B0D0-8FE5-5520-762691589EE3</generatorID>
+<ownerDesignName>PROYECTO DE FUNDAOBRERA</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="1FF496C6-88C8-1A73-AA59-A71EE592C94F"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>
