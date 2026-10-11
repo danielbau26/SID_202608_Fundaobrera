@@ -1,0 +1,17 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="D579FFD2-6AEB-DF20-2F49-D0227DF37B2C" containerWithKeyObject="7D967F38-0471-7BA5-83DF-A84F8477D51D" localFKIndex="2B73651F-6FF6-705C-34AC-30501C310EF8" name="ATTENDANCE_ENROLLMENT_GROUP_FK">
+<createdBy>jeanf</createdBy>
+<createdTime>2026-10-04 02:18:20 UTC</createdTime>
+<generatorID>E06FC687-016C-07A0-01F9-FFBA03BA4764</generatorID>
+<ownerDesignName>PROYECTO DE FUNDAOBRERA</ownerDesignName>
+<referredTableLongName>ENROLLMENT_GROUP</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>C514E8CC-9872-4758-7774-3E05808CBE4A</referredTableID>
+<keyObject>DA8CF8FD-2D51-93FD-3AA5-8A65BE1341F4</keyObject>
+<referredKeyID>DA8CF8FD-2D51-93FD-3AA5-8A65BE1341F4</referredKeyID>
+<mandatory>true</mandatory>
+<refColNames>id_enrollment_group</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>
