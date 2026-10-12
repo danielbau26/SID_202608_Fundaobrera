@@ -1,13 +1,15 @@
 <?xml version = '1.0' encoding = 'UTF-8'?>
-<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="Relation_28" directorySegmentName="seg_0" id="1236B103-393D-1222-DE0C-259AB6258ACB">
-<createdBy>jeanf</createdBy>
-<createdTime>2026-10-04 01:46:46 UTC</createdTime>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="Relation_34" directorySegmentName="seg_0" id="359C5BDA-70DB-10FB-5936-886BC0244C4C">
+<createdBy>USUARIO</createdBy>
+<createdTime>2026-10-12 04:37:33 UTC</createdTime>
 <ownerDesignName>PROYECTO DE FUNDAOBRERA</ownerDesignName>
 <engineerTo>
 <item key="494FA152-2F86-BCEA-7444-86F7FBABE093" value="true"/>
 </engineerTo>
 <sourcePk>72A20AD6-6ADA-EDC7-AA0F-715150F76695</sourcePk>
 <identifying>false</identifying>
+<nameOnSource>is offered through</nameOnSource>
+<nameOnTarget>corresponds to</nameOnTarget>
 <optionalSource>true</optionalSource>
 <optionalTarget>false</optionalTarget>
 <sourceCardinality>1</sourceCardinality>

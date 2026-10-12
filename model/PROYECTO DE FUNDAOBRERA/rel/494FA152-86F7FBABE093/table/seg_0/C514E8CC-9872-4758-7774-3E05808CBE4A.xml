@@ -17,7 +17,7 @@
 <use>1</use>
 <logicalDatatype>LOGDT024</logicalDatatype>
 <dataTypeSize>10</dataTypeSize>
-<ownDataTypeParameters>10,,</ownDataTypeParameters>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
 <previousColumn>false</previousColumn>
 <autoIncrementCycle>false</autoIncrementCycle>
 <associations>
@@ -33,24 +33,12 @@
 <use>1</use>
 <logicalDatatype>LOGDT024</logicalDatatype>
 <dataTypeSize>20</dataTypeSize>
-<ownDataTypeParameters>20,,</ownDataTypeParameters>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
 <previousColumn>false</previousColumn>
 <autoIncrementCycle>false</autoIncrementCycle>
 <associations>
 <colAssociation fkAssociation="6AB06713-23BC-7D4B-017F-F3699F5E2565" referredColumn="63F82F3D-BD8A-8293-47C9-4572A7863A3F"/>
 </associations>
-</Column>
-<Column name="id_enrollment_group" id="2005E236-4E36-8894-4941-54D716765B5F">
-<createdBy>jeanf</createdBy>
-<createdTime>2026-10-04 02:18:20 UTC</createdTime>
-<generatorID>80A8E8BE-D3C3-4FDF-D766-D83F063FE2F7</generatorID>
-<ownerDesignName>PROYECTO DE FUNDAOBRERA</ownerDesignName>
-<useDomainConstraints>false</useDomainConstraints>
-<use>1</use>
-<logicalDatatype>LOGDT024</logicalDatatype>
-<dataTypeSize>20</dataTypeSize>
-<ownDataTypeParameters>20,,</ownDataTypeParameters>
-<autoIncrementCycle>false</autoIncrementCycle>
 </Column>
 </columns>
 <indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
@@ -63,7 +51,8 @@
 <indexState>Primary Constraint</indexState>
 <isSurrogateKey>false</isSurrogateKey>
 <indexColumnUsage>
-<colUsage columnID="2005E236-4E36-8894-4941-54D716765B5F"/>
+<colUsage columnID="1FF496C6-88C8-1A73-AA59-A71EE592C94F"/>
+<colUsage columnID="E5EFABA5-C01C-2F57-6338-428730A54C73"/>
 </indexColumnUsage>
 </ind_PK_UK>
 <ind_PK_UK id="DEA8CEA6-54BD-B366-D189-231ED1EF08CD" name="ENROLLMENT_GROUP__UN">

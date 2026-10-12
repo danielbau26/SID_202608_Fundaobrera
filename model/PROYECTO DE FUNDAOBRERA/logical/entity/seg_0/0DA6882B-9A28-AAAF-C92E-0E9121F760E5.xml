@@ -4,6 +4,7 @@
 <createdTime>2026-09-05 23:17:15 UTC</createdTime>
 <ownerDesignName>PROYECTO DE FUNDAOBRERA</ownerDesignName>
 <engineerTo>
+<item key="494FA152-2F86-BCEA-7444-86F7FBABE093" value="true"/>
 </engineerTo>
 <adequatelyNormalized>NO</adequatelyNormalized>
 <expectedVolumes>0</expectedVolumes>
@@ -19,6 +20,7 @@
 <createdTime>2026-09-05 23:17:41 UTC</createdTime>
 <ownerDesignName>PROYECTO DE FUNDAOBRERA</ownerDesignName>
 <engineerTo>
+<item key="494FA152-2F86-BCEA-7444-86F7FBABE093" value="true"/>
 </engineerTo>
 <use>0</use>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
@@ -28,6 +30,7 @@
 <createdTime>2026-09-05 23:17:50 UTC</createdTime>
 <ownerDesignName>PROYECTO DE FUNDAOBRERA</ownerDesignName>
 <engineerTo>
+<item key="494FA152-2F86-BCEA-7444-86F7FBABE093" value="true"/>
 </engineerTo>
 <use>0</use>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
@@ -37,6 +40,7 @@
 <createdTime>2026-09-05 23:18:02 UTC</createdTime>
 <ownerDesignName>PROYECTO DE FUNDAOBRERA</ownerDesignName>
 <engineerTo>
+<item key="494FA152-2F86-BCEA-7444-86F7FBABE093" value="true"/>
 </engineerTo>
 <use>0</use>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
@@ -47,6 +51,7 @@
 <generatorID>8053E756-CF22-9D05-B1AC-3DAE652379FD</generatorID>
 <ownerDesignName>PROYECTO DE FUNDAOBRERA</ownerDesignName>
 <engineerTo>
+<item key="494FA152-2F86-BCEA-7444-86F7FBABE093" value="true"/>
 </engineerTo>
 <referedAttribute>16ADF24B-5CCE-CCDC-DF5F-990768EB06CE</referedAttribute>
 <use>0</use>
@@ -58,10 +63,26 @@
 <generatorID>F48EE7F9-F013-C0FF-A260-D31DBCC186F7</generatorID>
 <ownerDesignName>PROYECTO DE FUNDAOBRERA</ownerDesignName>
 <engineerTo>
+<item key="494FA152-2F86-BCEA-7444-86F7FBABE093" value="true"/>
 </engineerTo>
 <referedAttribute>B7408D25-5C5D-0A2D-99D4-ED384E61BFFD</referedAttribute>
 <use>0</use>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
 </attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="1B335289-0B95-5EC3-C8E2-D98A00B72A0E" name="GRADUATED PK">
+<createdBy>USUARIO</createdBy>
+<createdTime>2026-10-12 04:35:44 UTC</createdTime>
+<ownerDesignName>PROYECTO DE FUNDAOBRERA</ownerDesignName>
+<engineerTo>
+<item key="494FA152-2F86-BCEA-7444-86F7FBABE093" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>FEF8E0BC-E942-8F92-53CC-97FDCACA4FAA</attributeRef>
+<attributeRef>2DAFF97F-A676-A394-F38E-8F134028140D</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
 </Entity>
