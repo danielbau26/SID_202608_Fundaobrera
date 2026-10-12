@@ -217,3 +217,102 @@ Es decir, cada fila de ATTENDANCE típicamente tiene:
 Con tu modelo actual (viendo el diagrama de Fundaobrera), ATTENDANCE tiene attendance_id, date, attended — pero para que tenga sentido completo necesitaría relacionarse tanto con STUDENT como con GROUP (o con DETAIL_ENROLLMENT, que ya conecta estudiante-materia-semestre). Así evitas ambigüedad sobre a qué clase/sesión corresponde cada registro de asistencia.
 ¿Quieres que revisemos cómo conectarías ATTENDANCE con DETAIL_ENROLLMENT o GROUP en el diagrama?
 
+# FASE 1: Concepción y Modelado Inicial
+
+### Prompt 1: Entidades fundamentales del dominio académico
+* **Pregunta del estudiante:**  
+  > *"Estoy modelando el historial académico ¿Qué entidades típicas no debería olvidar en un modelo de estudiantes, matrículas y calificaciones?"*
+* **Respuesta de la IA:**  
+  Explicación detallada diferenciando entidades de relaciones. Se definieron: `ESTUDIANTE`, `PROGRAMA`, `MATERIA`, `PROGRAMA_MATERIA`, `PERIODO_ACADÉMICO`, `MATRÍCULA`, `GRUPO`, `DOCENTE`, `DETALLE_MATRÍCULA`, `CALIFICACIÓN`, `ASISTENCIA`, `PAGO` y `ESTADO`.
+
+### Prompt 2: Separación de ENROLLMENT y DETAIL_ENROLLMENT
+* **Pregunta del estudiante:**  
+  > *"¿Tiene sentido que ENROLLMENT y DETAIL_ENROLLMENT sean entidades separadas, o debería fusionarlas? ¿Qué ventajas tiene separarlas?"*
+* **Respuesta de la IA:**  
+  Confirmación de la separación por relación 1:N. Se argumentó que `ENROLLMENT` representa la cabecera del semestre y `DETAIL_ENROLLMENT` la inscripción por materia/grupo, evitando redundancia de datos generales y manteniendo la 3NF.
+
+### Prompt 3: Repetición de materias e historial
+* **Pregunta del estudiante:**  
+  > *"¿Cómo se modela normalmente la relación entre estudiante, programa y semestre cuando un estudiante puede repetir materias?"*
+* **Respuesta de la IA:**  
+  Modelado mediante la creación de un nuevo `DETAIL_ENROLLMENT` asociado a una nueva `ENROLLMENT` por cada periodo/semestre. Esto evita la pérdida de información histórica al no sobrescribir calificaciones previas.
+
+### Prompt 4: Patrones para Graduación y Retiro
+* **Pregunta del estudiante:**  
+  > *"¿GRADUATED y WITHDRAWAL deberían ser subtipos de una entidad ACTIVE/estado del estudiante, o entidades independientes? ¿Qué patrón de modelado aplica acá?"*
+* **Respuesta de la IA:**  
+  Aplicación del patrón Supertipo/Subtipo (Especialización) sobre `ENROLLMENT` o vinculación con atributos opcionales/entidades debilidades para almacenar atributos exclusivos (como `withdrawal_reason` o `certificate_document`).
+
+### Prompt 5: Asistencia y cardinalidad
+* **Pregunta del estudiante:**  
+  > *"¿Qué cardinalidad tendría normalmente la relación entre STUDENT y ATTENDANCE en un sistema de gestión académica?"*
+* **Respuesta de la IA:**  
+  Relación 1:N que no se conecta aisladamente a `STUDENT`, sino que se contextualiza mediante la inscripción al grupo (`ENROLLMENT_GROUP`) para asociar fecha y estado de asistencia a una clase específica.
+
+---
+
+# FASE 2: Ajuste de Requerimientos, MER Corregido, Normalización (3NF) y Dependencias Funcionales
+
+### Prompt 6: Normalización a 3NF y Análisis de Dependencias Funcionales (DF)
+* **Pregunta del estudiante:**  
+  > *"Oye bro, necesito sacar las Dependencias Funcionales del modelo relacional para justificar que está en 3NF. ¿Cómo expreso formalmente las DF de tablas como `ENROLLMENT_GROUP`, `ACTIVITY_GRADE` y `PROGRAM_SUBJECT` para que el profe no me ponga problema?"*
+* **Respuesta de la IA:**  
+  > *"¡Claro! Para justificar la 3NF debes demostrar que cada atributo no clave depende de manera funcional completa de la clave primaria (2NF) y de manera no transitiva (3NF).*
+  > 
+  > *Aquí tienes la especificación formal:*
+  > * 1. **`PROGRAM_SUBJECT`**: `{program_id, subject_id} -> {semester}`. La clave es compuesta; el semestre depende de la combinación exacta de programa y materia.*
+  > * 2. **`ENROLLMENT_GROUP`**: `{id_enrollment_group} -> {grade, enrollment_id, nrc}`. `id_enrollment_group` es la Clave Primaria Sintética. Además, existe la Clave Candidata/Única `{enrollment_id, nrc} -> {id_enrollment_group, grade}`, garantizando que un estudiante no se inscriba dos veces al mismo grupo.*
+  > * 3. **`ACTIVITY_GRADE`**: `{id_enrollment_group, activity_id} -> {grade}`. La nota de una actividad depende directamente de la inscripción específica del estudiante al grupo y de la actividad evaluativa correspondiente.*
+  > * 4. **`GRADUATED`**: `{student_document_number, program_id} -> {graduation_date, certificate_number, certificate_document}`. La graduación depende únicamente de la pareja estudiante-programa.*
+  > 
+  > *Todas las determinantes son Claves Candidatas o Superclaves, cumpliendo formalmente con la Tercera Forma Normal (3NF)."*
+
+---
+
+### Prompt 7: Corrección de Criterios de Aceptación Gherkin para Historias de Usuario
+* **Pregunta del estudiante:**  
+  > *"Parse, estamos ajustando las Historias de Usuario para la entrega final del caso Fundaobrera. ¿Cómo estructuro los escenarios de 'Matricular estudiante', 'Registrar nota de actividad' y 'Registrar graduación' en formato Gherkin exacto para que coincidan con la base de datos?"*
+* **Respuesta de la IA:**  
+  > *"Para que las Historias de Usuario se alineen con la lógica de la base de datos, estructuramos los escenarios `Given-When-Then` integrando las restricciones reales del modelo:*
+  > 
+  > **HU: Registrar matrícula de estudiante**
+  > * **Scenario: Matrícula exitosa con generación automática de asignaturas**  
+  >   * **Given** el estudiante y el programa existen en el sistema y no hay una matrícula previa activa para el mismo `academic_term_id`.
+  >   * **When** el/la secretario/a registra la matrícula para un semestre específico.
+  >   * **Then** el sistema crea el registro en `ENROLLMENT` con estado `'CURSANDO'`, calcula la tarifa correspondiente y asocia automáticamente las materias de `PROGRAM_SUBJECT`.
+  > 
+  > **HU: Registrar calificaciones por actividad**
+  > * **Scenario: Registro de nota válido**  
+  >   * **Given** el profesor tiene asignado el grupo (`nrc`) y la actividad existe en `ACTIVITY`.
+  >   * **When** ingresa una calificación entre `0.0` y `5.0` para un estudiante inscrito.
+  >   * **Then** el sistema almacena la nota en `ACTIVITY_GRADE` y recalcula la nota definitiva en `ENROLLMENT_GROUP`.
+  > 
+  > **HU: Registrar graduación de estudiante**
+  > * **Scenario: Graduación válida con documento PDF**  
+  >   * **Given** el estudiante tiene la matrícula activa en el programa.
+  >   * **When** el/la secretario/a registra la fecha, número de acta y adjunta el archivo en formato PDF.
+  >   * **Then** el sistema crea la entrada en `GRADUATED` y cambia el estado de la matrícula en `STATUS`."*
+
+---
+
+### Prompt 8: Asignación y Sintaxis de Dominios en Data Modeler
+* **Pregunta del estudiante:**  
+  > *"¿Cómo configuro en Oracle Data Modeler los tipos de datos exactos, tamaños y las restricciones CHECK para la tabla `STUDENT` y `ATTENDANCE`?"*
+* **Respuesta de la IA:**  
+  Guía paso a paso en Data Modeler especificando:
+  * `STUDENT.stratum`: `NUMBER(1,0)` con regla de valor `CHECK (stratum BETWEEN 1 AND 6)`.
+  * `ATTENDANCE.attended`: `VARCHAR2(1)` con regla de valor `CHECK (attended IN ('Y', 'N'))`.
+  * `ACTIVITY_GRADE.grade`: `NUMBER(3,2)` con regla de valor `CHECK (grade BETWEEN 0.0 AND 5.0)`.
+
+---
+
+### Prompt 9: Correcciones del Modelo Entidad-Relación (MER PDF)
+* **Pregunta del estudiante:**  
+  > *"El profesor nos pidió corregir el MER para que no haya ambigüedad entre las actividades, los grupos y los profesores. ¿Cómo debe ser la jerarquía visual del MER de Fundaobrera?"*
+* **Respuesta de la IA:**  
+  Reestructuración conceptual del diagrama:
+  1. `TEACHER` enseña (`teaches`) `GROUP`.
+  2. `GROUP` contiene (`has`) múltiples `ACTIVITY`.
+  3. `ENROLLMENT_GROUP` relaciona `ENROLLMENT` y `GROUP`.
+  4. `ACTIVITY_GRADE` conecta `ENROLLMENT_GROUP` con `ACTIVITY`.
+  5. `ATTENDANCE` se vincula directamente a `ENROLLMENT_GROUP` para registrar la presencia del estudiante por clase.
