@@ -1,0 +1,121 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="046CABB8-621D-6BD2-196A-66936B2F4CAC" name="STUDENT">
+<createdBy>jeanf</createdBy>
+<createdTime>2026-10-04 02:18:20 UTC</createdTime>
+<generatorID>3D8C5FD5-07DA-FEEA-6E16-B5473E35E777</generatorID>
+<ownerDesignName>PROYECTO DE FUNDAOBRERA</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="document_number" id="EE25405E-3F56-82CA-1A9C-8897DD5CFA56">
+<createdBy>jeanf</createdBy>
+<createdTime>2026-10-04 02:18:20 UTC</createdTime>
+<generatorID>16ADF24B-5CCE-CCDC-DF5F-990768EB06CE</generatorID>
+<ownerDesignName>PROYECTO DE FUNDAOBRERA</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20</dataTypeSize>
+<ownDataTypeParameters>20,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="full_name" id="960FBCBB-46DA-F3C4-9847-D2C4BFDBA055">
+<createdBy>jeanf</createdBy>
+<createdTime>2026-10-04 02:18:20 UTC</createdTime>
+<generatorID>64D603C3-5506-56BB-396F-2C692173C8C8</generatorID>
+<ownerDesignName>PROYECTO DE FUNDAOBRERA</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100</dataTypeSize>
+<ownDataTypeParameters>100,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="document_type" id="301B53C5-3A36-0AC4-E63A-00DE9A677BFD">
+<createdBy>jeanf</createdBy>
+<createdTime>2026-10-04 02:18:20 UTC</createdTime>
+<generatorID>5BFD9814-D477-1DD1-CF17-F44187095967</generatorID>
+<ownerDesignName>PROYECTO DE FUNDAOBRERA</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>5</dataTypeSize>
+<ownDataTypeParameters>5,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="birth_date" id="C5CBAB09-A8A3-1E79-65CC-743FA97A05B3">
+<createdBy>jeanf</createdBy>
+<createdTime>2026-10-04 02:18:20 UTC</createdTime>
+<generatorID>E3AE306D-2C8E-9023-5A8C-8F4F2AF7E290</generatorID>
+<ownerDesignName>PROYECTO DE FUNDAOBRERA</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="phone" id="B0B09C88-5152-B2B3-9A4D-BE8E18F0D3DE">
+<createdBy>jeanf</createdBy>
+<createdTime>2026-10-04 02:18:20 UTC</createdTime>
+<generatorID>2EBC4801-477D-A1B2-E1B6-AD4346B27921</generatorID>
+<ownerDesignName>PROYECTO DE FUNDAOBRERA</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>15</dataTypeSize>
+<ownDataTypeParameters>15,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="address" id="B854288F-BE66-CF1D-72AD-3D4C10D92B23">
+<createdBy>jeanf</createdBy>
+<createdTime>2026-10-04 02:18:20 UTC</createdTime>
+<generatorID>393AE06D-D1FE-10DF-73EF-0F93D9DE0C07</generatorID>
+<ownerDesignName>PROYECTO DE FUNDAOBRERA</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>150</dataTypeSize>
+<ownDataTypeParameters>150,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="email" id="5AA35C91-96F0-0481-A176-9C04CE008D9C">
+<createdBy>jeanf</createdBy>
+<createdTime>2026-10-04 02:18:20 UTC</createdTime>
+<generatorID>01E4A5D1-2A42-F4E5-2C83-3983F733A575</generatorID>
+<ownerDesignName>PROYECTO DE FUNDAOBRERA</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>120</dataTypeSize>
+<ownDataTypeParameters>120,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="stratum" id="2822CB5D-4978-7370-9A53-533D41ECCB52">
+<createdBy>jeanf</createdBy>
+<createdTime>2026-10-04 02:18:20 UTC</createdTime>
+<generatorID>DCC50789-35EE-FDA9-8115-193450E4B3B0</generatorID>
+<ownerDesignName>PROYECTO DE FUNDAOBRERA</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>1</dataTypePrecision>
+<ownDataTypeParameters>,1,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="B80F45E7-91D3-35B5-B347-F8DB815F1214" name="STUDENT_PK">
+<createdBy>jeanf</createdBy>
+<createdTime>2026-10-04 02:18:20 UTC</createdTime>
+<generatorID>C1796C0C-AC7C-A1D0-97DD-D2690B5B4D98</generatorID>
+<ownerDesignName>PROYECTO DE FUNDAOBRERA</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="EE25405E-3F56-82CA-1A9C-8897DD5CFA56"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

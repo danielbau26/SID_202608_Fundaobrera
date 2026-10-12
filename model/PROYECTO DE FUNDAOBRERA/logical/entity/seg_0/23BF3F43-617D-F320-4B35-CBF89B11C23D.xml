@@ -1,0 +1,40 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="23BF3F43-617D-F320-4B35-CBF89B11C23D" name="STATUS">
+<createdBy>Usuario</createdBy>
+<createdTime>2026-09-29 02:24:37 UTC</createdTime>
+<ownerDesignName>PROYECTO DE FUNDAOBRERA</ownerDesignName>
+<engineerTo>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="name" id="FE76DE36-6A81-0B05-4F2E-8037B16A8B53">
+<createdBy>Usuario</createdBy>
+<createdTime>2026-09-29 02:24:45 UTC</createdTime>
+<ownerDesignName>PROYECTO DE FUNDAOBRERA</ownerDesignName>
+<engineerTo>
+</engineerTo>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="188FFF27-0E3C-F890-B673-6B271B453AA8" name="STATUS PK">
+<createdBy>Usuario</createdBy>
+<createdTime>2026-09-29 02:24:55 UTC</createdTime>
+<ownerDesignName>PROYECTO DE FUNDAOBRERA</ownerDesignName>
+<engineerTo>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>FE76DE36-6A81-0B05-4F2E-8037B16A8B53</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

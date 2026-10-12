@@ -1,0 +1,38 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="D1366EF2-E65B-4E3C-5864-75850F2F5D6C" name="STATUS">
+<createdBy>jeanf</createdBy>
+<createdTime>2026-10-04 02:18:20 UTC</createdTime>
+<generatorID>23BF3F43-617D-F320-4B35-CBF89B11C23D</generatorID>
+<ownerDesignName>PROYECTO DE FUNDAOBRERA</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="name" id="CF2D4517-AF8F-CCF0-C4C4-391DB91E00B7">
+<createdBy>jeanf</createdBy>
+<createdTime>2026-10-04 02:18:20 UTC</createdTime>
+<generatorID>FE76DE36-6A81-0B05-4F2E-8037B16A8B53</generatorID>
+<ownerDesignName>PROYECTO DE FUNDAOBRERA</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20</dataTypeSize>
+<ownDataTypeParameters>20,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="4D2821F1-D055-6045-2719-8ABB461D72B5" name="STATUS_PK">
+<createdBy>jeanf</createdBy>
+<createdTime>2026-10-04 02:18:20 UTC</createdTime>
+<generatorID>188FFF27-0E3C-F890-B673-6B271B453AA8</generatorID>
+<ownerDesignName>PROYECTO DE FUNDAOBRERA</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="CF2D4517-AF8F-CCF0-C4C4-391DB91E00B7"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

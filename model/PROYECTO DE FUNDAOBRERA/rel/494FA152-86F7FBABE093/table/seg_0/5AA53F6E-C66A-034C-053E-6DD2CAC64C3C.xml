@@ -1,0 +1,126 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="5AA53F6E-C66A-034C-053E-6DD2CAC64C3C" name="GRADUATED">
+<createdBy>jeanf</createdBy>
+<createdTime>2026-10-04 02:18:20 UTC</createdTime>
+<generatorID>0DA6882B-9A28-AAAF-C92E-0E9121F760E5</generatorID>
+<ownerDesignName>PROYECTO DE FUNDAOBRERA</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="graduation_date" id="A038B088-149A-FB5D-88BB-E50B651A1D4E">
+<createdBy>jeanf</createdBy>
+<createdTime>2026-10-04 02:18:20 UTC</createdTime>
+<generatorID>FC65B00C-847A-036A-6B5E-07EBC9653803</generatorID>
+<ownerDesignName>PROYECTO DE FUNDAOBRERA</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="certificate_number" id="641D8AEE-0C48-932E-163C-397B218534FD">
+<createdBy>jeanf</createdBy>
+<createdTime>2026-10-04 02:18:20 UTC</createdTime>
+<generatorID>5D7EE089-E6C6-BD3C-8E0A-8C28EE6C712C</generatorID>
+<ownerDesignName>PROYECTO DE FUNDAOBRERA</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>30</dataTypeSize>
+<ownDataTypeParameters>30,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="certificate_document" id="DC794EA4-F8FA-A0EF-4346-A22E20D37E70">
+<createdBy>jeanf</createdBy>
+<createdTime>2026-10-04 02:18:20 UTC</createdTime>
+<generatorID>A1D9220D-93CC-2FBC-7A10-BE2A4EEB1F21</generatorID>
+<ownerDesignName>PROYECTO DE FUNDAOBRERA</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>255</dataTypeSize>
+<ownDataTypeParameters>255,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="STUDENT_document_number" id="5EAAACF7-62B3-3CEF-46FD-3F3E2593138D">
+<createdBy>jeanf</createdBy>
+<createdTime>2026-10-04 02:18:20 UTC</createdTime>
+<generatorID>FEF8E0BC-E942-8F92-53CC-97FDCACA4FAA</generatorID>
+<ownerDesignName>PROYECTO DE FUNDAOBRERA</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20</dataTypeSize>
+<ownDataTypeParameters>20,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="6849B2BC-7AE8-5D54-7E73-5B65E2F13894" referredColumn="EE25405E-3F56-82CA-1A9C-8897DD5CFA56"/>
+</associations>
+</Column>
+<Column name="PROGRAM_program_id" id="DEB7DB4D-9DB8-74C1-EC40-87F46C851A22">
+<createdBy>jeanf</createdBy>
+<createdTime>2026-10-04 02:18:20 UTC</createdTime>
+<generatorID>2DAFF97F-A676-A394-F38E-8F134028140D</generatorID>
+<ownerDesignName>PROYECTO DE FUNDAOBRERA</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20</dataTypeSize>
+<ownDataTypeParameters>20,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="195BB2F1-149D-45A2-BFB6-B8FC3E86A667" referredColumn="90BE1B76-AE7A-4F9E-0B04-91F97BF33A33"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="5BAC2861-F2F3-5593-2A97-94555D9F77C8" name="GRADUATED_PK">
+<createdBy>jeanf</createdBy>
+<createdTime>2026-10-04 02:18:20 UTC</createdTime>
+<generatorID>CE0B4E63-8B2E-0E14-9410-3BA2B10DF336</generatorID>
+<ownerDesignName>PROYECTO DE FUNDAOBRERA</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="5EAAACF7-62B3-3CEF-46FD-3F3E2593138D"/>
+<colUsage columnID="DEB7DB4D-9DB8-74C1-EC40-87F46C851A22"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="CC0CDB25-07E3-B1FF-1815-DD1A14EC662A" name="GRADUATED__UN">
+<createdBy>jeanf</createdBy>
+<createdTime>2026-10-04 02:36:40 UTC</createdTime>
+<ownerDesignName>PROYECTO DE FUNDAOBRERA</ownerDesignName>
+<indexState>Unique Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="641D8AEE-0C48-932E-163C-397B218534FD"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="52EC8582-C870-CF20-79F4-24A51623D9D3" name="GRADUATED_STUDENT_FK">
+<createdBy>jeanf</createdBy>
+<createdTime>2026-10-04 02:18:20 UTC</createdTime>
+<generatorID>8053E756-CF22-9D05-B1AC-3DAE652379FD</generatorID>
+<ownerDesignName>PROYECTO DE FUNDAOBRERA</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="5EAAACF7-62B3-3CEF-46FD-3F3E2593138D"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="E157AF05-9506-1A43-0A95-1C29522CC9D1" name="GRADUATED_PROGRAM_FK">
+<createdBy>jeanf</createdBy>
+<createdTime>2026-10-04 02:18:20 UTC</createdTime>
+<generatorID>F48EE7F9-F013-C0FF-A260-D31DBCC186F7</generatorID>
+<ownerDesignName>PROYECTO DE FUNDAOBRERA</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="DEB7DB4D-9DB8-74C1-EC40-87F46C851A22"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

@@ -1,0 +1,93 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="E4D82142-248C-D5F3-E216-2E162CCAC8EA" name="PROGRAM_SUBJECT">
+<createdBy>jeanf</createdBy>
+<createdTime>2026-10-04 02:18:20 UTC</createdTime>
+<generatorID>597E4E59-1AC7-E800-0689-CE22C8CFC83D</generatorID>
+<ownerDesignName>PROYECTO DE FUNDAOBRERA</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="PROGRAM_program_id" id="40AB09DD-F725-9ADE-99F2-823C0A1E2BE1">
+<createdBy>jeanf</createdBy>
+<createdTime>2026-10-04 02:18:20 UTC</createdTime>
+<generatorID>1EEF14B3-7AAF-111B-7CA9-36C76B093C87</generatorID>
+<ownerDesignName>PROYECTO DE FUNDAOBRERA</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20</dataTypeSize>
+<ownDataTypeParameters>20,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="395EEA1F-43EE-EB86-69C0-3E8E905D18C1" referredColumn="90BE1B76-AE7A-4F9E-0B04-91F97BF33A33"/>
+</associations>
+</Column>
+<Column name="SUBJECT_subject_id" id="4A8DD9D3-B2A0-19F6-F4A6-0085ECD94726">
+<createdBy>jeanf</createdBy>
+<createdTime>2026-10-04 02:18:20 UTC</createdTime>
+<generatorID>5FEF5431-81FC-7494-1BD1-B5590899A61F</generatorID>
+<ownerDesignName>PROYECTO DE FUNDAOBRERA</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20</dataTypeSize>
+<ownDataTypeParameters>20,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="C76193C9-2272-818C-543B-8C8F098D5DE0" referredColumn="FDDE95C5-5904-0FB4-57C2-0938D9004E10"/>
+</associations>
+</Column>
+<Column name="semester" id="2882C726-6ADE-AA30-6B10-C9353CA82FCF">
+<createdBy>jeanf</createdBy>
+<createdTime>2026-10-04 02:18:20 UTC</createdTime>
+<generatorID>7EB77220-0A72-9AC0-3368-61F7DFD7E980</generatorID>
+<ownerDesignName>PROYECTO DE FUNDAOBRERA</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>2</dataTypePrecision>
+<ownDataTypeParameters>,2,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="2000F540-6736-0673-161A-6EE14C6E72CA" name="PROGRAM_SUBJECT_PK">
+<createdBy>jeanf</createdBy>
+<createdTime>2026-10-04 02:18:20 UTC</createdTime>
+<generatorID>BC181690-FD03-7798-2E2E-E26AAC9DC8C2</generatorID>
+<ownerDesignName>PROYECTO DE FUNDAOBRERA</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="40AB09DD-F725-9ADE-99F2-823C0A1E2BE1"/>
+<colUsage columnID="4A8DD9D3-B2A0-19F6-F4A6-0085ECD94726"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="32405DBF-D615-29F2-1A50-9F596C326444" name="PROGRAM_SUBJECT_PROGRAM_FK">
+<createdBy>jeanf</createdBy>
+<createdTime>2026-10-04 02:18:20 UTC</createdTime>
+<generatorID>06EE5810-53BC-3E23-4A2D-36A5503E7DA3</generatorID>
+<ownerDesignName>PROYECTO DE FUNDAOBRERA</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="40AB09DD-F725-9ADE-99F2-823C0A1E2BE1"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="915CCF4C-8E2C-EDF8-0A69-95DDA4E6A435" name="PROGRAM_SUBJECT_SUBJECT_FK">
+<createdBy>jeanf</createdBy>
+<createdTime>2026-10-04 02:18:20 UTC</createdTime>
+<generatorID>ED125A30-EED9-AF03-2A3B-5E6B26F1F26D</generatorID>
+<ownerDesignName>PROYECTO DE FUNDAOBRERA</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="4A8DD9D3-B2A0-19F6-F4A6-0085ECD94726"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

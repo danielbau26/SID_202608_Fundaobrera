@@ -338,29 +338,31 @@ Then el sistema debe mostrar un mensaje indicando que no existen materias regist
 
 #### **Título: Registrar estudiante**
 
-Yo como secretario/a de Fundaobrera,
+Yo, como secretario/a de Fundaobrera,
 
-Quiero registrar la información personal y académica de un estudiante,
+Quiero registrar la información personal, de contacto y laboral de un estudiante,
 
-Para mantener la información centralizada y actualizada de todos los estudiantes en la institución.
+Para mantener centralizada y actualizada la información de los estudiantes de la institución.
 
 **Criterios de aceptación:**
 
 **Scenario: Registro exitoso de un estudiante**
 
- Given El empleado se encuentra en la opción de registrar estudiante e ingresa todos los datos necesarios del estudiante como nombre, tipo y número de documento, fecha de nacimiento, dirección, correo electrónico, estrato y experiencia laboral
+Given el empleado se encuentra en la opción de registrar estudiante
 
-When el empleado confirma el registro
+When ingresa nombre completo, tipo y número de documento, fecha de nacimiento, teléfono, dirección, correo electrónico, estrato e indica si el estudiante trabaja
 
-Then el sistema debe crear al estudiante y mostrar un mensaje con la confirmación de que el registro fue exitoso
+And registra la empresa y el cargo actuales cuando el estudiante trabaja
 
-**Scenario: Registro de estudiante fallido por número de identificación ya registrado antes**
+Then el sistema crea al estudiante y muestra un mensaje indicando que el registro fue exitoso.
 
- Given El empleado se encuentra en la opción de registrar estudiante y se encuentra con que ya hay un estudiante registrado con ese número de identificación
+**Scenario: Registro fallido por número de documento duplicado**
 
-When El empleado confirma el registro
+Given existe un estudiante registrado con el número de documento ingresado
 
-Then el sistema rechaza el registro y aparece un mensaje de error diciendo que esa identificación ya esta registrada
+When el empleado intenta confirmar el registro de otro estudiante con ese número
+
+Then el sistema rechaza el registro e indica que el número de documento ya está registrado.
 
 #### **Título: Consultar estudiante**
 
@@ -442,29 +444,30 @@ Then el sistema arroja un mensaje indicando que no se encontró ningún estudian
 
 #### **Título: Registrar matricula de estudiante**
 
-Yo como secretario/a de Fundaobrera,
+Yo, como secretario/a de Fundaobrera,
 
 Quiero registrar la matrícula de un estudiante en un programa, semestre y periodo académico,
 
-Para oficializar su inscripción y asignarle de forma automática las materias que debe cursar.
+Para oficializar su inscripción y asignarle automáticamente las materias que debe cursar.
 
 **Criterios de aceptación:**
 
-**Scenario: Registro exitoso de matricula**
+**Scenario: Registro exitoso de matrícula**
 
-  Given el estudiante y el programa se encuentran registrados en el sistema y el estudiante no tiene otra matrícula para ese mismo programa y periodo académico
+Given el estudiante, el programa y el periodo académico se encuentran registrados y el estudiante no tiene otra matrícula para ese mismo programa y periodo
 
-When el empleado registra el estudiante, el programa, el semestre y el periodo académico
+When el empleado registra la matrícula indicando el estudiante, programa, semestre y periodo académico
 
-Then el sistema debe crear la matrícula, asociar automáticamente las materias del semestre correspondiente, tomar el valor del semestre vigente del programa y mostrar un mensaje indicando que el registro fue exitoso
+Then el sistema crea la matrícula, asocia automáticamente las materias del programa y semestre correspondiente y muestra un mensaje indicando que el registro fue exitoso.
 
-**Scenario: Registro fallido por matrícula duplicada en el mismo periodo**
+**Scenario: Registro fallido por matrícula duplicada**
 
-  Given el estudiante ya tiene una matrícula activa para el mismo programa y periodo académico
+Given el estudiante ya tiene una matrícula para el mismo programa y periodo académico
 
-When el empleado intenta registrar una nueva matrícula para ese estudiante, programa y periodo
+When el empleado intenta registrar otra matrícula para ese estudiante, programa y periodo
 
-Then el sistema debe rechazar el registro y mostrar un mensaje indicando que el estudiante ya cuenta con una matrícula para ese programa en ese periodo
+Then el sistema rechaza el registro e indica que el estudiante ya cuenta con una matrícula para ese programa y periodo.
+
 
 #### **Título: Consultar matrículas**
 
@@ -492,31 +495,31 @@ When el empleado accede a la opción de consulta de matrículas
 
 Then el sistema debe mostrar un mensaje indicando que no existen matrículas registradas
 
-#### **Título: Actualizar información de una matricular**
+#### **Título: Actualizar información de una matrícula**
 
-Yo como secretario/a de Fundaobrera,
+Yo, como secretario/a de Fundaobrera,
 
 Quiero actualizar los datos permitidos de una matrícula, como el grupo asignado a una materia,
 
-Para corregir o ajustar la inscripción del estudiante cuando sea necesario
+Para corregir o ajustar la inscripción del estudiante cuando sea necesario.
 
 **Criterios de aceptación:**
 
-**Scenario: Actualizacion exitosa de matricula**
+**Scenario: Actualización exitosa de matrícula**
 
-  Given la matrícula se encuentra registrada en el sistema y el empleado modifica un dato permitido, por ejemplo el grupo asignado a una materia
+Given la matrícula está registrada y el nuevo grupo corresponde a la misma materia, programa y periodo académico de la inscripción
 
-When el empleado confirma la actualización
+When el empleado confirma el cambio del grupo asignado
 
-Then el sistema debe guardar los cambios y mostrar un mensaje indicando que la actualización fue exitosa
+Then el sistema actualiza la inscripción del estudiante y muestra un mensaje indicando que la actualización fue exitosa.
 
-**Scenario: Actualización fallida por intento de modificar el valor de la matrícula**
+**Scenario: Actualización fallida por grupo incompatible**
 
-  Given la matrícula se encuentra registrada en el sistema
+Given la matrícula está registrada y el grupo seleccionado no corresponde a la materia, programa o periodo académico de la inscripción
 
-When el empleado intenta modificar el valor del semestre asociado a la matrícula
+When el empleado intenta confirmar el cambio de grupo
 
-Then el sistema debe rechazar el cambio y mostrar un mensaje indicando que ese valor no puede modificarse una vez creada la matrícula
+Then el sistema rechaza la actualización e indica que el grupo no corresponde a la inscripción.
 
 #### **Título: Cambiar estado de matricula**
 
@@ -630,25 +633,25 @@ Yo, como secretario/a de Fundaobrera,
 
 Quiero registrar un profesor con sus datos personales y de contacto,
 
-Para tener su información para la asignación de grupos.
+Para disponer de su información al asignarlo a los grupos.
 
 **Criterios de aceptación:**
 
 **Scenario: Registro exitoso de un profesor**
 
-Given la secretaría se encuentra en el apartado de registro de profesor
+Given la secretaria se encuentra en la opción de registrar profesor
 
-When ingresa nombre completo, tipo de documento, número de documento, correo y teléfono
+When ingresa nombre completo, tipo de documento, número de documento, dirección, correo electrónico y teléfono
 
-Then el sistema acepta la creación del profesor
+Then el sistema crea al profesor y muestra un mensaje indicando que el registro fue exitoso
 
-**Scenario: Registro del profesor con datos incompletos**
+**Scenario: Registro fallido por datos incompletos**
 
-Given la secretaría se encuentra en el apartado de registro de profesor
+Given la secretaria se encuentra en la opción de registrar profesor
 
-When deja los campos vacíos
+When intenta confirmar el registro sin completar uno o más datos obligatorios
 
-Then el sistema rechaza la creación del profesor y indica con un (*) los campos obligatorios
+Then el sistema rechaza el registro e indica cuáles campos obligatorios debe completar
 
 #### **Título: Consultar profesores**
 
@@ -704,29 +707,29 @@ Then el sistema debe indicar con (*) los datos que deben corregirse.
 
 #### **Título: Crear grupo de una materia**
 
-Yo, como secretario/a de Fundaobrera
+Yo, como secretario/a de Fundaobrera,
 
-Quiero crear grupos para las materias de un programa
+Quiero crear grupos para las materias de un programa,
 
-Para organizar las clases que serán dictadas por los profesores.
+Para organizar las clases que serán dictadas durante cada periodo académico.
 
 **Criterios de aceptación:**
 
 **Scenario: Creación exitosa de un grupo**
 
-Given que existe una materia, un programa y un periodo académico registrados
+Given la materia está asociada al programa y existen un periodo académico y un profesor registrados
 
-When la secretaria crea un grupo indicando la materia, programa, semestre y periodo académico
+When la secretaria crea el grupo indicando NRC, materia, programa, semestre, periodo académico y profesor
 
-Then el sistema debe crear el grupo con un identificador único.
+Then el sistema crea el grupo con un NRC único para todo el sistema, que no podrá reutilizarse en periodos posteriores.
 
-**Scenario: Creación de grupo con información inexistente**
+**Scenario: Creación fallida por NRC ya utilizado**
 
-Given que la secretaría intenta crear un grupo asociándolo a una materia, programa o periodo académico que no existe
+Given el NRC ingresado ya pertenece a un grupo del periodo actual o de un periodo anterior
 
-When solicita crear el grupo
+When la secretaria intenta crear el grupo con ese NRC
 
-Then el sistema debe rechazar la creación del grupo indicando no existe alguna de las relaciones.
+Then el sistema rechaza la creación e indica que el NRC ya fue utilizado.
 
 #### **Título: Consultar grupos**
 
@@ -808,29 +811,32 @@ Then el sistema debe informar que no tiene grupos asignados.
 
 #### **Título: Asignar estudiante a un grupo**
 
-Yo, como secretario/a de Fundaobrera
+Yo, como secretario/a de Fundaobrera,
 
-Quiero asignar un estudiante a un grupo de una materia
+Quiero asignar un estudiante a un grupo de una materia de su matrícula,
 
-Para establecer el grupo que cursará el estudiante durante su matrícula.
+Para establecer el grupo que cursará durante el periodo académico.
 
 **Criterios de aceptación:**
 
 **Scenario: Asignación exitosa del estudiante**
 
-Given que el estudiante tiene una matrícula y la materia tiene grupos disponibles para el programa
+Given el estudiante tiene una matrícula, la materia está asociada a ella y el grupo corresponde a esa materia, programa y periodo académico
 
-When la secretaria asigne el estudiante a uno de los grupos
+And el estudiante no tiene otro grupo asignado para esa materia dentro de la matrícula
 
-Then el sistema debe registrar correctamente la asignación del estudiante al grupo
+When la secretaria confirma la asignación al grupo
 
-**Scenario: El estudiante ya pertenece a un grupo de la misma materia**
+Then el sistema crea la inscripción del estudiante al grupo, vinculada a su matrícula, para asociar sus notas y asistencia.
 
-Given que el estudiante ya está asignado a un grupo de una materia dentro de su matrícula
+**Scenario: Asignación fallida por grupo incompatible**
 
-When la secretaría intente asignarlo a otro grupo de la misma materia
+Given el estudiante tiene una matrícula y el grupo seleccionado pertenece a otra materia, programa o periodo académico
 
-Then el sistema debe rechazar la asignación e indicar que el estudiante ya tiene un grupo asignado para esa materia.
+When la secretaria intenta asignar al estudiante a ese grupo
+
+Then el sistema rechaza la asignación e indica que el grupo no corresponde a la materia, programa o periodo académico de la matrícula.
+rechazar la asignación e indicar que el estudiante ya tiene un grupo asignado para esa materia.
 
 #### **Título: Consultar estudiantes de un grupo**
 
@@ -862,55 +868,56 @@ Then el sistema debe rechazar la consulta y no mostrar información de los estud
 
 #### **Título: Registro de calificaciones de estudiantes**
 
-Yo, como profesor
+Yo, como profesor,
 
-Quiero registrar las calificaciones de los estudiantes que tengo asignados en mis materias
+Quiero registrar las notas de las actividades evaluativas de los estudiantes inscritos en mis grupos asignados,
 
-Para mantener actualizado su desempeño académico y permitir la consulta de su historial académico.
+Para mantener actualizado su desempeño académico y permitir el cálculo de la calificación definitiva de cada materia.
 
 **Criterios de aceptación:**
 
 **Scenario: Registro exitoso de una calificación**
 
-Given el profesor tiene asignado un grupo y puede consultar los estudiantes pertenecientes a este
+Given el profesor tiene asignado el grupo, el estudiante está inscrito en él y la actividad evaluativa pertenece a ese grupo
 
-When registra una calificación entre 0.0 y 5.0 para un estudiante
+When registra una calificación entre 0.0 y 5.0 para el estudiante en la actividad evaluativa
 
-Then el sistema guarda la calificación asociada al estudiante y a la materia correspondiente.
+Then el sistema guarda la nota asociada a la actividad evaluativa y a la inscripción del estudiante en el grupo.
 
 **Scenario: Calificación fuera del rango permitido**
 
-Given el profesor está registrando la calificación de un estudiante
+Given el profesor tiene asignado el grupo y está registrando la nota de una actividad evaluativa de un estudiante inscrito
 
 When ingresa una calificación menor a 0.0 o mayor a 5.0
 
-Then el sistema rechaza la calificación y muestra un mensaje indicando que debe estar entre 0.0 y 5.0
+Then el sistema rechaza el registro e indica que la calificación debe estar entre 0.0 y 5.0.
+
 
 #### **Título: Actualización de calificaciones de estudiantes**
 
-Yo, como profesor
+Yo, como profesor,
 
-Quiero actualizar las calificaciones de los estudiantes que tengo asignados
+Quiero actualizar las notas de las actividades evaluativas de los estudiantes inscritos en mis grupos asignados,
 
-Para corregir errores o mantener actualizada la información de su desempeño académico.
+Para corregir errores y mantener actualizada la información de su desempeño académico.
 
 **Criterios de aceptación:**
 
 **Scenario: Actualización exitosa de una calificación**
 
-Given el estudiante tiene una calificación registrada en una materia asignada al profesor
+Given el profesor tiene asignado el grupo y el estudiante tiene una nota registrada en una actividad evaluativa de ese grupo
 
 When el profesor ingresa una nueva calificación válida entre 0.0 y 5.0
 
-Then el sistema actualiza la calificación y almacena el nuevo valor.
+Then el sistema actualiza la nota asociada a la actividad evaluativa y a la inscripción del estudiante.
 
-**Scenario: Profesor intenta actualizar una calificación no asignada**
+**Scenario: Profesor intenta actualizar una calificación de un grupo no asignado**
 
-Given el profesor no tiene asignado al estudiante o la materia correspondiente
+Given la calificación pertenece a una actividad evaluativa de un grupo que el profesor no tiene asignado
 
 When intenta actualizar la calificación
 
-Then el sistema rechaza la operación y no modifica la calificación existente.
+Then el sistema rechaza la operación y conserva la nota sin cambios.
 
 #### **Título: Registro de asistencia de estudiantes**
 
@@ -1130,113 +1137,118 @@ Given un estudiante tiene materias asignadas pero no tiene calificaciones regist
 
 When la secretaria consulta sus materias aprobadas y no aprobadas
 
-Then el sistema informa que no existen calificaciones suficientes para determinar el estado de aprobación.
+Then the system reports that there are not enough grades to determine the approval status.
 
-### **Pagos y Consultas consolidadas**
+#### **Título: Registrar actividades evaluativas de un grupo**
 
-#### **Título: Registro de pago de matricula**
+Yo, como profesor/a de Fundaobrera,
 
-Yo, como secretaria de fundaobrera
+Quiero registrar las actividades evaluativas de los grupos que tengo asignados,
 
-Quiero registrar el pago de la matricula
-
-Para mantener actualizado el estado financiero de los est
+Para definir las evaluaciones y sus porcentajes para calcular la calificación definitiva de cada materia.
 
 **Criterios de aceptación:**
 
-**Scenario: registro de pago exitoso**
+**Scenario: Registro exitoso de una actividad evaluativa**
 
-Given hay saldo pendiente
+Given el profesor tiene asignado un grupo
 
-When la secretaria registra el pago, indicando monto, metodo de pago, fecha y descripcion.
+When registra una actividad evaluativa indicando un identificador único, nombre, porcentaje y fecha
 
-Then el sistema guarda el pago y actualiza el saldo.
+Then el sistema guarda la actividad evaluativa asociada al grupo.
 
-**Scenario: registro de pago no exitoso**
+**Scenario: Registro fallido por identificador duplicado**
 
-Given hay saldo pendiente
+Given existe una actividad evaluativa registrada con el mismo identificador
 
-When la secretaria intenta registrar un pago con un monto mayor al pendiente
+When el profesor intenta registrar una nueva actividad con ese identificador
 
-Then el pago es rechazado por el sistema
+Then el sistema rechaza el registro e indica que el identificador ya está registrado.
 
-#### **Título: consultar pagos de una matricula**
 
-Yo, como secretaria
+#### **Título: Consultar actividades evaluativas de un grupo**
 
-Quiero consultar los pagos de una matricula
+Yo, como profesor/a de Fundaobrera,
 
-Para conocer el historial de abonos realizados
+Quiero consultar las actividades evaluativas de los grupos que tengo asignados,
 
-**Criterios de aceptación:**
-
-**Scenario: consulta exitosa de pagos**
-
-Given hay pagos registrados de una matricula
-
-When la secretaria consulta los pagos realizados
-
-Then el sistema muestra los pagos registrados
-
-**Scenario: matricula sin pagos registrados**
-
-Given no hay pagos registrados asociados a la matricula
-
-When la secretaria intenta consultar un registro de pagos inexistente
-
-Then el sistema informa que no existen pagos registrados asociados a esa matricula
-
-#### **Título: consultar saldo pendiente de una matricula**
-
-Yo, como secretaria
-
-Quiero consultar el saldo de una matricula
-
-Para conocer si la matricula tiene saldo pendiente
+Para conocer las evaluaciones registradas y sus porcentajes correspondientes.
 
 **Criterios de aceptación:**
 
-**Scenario: Matrícula con saldo pendiente**
+**Scenario: Consulta exitosa de actividades evaluativas**
 
- Given la matrícula tiene un saldo pendiente mayor a 0
+Given el profesor tiene asignado un grupo con actividades evaluativas registradas
 
-When la secretaria consulta el saldo de la matrícula
+When consulta las actividades evaluativas del grupo
 
-Then el sistema muestra el monto pendiente por pagar
+Then el sistema muestra el identificador, nombre, porcentaje y fecha de cada actividad.
 
-**Scenario: Matrícula sin saldo pendiente**
+**Scenario: Profesor intenta consultar un grupo no asignado**
 
- Given la matrícula no tiene saldo pendiente
+Given el profesor no tiene asignado el grupo seleccionado
 
-When la secretaria consulta el saldo de la matrícula
+When intenta consultar sus actividades evaluativas
 
-Then el sistema muestra que la matricula esta al dia
+Then el sistema rechaza la consulta y no muestra la información.
 
-#### **Título: Consultar estudiantes matriculados por programa**
 
-Yo, como secretaria de Fundaobrera
+#### **Título: Calcular calificación definitiva de una materia**
 
-Quiero consultar los estudiantes matriculados en un programa
+Yo, como profesor/a de Fundaobrera,
 
-Para conocer los estudiantes que pertenecen a un programa
+Quiero que el sistema calcule automáticamente la calificación definitiva de cada estudiante en una materia,
+
+Para obtener el resultado académico a partir de las notas de las actividades evaluativas y sus porcentajes.
 
 **Criterios de aceptación:**
 
-**Scenario: Programa con estudiantes matriculados**
+**Scenario: Cálculo exitoso de la calificación definitiva**
 
- Given el programa tiene estudiantes matriculados
+Given el estudiante está inscrito en un grupo y tiene registradas las notas de todas sus actividades evaluativas
 
-When la secretaria consulta los estudiantes matriculados en el programa
+And los porcentajes de las actividades suman el 100 %
 
-Then el sistema muestra los estudiantes matriculados a ese programa
+When el sistema calcula la calificación definitiva
 
-**Scenario: Programa sin estudiantes matriculados**
+Then el sistema multiplica cada nota por su porcentaje correspondiente y suma los resultados para obtener la calificación definitiva de la materia.
 
- Given el programa no tiene estudiantes matriculados
+**Scenario: Información incompleta para calcular la calificación definitiva**
 
-When la secretaria consulta los estudiantes matriculados en el programa
+Given faltan notas de actividades evaluativas o sus porcentajes no suman el 100 %
 
-Then el sistema muestra un mensaje que indique que el programa no cuenta con estudiantes
+When se solicita calcular la calificación definitiva
+
+Then el sistema informa que no se puede obtener la calificación definitiva e indica la información que debe completarse o corregirse.
+
+
+#### **Título: Actualizar asistencia de estudiantes**
+
+Yo, como profesor/a de Fundaobrera,
+
+Quiero actualizar los registros de asistencia de los estudiantes de mis grupos asignados,
+
+Para corregir errores y mantener actualizado su historial de asistencia.
+
+**Criterios de aceptación:**
+
+**Scenario: Actualización exitosa de asistencia**
+
+Given el profesor tiene asignado un grupo y existe un registro de asistencia de un estudiante inscrito para una fecha determinada
+
+When modifica el registro indicando si el estudiante asistió o no
+
+Then el sistema guarda el cambio en el registro de asistencia correspondiente.
+
+**Scenario: Profesor intenta actualizar asistencia de un grupo no asignado**
+
+Given el profesor no tiene asignado el grupo al que pertenece el registro de asistencia
+
+When intenta actualizar el registro
+
+Then el sistema rechaza la operación y conserva el registro sin cambios.
+
+### **Consultas consolidadas**
 
 #### **Título: Consultar cantidad de estudiantes por programa y periodo**
 
@@ -1315,55 +1327,3 @@ Then el sistema muestra los estudiantes graduados y en que fecha se graduaron
 When la secretaria consulta los estudiantes graduados
 
 Then el sistema muestra un mensaje que indique que no hay estudiantes graduados
-
-#### **Título: Consultar total recaudado por periodo académico**
-
-Yo, como secretaria de Fundaobrera
-
-Quiero consultar el total recaudado en un periodo académico
-
-Para conocer el dinero total recaudado durante ese periodo
-
-**Criterios de aceptación:**
-
-**Scenario: Existen pagos registrados en el periodo**
-
- Given existen pagos registrados en el periodo académico consultado
-
-When la secretaria consulta el total recaudado del periodo
-
-Then el sistema muestra el total recaudado en ese periodo
-
-**Scenario: No existen pagos registrados en el periodo**
-
- Given no existen pagos registrados en el periodo académico consultado
-
-When la secretaria consulta el total recaudado del periodo
-
-Then el sistema muestra que el total recaudado es cero
-
-#### **Título: Consultar estudiantes con saldo pendiente**
-
-Yo, como secretaria de Fundaobrera
-
-Quiero consultar los estudiantes con saldo pendiente de pago
-
-Para conocer cuales son los estudiantes que tienen monto pendiente.
-
-**Criterios de aceptación:**
-
-**Scenario: Existen estudiantes con saldo pendiente**
-
-Given existen matrículas con saldo pendiente mayor a 0
-
-When la secretaria consulta los estudiantes con saldo pendiente
-
-Then el sistema muestra los estudiantes filtrados que deben dinero
-
-**Scenario: No existen estudiantes con saldo pendiente**
-
-Given no existen matrículas con saldo pendiente
-
-When la secretaria consulta los estudiantes con saldo pendiente
-
-Then el sistema muestra un mensaje indicando que no hay estudiantes con saldo pendiente
