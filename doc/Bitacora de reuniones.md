@@ -61,3 +61,39 @@
 | Jhoan Delgado | Sin tarea registrada en acta anterior | Actualizar las bitácoras de seguimiento (entrega 06/09/2026) | — |
 | Juan Meza | Corregir partes del enunciado | Actualizar el enunciado (con Jeanfer Rivera); Bitácoras de prompts — entrega 05-06/09/2026 | Se avanzó bastante en el MER; solo faltan los roles y corregir algunas relaciones. |
 
+## Semana 6
+
+**Fecha:** 28/09/2026
+
+| Nombre | Tarea de sesión anterior | Nueva tarea asignada | Observaciones |
+|---|---|---|---|
+| Daniel Bautista | Recordar compromisos pendientes del Acta N.° 2 | Corrección del MER (con Jeanfer Rivera, Santiago Samboni y Juan Meza) — entrega 28/09/2026 | Se revisaron las correcciones del MER hechas por los monitores y la profesora, se acordó cómo aplicarlas y se realizaron en la sesión. |
+| Jeanfer Rivera | Actualizar el enunciado; Acuerdos de trabajo | Corrección del MER — entrega 28/09/2026; Corregir el enunciado — entrega 29/09/2026 | — |
+| Santiago Samboni | Agregar roles y corregir; Readme | Corrección del MER — entrega 28/09/2026; Corregir historias de usuario (con Juan Meza) — entrega 04/10/2026 | — |
+| Jhoan Delgado | Actualizar las bitácoras de seguimiento | Bitácoras de reuniones — entrega 11/10/2026 | No asistió a la reunión. |
+| Juan Meza | Actualizar el enunciado; Bitácoras de prompts | Corrección del MER — entrega 28/09/2026; Corregir historias de usuario (con Santiago Samboni) — entrega 04/10/2026; Bitácora de prompts — entrega 11/10/2026 | — |
+
+## Semana 7
+
+**Fecha:** 30/09/2026
+
+| Nombre | Tarea de sesión anterior | Nueva tarea asignada | Observaciones |
+|---|---|---|---|
+| Daniel Bautista | Corrección del MER | Corregir el MER (con todo el equipo) — entrega 30/09/2026 | Se terminó de corregir el MER con ayuda de la profesora y el monitor. |
+| Jeanfer Rivera | Corrección del MER; Corregir el enunciado | Corregir el MER — entrega 30/09/2026; Corregir el enunciado — entrega 03/10/2026 | — |
+| Santiago Samboni | Corrección del MER; Corregir historias de usuario | Corregir el MER — entrega 30/09/2026 | — |
+| Jhoan Delgado | Bitácoras de reuniones | Corregir el MER — entrega 30/09/2026 | — |
+| Juan Meza | Corrección del MER; Corregir historias de usuario; Bitácora de prompts | Corregir el MER — entrega 30/09/2026 | Se agregó al modelo que la nota se registre por actividad evaluativa. |
+
+## Semana 8
+
+**Fecha:** 03/10/2026
+
+| Nombre | Tarea de sesión anterior | Nueva tarea asignada | Observaciones |
+|---|---|---|---|
+| Daniel Bautista | Corregir el MER | Realizar el MR (con todo el equipo) — entrega 03/10/2026 | Se realizó el MR y algunas correcciones del MER. Se recordaron las entregas del Acta N.° 6 para la entrega parcial del repositorio. |
+| Jeanfer Rivera | Corregir el MER; Corregir el enunciado | Realizar el MR — entrega 03/10/2026 | — |
+| Santiago Samboni | Corregir el MER | Realizar el MR — entrega 03/10/2026; Cambiar el dominio de cada columna y actualizar historias de usuario (con Juan Meza) — entrega 11/10/2026 | No asistió a la reunión. |
+| Jhoan Delgado | Corregir el MER | Realizar el MR — entrega 03/10/2026 | — |
+| Juan Meza | Corregir el MER | Realizar el MR — entrega 03/10/2026; Cambiar el dominio de cada columna y actualizar historias de usuario (con Santiago Samboni) — entrega 11/10/2026 | Próxima reunión por definir. |
+
