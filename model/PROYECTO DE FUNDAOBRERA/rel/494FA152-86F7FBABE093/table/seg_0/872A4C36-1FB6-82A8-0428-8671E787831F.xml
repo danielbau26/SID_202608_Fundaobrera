@@ -49,8 +49,35 @@
 <ownDataTypeParameters>20,,</ownDataTypeParameters>
 <previousColumn>false</previousColumn>
 <autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="ENROLLMENT_GROUP_GROUP_nrc" id="1AA1CC03-D49B-B045-E8D8-C94B7C68856B">
+<createdBy>USUARIO</createdBy>
+<createdTime>2026-10-12 04:43:29 UTC</createdTime>
+<ownerDesignName>PROYECTO DE FUNDAOBRERA</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>10</dataTypeSize>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
 <associations>
-<colAssociation fkAssociation="153EC257-AFE1-44CC-4AF8-1FCC6FF4C185" referredColumn="2005E236-4E36-8894-4941-54D716765B5F"/>
+<colAssociation fkAssociation="153EC257-AFE1-44CC-4AF8-1FCC6FF4C185" referredColumn="1FF496C6-88C8-1A73-AA59-A71EE592C94F"/>
+</associations>
+</Column>
+<Column name="ENROLLMENT_GROUP_ENROLLMENT_enrollment_id" id="3CB658EE-A192-964C-BC3D-A76A594EEF7C">
+<createdBy>USUARIO</createdBy>
+<createdTime>2026-10-12 04:43:29 UTC</createdTime>
+<ownerDesignName>PROYECTO DE FUNDAOBRERA</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20</dataTypeSize>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="153EC257-AFE1-44CC-4AF8-1FCC6FF4C185" referredColumn="E5EFABA5-C01C-2F57-6338-428730A54C73"/>
 </associations>
 </Column>
 </columns>
@@ -87,7 +114,8 @@
 <indexState>Foreign Key</indexState>
 <isSurrogateKey>false</isSurrogateKey>
 <indexColumnUsage>
-<colUsage columnID="C4509E31-E938-53FF-5BFA-00E4E33F6064"/>
+<colUsage columnID="1AA1CC03-D49B-B045-E8D8-C94B7C68856B"/>
+<colUsage columnID="3CB658EE-A192-964C-BC3D-A76A594EEF7C"/>
 </indexColumnUsage>
 </ind_PK_UK>
 </indexes>
