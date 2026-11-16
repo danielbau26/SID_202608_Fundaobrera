@@ -1,9 +1,10 @@
 <?xml version = '1.0' encoding = 'UTF-8'?>
-<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="C514E8CC-9872-4758-7774-3E05808CBE4A" name="ENROLLMENT_GROUP">
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="C514E8CC-9872-4758-7774-3E05808CBE4A" name="ENROLLMENTS_GROUPS">
 <createdBy>jeanf</createdBy>
 <createdTime>2026-10-04 02:18:20 UTC</createdTime>
 <generatorID>333DF936-C284-848D-D811-53273FB455E4</generatorID>
 <ownerDesignName>PROYECTO DE FUNDAOBRERA</ownerDesignName>
+<ordsAlias>enrollment_group</ordsAlias>
 <allowColumnReorder>false</allowColumnReorder>
 <existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
 <parsed>true</parsed>
