@@ -181,6 +181,14 @@ ALTER TABLE graduates ADD CONSTRAINT graduated__un UNIQUE (certificate_number);
 --Indica que el estudiante solo pueda tener una experiencia de trabajo
 CREATE UNIQUE INDEX work_experience__idx ON works_experiences (student_document_number);
 
+-- CHECKS
+
+-- Materias y grupos: el semestre de una materia dentro de un programa debe ser 1 o mayor
+ALTER TABLE programs_subjects ADD CONSTRAINT program_subject_semester_ck CHECK (semester >= 1);
+-- Materias y grupos: los docentes solo pueden tener cédula de ciudadanía, cédula de extranjería o pasaporte
+ALTER TABLE teachers ADD CONSTRAINT teacher_document_type_ck CHECK (document_type IN ('CC', 'CE', 'PA'));
+-- Materias y grupos: el correo del docente debe tener una arroba y un punto después de ella
+ALTER TABLE teachers ADD CONSTRAINT teacher_email_ck CHECK (email LIKE '%_@_%._%');
 
 
 -- FOREIGN KEYS
