@@ -30,7 +30,7 @@ El sistema contempla la gestión de:
 ## Integrantes
 
 - [Santiago Samboni Cordoba](https://github.com/samboni72) · A00411900
-- [Daniel Felipe Bautista Sanchez](https://github.com/danielbau26) · A0041481
+- [Daniel Felipe Bautista Sanchez](https://github.com/danielbau26) · A00411481
 - [Jhoan Esteban Delgado Mejia](https://github.com/jhoandm57) · A00410954
 - [Jeanfer Stiven Rivera](https://github.com/Jeanfer224) · A00412281
 - [Juan David Meza Castro](https://github.com/juanmeza850) · A00411450
