@@ -358,5 +358,125 @@ INSERT INTO activities_grades (activities_activity_id, grade, enrollment_group_i
 INSERT INTO activities_grades (activities_activity_id, grade, enrollment_group_id_enrollment_group, enrollment_group_group_nrc, enrollment_group_enrollment_enrollment_id) VALUES ('ACT20010-2', 4.4, 'EG024', '20010', 'MAT010');
 INSERT INTO activities_grades (activities_activity_id, grade, enrollment_group_id_enrollment_group, enrollment_group_group_nrc, enrollment_group_enrollment_enrollment_id) VALUES ('ACT20010-3', 3.6, 'EG024', '20010', 'MAT010');
 
+-- MÓDULO ESTADO ACADÉMICO
+
+-- Estados que faltaban en el catálogo. 'cursando' ya fue insertado arriba.
+INSERT INTO statuses (name) VALUES ('retirado');
+INSERT INTO statuses (name) VALUES ('graduado');
+
+-- Periodos de 2025, necesarios para tener estudiantes que ya se retiraron o se graduaron.
+INSERT INTO academics_terms (academic_term_id, year, start_date, end_date)
+VALUES ('2025-1', 2025, DATE '2025-01-27', DATE '2025-06-13');
+INSERT INTO academics_terms (academic_term_id, year, start_date, end_date)
+VALUES ('2025-2', 2025, DATE '2025-07-28', DATE '2025-12-05');
+
+-- Estudiantes 13 a 22: se retiraron. Estudiantes 23 a 32: se graduaron.
+INSERT INTO students (document_number, full_name, document_type, birth_date, phone, address, email, stratum)
+VALUES ('900000013', 'Andrés Molina', 'CC', DATE '1999-02-03', '3000000013', 'Dirección de prueba 13', 'estudiante13@example.com', 2);
+INSERT INTO students (document_number, full_name, document_type, birth_date, phone, address, email, stratum)
+VALUES ('900000014', 'Paula Ríos', 'CC', DATE '2000-03-04', '3000000014', 'Dirección de prueba 14', 'estudiante14@example.com', 1);
+INSERT INTO students (document_number, full_name, document_type, birth_date, phone, address, email, stratum)
+VALUES ('900000015', 'Julián Castro', 'CC', DATE '2001-04-05', '3000000015', 'Dirección de prueba 15', 'estudiante15@example.com', 3);
+INSERT INTO students (document_number, full_name, document_type, birth_date, phone, address, email, stratum)
+VALUES ('900000016', 'Mariana Ortiz', 'CC', DATE '2002-05-06', '3000000016', 'Dirección de prueba 16', 'estudiante16@example.com', 2);
+INSERT INTO students (document_number, full_name, document_type, birth_date, phone, address, email, stratum)
+VALUES ('900000017', 'Sebastián Muñoz', 'CC', DATE '2003-06-07', '3000000017', 'Dirección de prueba 17', 'estudiante17@example.com', 1);
+INSERT INTO students (document_number, full_name, document_type, birth_date, phone, address, email, stratum)
+VALUES ('900000018', 'Isabela Vargas', 'CC', DATE '1998-07-08', '3000000018', 'Dirección de prueba 18', 'estudiante18@example.com', 3);
+INSERT INTO students (document_number, full_name, document_type, birth_date, phone, address, email, stratum)
+VALUES ('900000019', 'Tomás Herrera', 'CC', DATE '2000-08-09', '3000000019', 'Dirección de prueba 19', 'estudiante19@example.com', 2);
+INSERT INTO students (document_number, full_name, document_type, birth_date, phone, address, email, stratum)
+VALUES ('900000020', 'Gabriela Silva', 'CC', DATE '2001-09-10', '3000000020', 'Dirección de prueba 20', 'estudiante20@example.com', 1);
+INSERT INTO students (document_number, full_name, document_type, birth_date, phone, address, email, stratum)
+VALUES ('900000021', 'Samuel Ramírez', 'CC', DATE '2002-10-11', '3000000021', 'Dirección de prueba 21', 'estudiante21@example.com', 3);
+INSERT INTO students (document_number, full_name, document_type, birth_date, phone, address, email, stratum)
+VALUES ('900000022', 'Antonia Navarro', 'CC', DATE '2003-11-12', '3000000022', 'Dirección de prueba 22', 'estudiante22@example.com', 2);
+INSERT INTO students (document_number, full_name, document_type, birth_date, phone, address, email, stratum)
+VALUES ('900000023', 'Juliana Mejía', 'CC', DATE '1997-01-13', '3000000023', 'Dirección de prueba 23', 'estudiante23@example.com', 1);
+INSERT INTO students (document_number, full_name, document_type, birth_date, phone, address, email, stratum)
+VALUES ('900000024', 'Alejandro Pardo', 'CC', DATE '1998-02-14', '3000000024', 'Dirección de prueba 24', 'estudiante24@example.com', 2);
+INSERT INTO students (document_number, full_name, document_type, birth_date, phone, address, email, stratum)
+VALUES ('900000025', 'Daniela Quintero', 'CC', DATE '1999-03-15', '3000000025', 'Dirección de prueba 25', 'estudiante25@example.com', 3);
+INSERT INTO students (document_number, full_name, document_type, birth_date, phone, address, email, stratum)
+VALUES ('900000026', 'Santiago Cárdenas', 'CC', DATE '2000-04-16', '3000000026', 'Dirección de prueba 26', 'estudiante26@example.com', 1);
+INSERT INTO students (document_number, full_name, document_type, birth_date, phone, address, email, stratum)
+VALUES ('900000027', 'Natalia Osorio', 'CC', DATE '2001-05-17', '3000000027', 'Dirección de prueba 27', 'estudiante27@example.com', 2);
+INSERT INTO students (document_number, full_name, document_type, birth_date, phone, address, email, stratum)
+VALUES ('900000028', 'Martín Salazar', 'CC', DATE '1999-06-18', '3000000028', 'Dirección de prueba 28', 'estudiante28@example.com', 3);
+INSERT INTO students (document_number, full_name, document_type, birth_date, phone, address, email, stratum)
+VALUES ('900000029', 'Carolina Bernal', 'CC', DATE '2000-07-19', '3000000029', 'Dirección de prueba 29', 'estudiante29@example.com', 1);
+INSERT INTO students (document_number, full_name, document_type, birth_date, phone, address, email, stratum)
+VALUES ('900000030', 'Emilio Franco', 'CC', DATE '2001-08-20', '3000000030', 'Dirección de prueba 30', 'estudiante30@example.com', 2);
+INSERT INTO students (document_number, full_name, document_type, birth_date, phone, address, email, stratum)
+VALUES ('900000031', 'Victoria Peña', 'CC', DATE '1998-09-21', '3000000031', 'Dirección de prueba 31', 'estudiante31@example.com', 3);
+INSERT INTO students (document_number, full_name, document_type, birth_date, phone, address, email, stratum)
+VALUES ('900000032', 'Joaquín Restrepo', 'CC', DATE '1999-10-22', '3000000032', 'Dirección de prueba 32', 'estudiante32@example.com', 1);
+
+-- Diez matrículas retiradas, cada una con fecha (dentro del periodo) y motivo, como exige enrollment_withdrawal_ck.
+-- PROG002 tiene más retiros que los demás programas para que el reporte TOP muestre diferencias.
+INSERT INTO enrollments (academic_term_academic_term_id, enrollment_id, semester_number, status_name, withdrawal_date, withdrawal_reason, student_document_number, program_program_id)
+VALUES ('2025-1', 'MAT013', 1, 'retirado', DATE '2025-03-14', 'Consiguió empleo de tiempo completo', '900000013', 'PROG001');
+INSERT INTO enrollments (academic_term_academic_term_id, enrollment_id, semester_number, status_name, withdrawal_date, withdrawal_reason, student_document_number, program_program_id)
+VALUES ('2025-1', 'MAT014', 1, 'retirado', DATE '2025-04-02', 'Dificultades económicas', '900000014', 'PROG002');
+INSERT INTO enrollments (academic_term_academic_term_id, enrollment_id, semester_number, status_name, withdrawal_date, withdrawal_reason, student_document_number, program_program_id)
+VALUES ('2025-1', 'MAT015', 1, 'retirado', DATE '2025-05-08', 'Cambio de ciudad', '900000015', 'PROG003');
+INSERT INTO enrollments (academic_term_academic_term_id, enrollment_id, semester_number, status_name, withdrawal_date, withdrawal_reason, student_document_number, program_program_id)
+VALUES ('2025-2', 'MAT016', 2, 'retirado', DATE '2025-08-29', 'Problemas de salud', '900000016', 'PROG004');
+INSERT INTO enrollments (academic_term_academic_term_id, enrollment_id, semester_number, status_name, withdrawal_date, withdrawal_reason, student_document_number, program_program_id)
+VALUES ('2025-2', 'MAT017', 1, 'retirado', DATE '2025-09-15', 'Cruce de horario con el trabajo', '900000017', 'PROG005');
+INSERT INTO enrollments (academic_term_academic_term_id, enrollment_id, semester_number, status_name, withdrawal_date, withdrawal_reason, student_document_number, program_program_id)
+VALUES ('2025-2', 'MAT018', 2, 'retirado', DATE '2025-10-03', 'Dificultades económicas', '900000018', 'PROG002');
+INSERT INTO enrollments (academic_term_academic_term_id, enrollment_id, semester_number, status_name, withdrawal_date, withdrawal_reason, student_document_number, program_program_id)
+VALUES ('2025-2', 'MAT019', 1, 'retirado', DATE '2025-10-21', 'Cambio de institución', '900000019', 'PROG003');
+INSERT INTO enrollments (academic_term_academic_term_id, enrollment_id, semester_number, status_name, withdrawal_date, withdrawal_reason, student_document_number, program_program_id)
+VALUES ('2026-1', 'MAT020', 1, 'retirado', DATE '2026-02-20', 'Calamidad familiar', '900000020', 'PROG002');
+INSERT INTO enrollments (academic_term_academic_term_id, enrollment_id, semester_number, status_name, withdrawal_date, withdrawal_reason, student_document_number, program_program_id)
+VALUES ('2026-1', 'MAT021', 1, 'retirado', DATE '2026-03-18', 'Consiguió empleo de tiempo completo', '900000021', 'PROG004');
+INSERT INTO enrollments (academic_term_academic_term_id, enrollment_id, semester_number, status_name, withdrawal_date, withdrawal_reason, student_document_number, program_program_id)
+VALUES ('2026-1', 'MAT022', 2, 'retirado', DATE '2026-04-24', 'Cambio de ciudad', '900000022', 'PROG002');
+
+-- Diez matrículas de último semestre (3) en 2025-2 que terminaron en graduación.
+INSERT INTO enrollments (academic_term_academic_term_id, enrollment_id, semester_number, status_name, student_document_number, program_program_id)
+VALUES ('2025-2', 'MAT023', 3, 'graduado', '900000023', 'PROG001');
+INSERT INTO enrollments (academic_term_academic_term_id, enrollment_id, semester_number, status_name, student_document_number, program_program_id)
+VALUES ('2025-2', 'MAT024', 3, 'graduado', '900000024', 'PROG001');
+INSERT INTO enrollments (academic_term_academic_term_id, enrollment_id, semester_number, status_name, student_document_number, program_program_id)
+VALUES ('2025-2', 'MAT025', 3, 'graduado', '900000025', 'PROG002');
+INSERT INTO enrollments (academic_term_academic_term_id, enrollment_id, semester_number, status_name, student_document_number, program_program_id)
+VALUES ('2025-2', 'MAT026', 3, 'graduado', '900000026', 'PROG002');
+INSERT INTO enrollments (academic_term_academic_term_id, enrollment_id, semester_number, status_name, student_document_number, program_program_id)
+VALUES ('2025-2', 'MAT027', 3, 'graduado', '900000027', 'PROG003');
+INSERT INTO enrollments (academic_term_academic_term_id, enrollment_id, semester_number, status_name, student_document_number, program_program_id)
+VALUES ('2025-2', 'MAT028', 3, 'graduado', '900000028', 'PROG003');
+INSERT INTO enrollments (academic_term_academic_term_id, enrollment_id, semester_number, status_name, student_document_number, program_program_id)
+VALUES ('2025-2', 'MAT029', 3, 'graduado', '900000029', 'PROG004');
+INSERT INTO enrollments (academic_term_academic_term_id, enrollment_id, semester_number, status_name, student_document_number, program_program_id)
+VALUES ('2025-2', 'MAT030', 3, 'graduado', '900000030', 'PROG004');
+INSERT INTO enrollments (academic_term_academic_term_id, enrollment_id, semester_number, status_name, student_document_number, program_program_id)
+VALUES ('2025-2', 'MAT031', 3, 'graduado', '900000031', 'PROG005');
+INSERT INTO enrollments (academic_term_academic_term_id, enrollment_id, semester_number, status_name, student_document_number, program_program_id)
+VALUES ('2025-2', 'MAT032', 3, 'graduado', '900000032', 'PROG005');
+
+-- Graduaciones: fecha, número de acta (único) y documento del acta en PDF.
+INSERT INTO graduates (graduation_date, certificate_number, certificate_document, student_document_number, program_program_id)
+VALUES (DATE '2025-12-12', 'ACTA-2025-001', 'actas/ACTA-2025-001.pdf', '900000023', 'PROG001');
+INSERT INTO graduates (graduation_date, certificate_number, certificate_document, student_document_number, program_program_id)
+VALUES (DATE '2025-12-12', 'ACTA-2025-002', 'actas/ACTA-2025-002.pdf', '900000024', 'PROG001');
+INSERT INTO graduates (graduation_date, certificate_number, certificate_document, student_document_number, program_program_id)
+VALUES (DATE '2025-12-12', 'ACTA-2025-003', 'actas/ACTA-2025-003.pdf', '900000025', 'PROG002');
+INSERT INTO graduates (graduation_date, certificate_number, certificate_document, student_document_number, program_program_id)
+VALUES (DATE '2025-12-12', 'ACTA-2025-004', 'actas/ACTA-2025-004.pdf', '900000026', 'PROG002');
+INSERT INTO graduates (graduation_date, certificate_number, certificate_document, student_document_number, program_program_id)
+VALUES (DATE '2025-12-15', 'ACTA-2025-005', 'actas/ACTA-2025-005.pdf', '900000027', 'PROG003');
+INSERT INTO graduates (graduation_date, certificate_number, certificate_document, student_document_number, program_program_id)
+VALUES (DATE '2025-12-15', 'ACTA-2025-006', 'actas/ACTA-2025-006.pdf', '900000028', 'PROG003');
+INSERT INTO graduates (graduation_date, certificate_number, certificate_document, student_document_number, program_program_id)
+VALUES (DATE '2025-12-15', 'ACTA-2025-007', 'actas/ACTA-2025-007.pdf', '900000029', 'PROG004');
+INSERT INTO graduates (graduation_date, certificate_number, certificate_document, student_document_number, program_program_id)
+VALUES (DATE '2025-12-17', 'ACTA-2025-008', 'actas/ACTA-2025-008.pdf', '900000030', 'PROG004');
+INSERT INTO graduates (graduation_date, certificate_number, certificate_document, student_document_number, program_program_id)
+VALUES (DATE '2025-12-17', 'ACTA-2025-009', 'actas/ACTA-2025-009.pdf', '900000031', 'PROG005');
+INSERT INTO graduates (graduation_date, certificate_number, certificate_document, student_document_number, program_program_id)
+VALUES (DATE '2025-12-17', 'ACTA-2025-010', 'actas/ACTA-2025-010.pdf', '900000032', 'PROG005');
 --Guardar los cambios
 COMMIT;

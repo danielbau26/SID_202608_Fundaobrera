@@ -100,3 +100,128 @@ BEGIN
     RETURN v_final_grade;
 END fn_final_grade;
 /
+
+-- MÓDULO ESTADO ACADÉMICO
+
+-- PROCEDIMIENTOS
+
+-- Procedimiento: pr_register_withdrawal (módulo Estado académico)
+-- Funcionalidad: registra el retiro de un estudiante de una matrícula. Cambia el estado a
+-- 'retirado' y guarda la fecha y el motivo, como pide la historia "Registrar retiro de un estudiante".
+-- Validaciones:
+--   1. La fecha y el motivo son obligatorios.
+--   2. La matrícula debe existir.
+--   3. Solo se puede retirar una matrícula que esté en estado 'cursando'.
+-- Parámetros:
+--   p_enrollment_id     Id de la matrícula.
+--   p_withdrawal_date   Fecha del retiro.
+--   p_withdrawal_reason Motivo del retiro.
+-- No hace COMMIT; quien lo llama decide si confirma (COMMIT) o deshace (ROLLBACK).
+-- Ejemplo: EXEC pr_register_withdrawal('MAT006', DATE '2026-09-10', 'Dificultades económicas');
+CREATE OR REPLACE PROCEDURE pr_register_withdrawal (
+    p_enrollment_id     IN enrollments.enrollment_id%TYPE,
+    p_withdrawal_date   IN enrollments.withdrawal_date%TYPE,
+    p_withdrawal_reason IN enrollments.withdrawal_reason%TYPE
+)
+IS
+    v_status enrollments.status_name%TYPE;
+BEGIN
+    -- Validación 1: fecha y motivo obligatorios
+    IF p_withdrawal_date IS NULL OR TRIM(p_withdrawal_reason) IS NULL THEN
+        RAISE_APPLICATION_ERROR(-20020, 'La fecha y el motivo del retiro son obligatorios');
+    END IF;
+
+    -- Validación 2: si la matrícula no existe, este SELECT lanza NO_DATA_FOUND
+    SELECT status_name
+    INTO v_status
+    FROM enrollments
+    WHERE enrollment_id = p_enrollment_id;
+
+    -- Validación 3: solo se retiran matrículas que se están cursando
+    IF v_status <> 'cursando' THEN
+        RAISE_APPLICATION_ERROR(-20021, 'La matricula ' || p_enrollment_id ||
+            ' no se puede retirar porque esta en estado ' || v_status);
+    END IF;
+
+    UPDATE enrollments
+    SET status_name       = 'retirado',
+        withdrawal_date   = p_withdrawal_date,
+        withdrawal_reason = p_withdrawal_reason
+    WHERE enrollment_id = p_enrollment_id;
+
+EXCEPTION
+    WHEN NO_DATA_FOUND THEN
+        RAISE_APPLICATION_ERROR(-20022, 'La matricula ' || p_enrollment_id || ' no existe');
+END pr_register_withdrawal;
+/
+
+-- FUNCIONES
+
+-- Función: fn_count_students_by_status (módulo Estado académico)
+-- Funcionalidad: cuenta cuántos estudiantes distintos tienen matrículas en un estado
+-- (cursando, retirado o graduado), en toda la institución o solo en un programa.
+-- Parámetros:
+--   p_status     Estado a contar.
+--   p_program_id Programa a filtrar (opcional; si se omite, cuenta en todos los programas).
+-- Retorna: la cantidad de estudiantes (0 si no hay ninguno).
+-- Ejemplos: SELECT fn_count_students_by_status('retirado') FROM dual;             -- 10
+--           SELECT fn_count_students_by_status('retirado', 'PROG002') FROM dual;  -- 4
+CREATE OR REPLACE FUNCTION fn_count_students_by_status (
+    p_status     IN statuses.name%TYPE,
+    p_program_id IN programs.program_id%TYPE DEFAULT NULL
+) RETURN NUMBER
+IS
+    v_count NUMBER;
+BEGIN
+    SELECT COUNT(DISTINCT student_document_number)
+    INTO v_count
+    FROM enrollments
+    WHERE status_name = LOWER(p_status)
+      AND (p_program_id IS NULL OR program_program_id = p_program_id);
+
+    RETURN v_count;
+END fn_count_students_by_status;
+/
+
+-- TRIGGERS
+
+-- Trigger: trg_graduate_enrollment (módulo Estado académico)
+-- Funcionalidad: antes de registrar una graduación (INSERT en graduates), busca la matrícula
+-- más reciente del estudiante en ese programa y la cambia automáticamente a 'graduado',
+-- como pide la historia "Registrar graduación de un estudiante".
+-- Si el estudiante no tiene matrículas en el programa, o su última matrícula está retirada,
+-- cancela la graduación con un mensaje de error.
+-- Ejemplo: INSERT INTO graduates VALUES (DATE '2026-12-10', 'ACTA-2026-001', 'actas/ACTA-2026-001.pdf', '900000001', 'PROG001');
+--          deja la matrícula MAT001 en estado 'graduado'.
+CREATE OR REPLACE TRIGGER trg_graduate_enrollment
+BEFORE INSERT ON graduates
+FOR EACH ROW
+DECLARE
+    v_enrollment_id enrollments.enrollment_id%TYPE;
+    v_status        enrollments.status_name%TYPE;
+BEGIN
+    -- Matrícula más reciente del estudiante en el programa (según la fecha de inicio del periodo)
+    SELECT e.enrollment_id, e.status_name
+    INTO v_enrollment_id, v_status
+    FROM enrollments e
+    INNER JOIN academics_terms t ON t.academic_term_id = e.academic_term_academic_term_id
+    WHERE e.student_document_number = :NEW.student_document_number
+      AND e.program_program_id = :NEW.program_program_id
+    ORDER BY t.start_date DESC
+    FETCH FIRST 1 ROWS ONLY;
+
+    IF v_status = 'retirado' THEN
+        RAISE_APPLICATION_ERROR(-20023, 'El estudiante ' || :NEW.student_document_number ||
+            ' esta retirado del programa ' || :NEW.program_program_id || ' y no puede graduarse');
+    END IF;
+
+    UPDATE enrollments
+    SET status_name = 'graduado'
+    WHERE enrollment_id = v_enrollment_id;
+
+EXCEPTION
+    WHEN NO_DATA_FOUND THEN
+        RAISE_APPLICATION_ERROR(-20024, 'El estudiante ' || :NEW.student_document_number ||
+            ' no tiene matriculas en el programa ' || :NEW.program_program_id);
+END;
+/
