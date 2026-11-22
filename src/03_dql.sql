@@ -35,3 +35,97 @@ JOIN groups g ON g.nrc = eg.group_nrc
 JOIN subjects sub ON sub.subject_id = g.program_subject_subject_subject_id
 JOIN teachers te ON te.document_number = g.teacher_document_number
 ORDER BY s.full_name, t.start_date, sub.name;
+
+-- MÓDULO CALIFICACIONES
+-- La nota definitiva de cada materia se obtiene con la función fn_final_grade (04_plsql.sql),
+-- que suma cada nota por el porcentaje de su actividad y divide entre 100.
+-- Por eso los reportes 4 a 7 necesitan que 04_plsql.sql se haya ejecutado antes.
+-- Una materia se aprueba con definitiva de 3.0 o más.
+
+-- Reporte 4. Calificaciones obtenidas por cada estudiante.
+-- Muestra, para cada estudiante, la nota definitiva de cada materia que cursó, con el periodo,
+-- el programa y el NRC del grupo. Parte de las inscripciones (enrollments_groups) y las une con
+-- la matrícula, el estudiante, el programa, el periodo, el grupo y la materia (INNER JOIN).
+-- Ordena por estudiante, periodo y materia.
+SELECT s.document_number, s.full_name AS student_name, t.academic_term_id, p.name AS program_name,
+       sub.name AS subject_name, g.nrc,
+       fn_final_grade(eg.group_nrc, eg.enrollment_enrollment_id) AS final_grade
+FROM enrollments_groups eg
+INNER JOIN enrollments e ON e.enrollment_id = eg.enrollment_enrollment_id
+INNER JOIN students s ON s.document_number = e.student_document_number
+INNER JOIN programs p ON p.program_id = e.program_program_id
+INNER JOIN academics_terms t ON t.academic_term_id = e.academic_term_academic_term_id
+INNER JOIN groups g ON g.nrc = eg.group_nrc
+INNER JOIN subjects sub ON sub.subject_id = g.program_subject_subject_subject_id
+ORDER BY s.full_name, t.start_date, sub.name;
+
+-- Reporte 5. Promedio académico de los estudiantes por programa y periodo académico.
+-- Por cada programa y periodo cuenta los estudiantes con notas y promedia sus definitivas,
+-- mostrando también la nota más baja y la más alta.
+-- Parte de la combinación de todos los programas con todos los periodos (CROSS JOIN) y usa
+-- LEFT JOIN hacia las matrículas e inscripciones, así un programa sin notas en un periodo
+-- aparece con promedio vacío (NULL) en lugar de desaparecer.
+-- Agrupa por programa y periodo, y ordena por periodo y por promedio de mayor a menor.
+SELECT p.program_id, p.name AS program_name, t.academic_term_id,
+       COUNT(DISTINCT e.student_document_number) AS enrolled_students,
+       ROUND(AVG(fn_final_grade(eg.group_nrc, eg.enrollment_enrollment_id)), 2) AS average_grade,
+       MIN(fn_final_grade(eg.group_nrc, eg.enrollment_enrollment_id)) AS lowest_grade,
+       MAX(fn_final_grade(eg.group_nrc, eg.enrollment_enrollment_id)) AS highest_grade
+FROM programs p
+CROSS JOIN academics_terms t
+LEFT JOIN enrollments e ON e.program_program_id = p.program_id
+                       AND e.academic_term_academic_term_id = t.academic_term_id
+LEFT JOIN enrollments_groups eg ON eg.enrollment_enrollment_id = e.enrollment_id
+GROUP BY p.program_id, p.name, t.academic_term_id, t.start_date
+ORDER BY t.start_date, average_grade DESC NULLS LAST, p.name;
+
+-- Reporte 6. Materias aprobadas y no aprobadas.
+-- Lista cada materia que cursó cada estudiante con su definitiva y su resultado:
+-- 'Aprobada' si la definitiva es 3.0 o más, 'No aprobada' si es menor y 'Sin calificar'
+-- si todavía no tiene notas (la función devuelve NULL).
+-- La subconsulta calcula la definitiva una sola vez por inscripción.
+-- Ordena primero las no aprobadas, luego las aprobadas y al final las sin calificar.
+SELECT document_number, student_name, academic_term_id, subject_name, nrc, final_grade,
+       CASE
+           WHEN final_grade IS NULL THEN 'Sin calificar'
+           WHEN final_grade >= 3 THEN 'Aprobada'
+           ELSE 'No aprobada'
+       END AS result
+FROM (
+    SELECT s.document_number, s.full_name AS student_name, t.academic_term_id, t.start_date,
+           sub.name AS subject_name, g.nrc,
+           fn_final_grade(eg.group_nrc, eg.enrollment_enrollment_id) AS final_grade
+    FROM enrollments_groups eg
+    INNER JOIN enrollments e ON e.enrollment_id = eg.enrollment_enrollment_id
+    INNER JOIN students s ON s.document_number = e.student_document_number
+    INNER JOIN academics_terms t ON t.academic_term_id = e.academic_term_academic_term_id
+    INNER JOIN groups g ON g.nrc = eg.group_nrc
+    INNER JOIN subjects sub ON sub.subject_id = g.program_subject_subject_subject_id
+)
+ORDER BY CASE
+             WHEN final_grade IS NULL THEN 3
+             WHEN final_grade >= 3 THEN 2
+             ELSE 1
+         END,
+         student_name, start_date, subject_name;
+
+-- Reporte 7 (TOP). Los 10 estudiantes con mejor promedio académico.
+-- Promedia las definitivas de las materias de cada estudiante en su programa, cuenta cuántas
+-- aprobó y cuántas no, y devuelve solo los 10 mejores promedios
+-- (FETCH FIRST 10 ROWS ONLY es el TOP de Oracle).
+SELECT document_number, student_name, program_name,
+       COUNT(*) AS subjects_taken,
+       SUM(CASE WHEN final_grade >= 3 THEN 1 ELSE 0 END) AS subjects_passed,
+       SUM(CASE WHEN final_grade < 3 THEN 1 ELSE 0 END) AS subjects_failed,
+       ROUND(AVG(final_grade), 2) AS average_grade
+FROM (
+    SELECT s.document_number, s.full_name AS student_name, p.name AS program_name,
+           fn_final_grade(eg.group_nrc, eg.enrollment_enrollment_id) AS final_grade
+    FROM enrollments_groups eg
+    INNER JOIN enrollments e ON e.enrollment_id = eg.enrollment_enrollment_id
+    INNER JOIN students s ON s.document_number = e.student_document_number
+    INNER JOIN programs p ON p.program_id = e.program_program_id
+)
+GROUP BY document_number, student_name, program_name
+ORDER BY average_grade DESC NULLS LAST, student_name
+FETCH FIRST 10 ROWS ONLY;

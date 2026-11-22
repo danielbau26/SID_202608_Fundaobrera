@@ -77,7 +77,7 @@ Contiene los modelos de datos desarrollados durante el proyecto.
 | [`03_dql.sql`](src/03_dql.sql) | Contiene los reportes. |
 | [`04_plsql.sql`](src/04_plsql.sql) | Contiene el procedimiento, la función y el trigger de la entrega. |
 
-Para probar en Oracle, ejecuta el DDL, luego el DML, posteriormente el DQL y finalmente el PLSQL. En un esquema vacío, empieza el DDL desde el primer `CREATE TABLE`. El bloque inicial de `DROP TABLE` se usa para recrear el esquema y elimina los datos existentes.
+Para probar en Oracle, ejecuta el DDL, luego el DML, posteriormente el PLSQL y finalmente el DQL. El PLSQL va antes del DQL porque los reportes de calificaciones usan la función `fn_final_grade`. En un esquema vacío, empieza el DDL desde el primer `CREATE TABLE`. El bloque inicial de `DROP TABLE` se usa para recrear el esquema y elimina los datos existentes.
 
 ## Entregas del proyecto
 
