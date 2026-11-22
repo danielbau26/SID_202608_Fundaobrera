@@ -180,6 +180,8 @@ ALTER TABLE enrollments ADD CONSTRAINT enrollment__un UNIQUE (student_document_n
 ALTER TABLE graduates ADD CONSTRAINT graduated__un UNIQUE (certificate_number);
 --Indica que el estudiante solo pueda tener una experiencia de trabajo
 CREATE UNIQUE INDEX work_experience__idx ON works_experiences (student_document_number);
+-- Asistencia: un estudiante solo tiene un registro de asistencia por grupo y fecha (DF23)
+ALTER TABLE attendances ADD CONSTRAINT attendance__un UNIQUE (enrollment_group_group_nrc, enrollment_group_enrollment_enrollment_id, attendance_date);
 
 -- CHECKS
 
@@ -198,6 +200,8 @@ ALTER TABLE enrollments ADD CONSTRAINT enrollment_withdrawal_ck CHECK (
 );
 -- Estado académico: el documento del acta de grado debe ser un archivo PDF
 ALTER TABLE graduates ADD CONSTRAINT graduated_certificate_pdf_ck CHECK (LOWER(certificate_document) LIKE '%.pdf');
+-- Asistencia: el estudiante asistió ('S') o no asistió ('N')
+ALTER TABLE attendances ADD CONSTRAINT attendance_attended_ck CHECK (attended IN ('S', 'N'));
 
 
 -- FOREIGN KEYS

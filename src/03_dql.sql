@@ -181,3 +181,72 @@ WHERE e.status_name = 'retirado'
 GROUP BY p.program_id, p.name
 ORDER BY withdrawn_count DESC, p.name
 FETCH FIRST 3 ROWS ONLY;
+
+-- MÓDULO ASISTENCIA
+-- Cada registro de attendances es una clase de una inscripción (matrícula en un grupo):
+-- attended = 'S' si el estudiante asistió y 'N' si no asistió.
+-- El porcentaje de asistencia es (clases asistidas / clases registradas) * 100.
+-- Se toma 80 % como mínimo de asistencia; por debajo de ese valor el estudiante queda 'En riesgo'.
+-- El reporte 12 usa la función fn_attendance_percentage (04_plsql.sql).
+-- Los reportes salen del enunciado: "porcentaje de asistencia de los estudiantes" y
+-- "consultar… las notas y asistencias de sus estudiantes".
+
+-- Reporte 12. Porcentaje de asistencia de los estudiantes.
+-- Muestra, para cada estudiante, el porcentaje de asistencia en cada materia que cursa, con el periodo,
+-- el NRC del grupo y el docente. Parte de las inscripciones (enrollments_groups) y las une con
+-- la matrícula, el estudiante, el periodo, el grupo, la materia y el docente (INNER JOIN).
+-- Si la inscripción todavía no tiene asistencia registrada, la función devuelve NULL y el estado es 'Sin registros'.
+-- Ordena por estudiante, periodo y materia.
+SELECT document_number, student_name, academic_term_id, subject_name, nrc, teacher_name, attendance_percentage,
+       CASE
+           WHEN attendance_percentage IS NULL THEN 'Sin registros'
+           WHEN attendance_percentage >= 80 THEN 'Cumple'
+           ELSE 'En riesgo'
+       END AS attendance_status
+FROM (
+    SELECT s.document_number, s.full_name AS student_name, t.academic_term_id, t.start_date,
+           sub.name AS subject_name, g.nrc, te.full_name AS teacher_name,
+           fn_attendance_percentage(eg.group_nrc, eg.enrollment_enrollment_id) AS attendance_percentage
+    FROM enrollments_groups eg
+    INNER JOIN enrollments e ON e.enrollment_id = eg.enrollment_enrollment_id
+    INNER JOIN students s ON s.document_number = e.student_document_number
+    INNER JOIN academics_terms t ON t.academic_term_id = e.academic_term_academic_term_id
+    INNER JOIN groups g ON g.nrc = eg.group_nrc
+    INNER JOIN subjects sub ON sub.subject_id = g.program_subject_subject_subject_id
+    INNER JOIN teachers te ON te.document_number = g.teacher_document_number
+)
+ORDER BY student_name, start_date, subject_name;
+
+-- Reporte 13. Historial de asistencia por docente, grupo y fecha.
+-- Lista cada registro de asistencia con el docente del grupo, la materia, la fecha de la clase,
+-- el estudiante y si asistió o no. Permite al profesor revisar la asistencia de sus grupos
+-- (filtrando por te.document_number) o la de una fecha determinada (filtrando por a.attendance_date).
+-- Ordena por docente, grupo, fecha y estudiante.
+SELECT te.document_number AS teacher_document, te.full_name AS teacher_name, g.nrc, sub.name AS subject_name,
+       a.attendance_date, s.document_number, s.full_name AS student_name,
+       CASE a.attended WHEN 'S' THEN 'Asistió' ELSE 'No asistió' END AS attendance
+FROM attendances a
+INNER JOIN groups g ON g.nrc = a.enrollment_group_group_nrc
+INNER JOIN teachers te ON te.document_number = g.teacher_document_number
+INNER JOIN subjects sub ON sub.subject_id = g.program_subject_subject_subject_id
+INNER JOIN enrollments e ON e.enrollment_id = a.enrollment_group_enrollment_enrollment_id
+INNER JOIN students s ON s.document_number = e.student_document_number
+ORDER BY te.full_name, g.nrc, a.attendance_date, s.full_name;
+
+-- Reporte 14. Porcentaje de asistencia por programa y periodo académico.
+-- Por cada programa y periodo cuenta las clases registradas, las asistidas y calcula el porcentaje.
+-- Parte de la combinación de todos los programas con todos los periodos (CROSS JOIN) y usa LEFT JOIN
+-- hacia las matrículas y la asistencia, así un programa sin registros en un periodo aparece con
+-- cero clases y porcentaje vacío (NULL) en lugar de desaparecer.
+-- Ordena por periodo y por porcentaje de mayor a menor.
+SELECT p.program_id, p.name AS program_name, t.academic_term_id,
+       COUNT(a.attendance_id) AS registered_classes,
+       SUM(CASE WHEN a.attended = 'S' THEN 1 ELSE 0 END) AS attended_classes,
+       ROUND(100 * SUM(CASE WHEN a.attended = 'S' THEN 1 ELSE 0 END) / NULLIF(COUNT(a.attendance_id), 0), 2) AS attendance_percentage
+FROM programs p
+CROSS JOIN academics_terms t
+LEFT JOIN enrollments e ON e.program_program_id = p.program_id
+                       AND e.academic_term_academic_term_id = t.academic_term_id
+LEFT JOIN attendances a ON a.enrollment_group_enrollment_enrollment_id = e.enrollment_id
+GROUP BY p.program_id, p.name, t.academic_term_id, t.start_date
+ORDER BY t.start_date, attendance_percentage DESC NULLS LAST, p.name;

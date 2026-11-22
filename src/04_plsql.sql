@@ -225,3 +225,144 @@ EXCEPTION
             ' no tiene matriculas en el programa ' || :NEW.program_program_id);
 END;
 /
+
+-- MÓDULO ASISTENCIA
+
+-- FUNCIONES
+
+-- Función: fn_attendance_percentage (módulo Asistencia)
+-- Funcionalidad: calcula el porcentaje de asistencia de un estudiante en una materia, es decir, de una
+-- inscripción (matrícula en un grupo), como pide el enunciado: "porcentaje de asistencia de los estudiantes".
+-- Divide las clases a las que asistió ('S') entre las clases registradas y multiplica por 100.
+-- Parámetros:
+--   p_group_nrc     NRC del grupo.
+--   p_enrollment_id Id de la matrícula inscrita en ese grupo.
+-- Retorna: el porcentaje redondeado a dos decimales (entre 0 y 100), o NULL si la inscripción
+-- todavía no tiene asistencia registrada.
+-- Ejemplo: SELECT fn_attendance_percentage('10011', 'MAT011') FROM dual;  -- 60
+CREATE OR REPLACE FUNCTION fn_attendance_percentage (
+    p_group_nrc     IN groups.nrc%TYPE,
+    p_enrollment_id IN enrollments.enrollment_id%TYPE
+) RETURN NUMBER
+IS
+    v_percentage NUMBER;
+BEGIN
+    -- NULLIF evita dividir entre cero: sin registros, la división da NULL
+    SELECT ROUND(100 * SUM(CASE WHEN attended = 'S' THEN 1 ELSE 0 END) / NULLIF(COUNT(*), 0), 2)
+    INTO v_percentage
+    FROM attendances
+    WHERE enrollment_group_group_nrc = p_group_nrc
+      AND enrollment_group_enrollment_enrollment_id = p_enrollment_id;
+
+    RETURN v_percentage;
+END fn_attendance_percentage;
+/
+
+-- PROCEDIMIENTOS
+
+-- Procedimiento: pr_register_attendance (módulo Asistencia)
+-- Funcionalidad: registra la asistencia de un estudiante en una clase, indicando el grupo, la fecha
+-- y si asistió o no, como piden las historias "Registro de asistencia de estudiantes" y
+-- "Actualizar asistencia de estudiantes". Si ya existe un registro de esa inscripción en esa fecha,
+-- lo actualiza en lugar de crear otro (una sola asistencia por estudiante, grupo y fecha).
+-- Validaciones:
+--   1. El valor de asistencia debe ser 'S' (asistió) o 'N' (no asistió) y la fecha es obligatoria.
+--   2. El estudiante (matrícula) debe estar inscrito en el grupo.
+--   3. Solo el profesor asignado al grupo puede registrar o actualizar su asistencia.
+-- La fecha debe caer dentro del periodo del grupo; eso lo valida el trigger trg_validate_attendance_date.
+-- Parámetros:
+--   p_attendance_id   Id del registro (solo se usa si se crea un registro nuevo).
+--   p_teacher_document Documento del profesor que registra.
+--   p_group_nrc       NRC del grupo.
+--   p_enrollment_id   Id de la matrícula del estudiante.
+--   p_attendance_date Fecha de la clase.
+--   p_attended        'S' si asistió, 'N' si no asistió.
+-- No hace COMMIT; quien lo llama decide si confirma (COMMIT) o deshace (ROLLBACK).
+-- Ejemplo: EXEC pr_register_attendance('AT20001-MAT006-6', '800000001', '20001', 'MAT006', DATE '2026-09-07', 'S');
+CREATE OR REPLACE PROCEDURE pr_register_attendance (
+    p_attendance_id    IN attendances.attendance_id%TYPE,
+    p_teacher_document IN teachers.document_number%TYPE,
+    p_group_nrc        IN groups.nrc%TYPE,
+    p_enrollment_id    IN enrollments.enrollment_id%TYPE,
+    p_attendance_date  IN attendances.attendance_date%TYPE,
+    p_attended         IN attendances.attended%TYPE
+)
+IS
+    v_count   NUMBER;
+    v_teacher groups.teacher_document_number%TYPE;
+BEGIN
+    -- Validación 1: valor de asistencia válido y fecha obligatoria
+    IF p_attended IS NULL OR UPPER(p_attended) NOT IN ('S', 'N') OR p_attendance_date IS NULL THEN
+        RAISE_APPLICATION_ERROR(-20030, 'La fecha es obligatoria y la asistencia debe ser S (asistio) o N (no asistio)');
+    END IF;
+
+    -- Validación 2: la matrícula debe estar inscrita en el grupo
+    SELECT COUNT(*)
+    INTO v_count
+    FROM enrollments_groups
+    WHERE group_nrc = p_group_nrc
+      AND enrollment_enrollment_id = p_enrollment_id;
+
+    IF v_count = 0 THEN
+        RAISE_APPLICATION_ERROR(-20031, 'La matricula ' || p_enrollment_id ||
+            ' no esta inscrita en el grupo ' || p_group_nrc);
+    END IF;
+
+    -- Validación 3: solo el profesor asignado al grupo registra su asistencia
+    SELECT teacher_document_number
+    INTO v_teacher
+    FROM groups
+    WHERE nrc = p_group_nrc;
+
+    IF v_teacher <> p_teacher_document THEN
+        RAISE_APPLICATION_ERROR(-20032, 'El profesor ' || p_teacher_document ||
+            ' no tiene asignado el grupo ' || p_group_nrc);
+    END IF;
+
+    -- Si ya hay asistencia de esa inscripción en esa fecha, se actualiza; si no, se crea
+    UPDATE attendances
+    SET attended = UPPER(p_attended)
+    WHERE enrollment_group_group_nrc = p_group_nrc
+      AND enrollment_group_enrollment_enrollment_id = p_enrollment_id
+      AND attendance_date = p_attendance_date;
+
+    IF SQL%ROWCOUNT = 0 THEN
+        INSERT INTO attendances (attendance_id, attendance_date, attended, enrollment_group_group_nrc, enrollment_group_enrollment_enrollment_id)
+        VALUES (p_attendance_id, p_attendance_date, UPPER(p_attended), p_group_nrc, p_enrollment_id);
+    END IF;
+END pr_register_attendance;
+/
+
+-- TRIGGERS
+
+-- Trigger: trg_validate_attendance_date (módulo Asistencia)
+-- Funcionalidad: antes de registrar o cambiar la fecha de una asistencia (INSERT o UPDATE en attendances),
+-- valida que la fecha de la clase esté dentro del periodo académico del grupo (entre su fecha de
+-- inicio y su fecha de finalización). Las llaves foráneas no pueden garantizar esta regla.
+-- Si la fecha está por fuera del periodo, cancela la operación con un mensaje de error.
+-- Ejemplo: INSERT INTO attendances VALUES ('AT10001-MAT001-9', DATE '2026-08-03', 'S', '10001', 'MAT001');
+--          falla porque el grupo 10001 es del periodo 2026-1 (26/01/2026 a 12/06/2026).
+CREATE OR REPLACE TRIGGER trg_validate_attendance_date
+BEFORE INSERT OR UPDATE OF attendance_date ON attendances
+FOR EACH ROW
+DECLARE
+    v_start_date academics_terms.start_date%TYPE;
+    v_end_date   academics_terms.end_date%TYPE;
+BEGIN
+    -- Fechas del periodo académico del grupo
+    SELECT t.start_date, t.end_date
+    INTO v_start_date, v_end_date
+    FROM groups g
+    INNER JOIN academics_terms t ON t.academic_term_id = g.academic_term_academic_term_id
+    WHERE g.nrc = :NEW.enrollment_group_group_nrc;
+
+    IF :NEW.attendance_date < v_start_date OR :NEW.attendance_date > v_end_date THEN
+        RAISE_APPLICATION_ERROR(-20033, 'La fecha ' || TO_CHAR(:NEW.attendance_date, 'DD/MM/YYYY') ||
+            ' esta fuera del periodo academico del grupo ' || :NEW.enrollment_group_group_nrc);
+    END IF;
+
+EXCEPTION
+    WHEN NO_DATA_FOUND THEN
+        RAISE_APPLICATION_ERROR(-20034, 'El grupo ' || :NEW.enrollment_group_group_nrc || ' no existe');
+END;
+/
