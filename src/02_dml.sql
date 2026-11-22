@@ -478,5 +478,153 @@ INSERT INTO graduates (graduation_date, certificate_number, certificate_document
 VALUES (DATE '2025-12-17', 'ACTA-2025-009', 'actas/ACTA-2025-009.pdf', '900000031', 'PROG005');
 INSERT INTO graduates (graduation_date, certificate_number, certificate_document, student_document_number, program_program_id)
 VALUES (DATE '2025-12-17', 'ACTA-2025-010', 'actas/ACTA-2025-010.pdf', '900000032', 'PROG005');
+
+-- MÓDULO ASISTENCIA
+
+-- Asistencia de cada inscripción (matrícula en un grupo) a cinco clases del periodo.
+-- 2026-1: lunes 2, 9, 16 y 23 de febrero y 2 de marzo. 2026-2: lunes 3, 10, 17, 24 y 31 de agosto.
+-- attended = 'S' (asistió) o 'N' (no asistió). Las inasistencias varían entre 0 y 4 para que los
+-- reportes muestren estudiantes que cumplen y estudiantes en riesgo (menos de 80 %).
+-- El id es AT + NRC + matrícula + número de la clase.
+-- MAT001 en el grupo 10001: 0 inasistencia(s) de 5 clases
+INSERT INTO attendances (attendance_id, attendance_date, attended, enrollment_group_group_nrc, enrollment_group_enrollment_enrollment_id) VALUES ('AT10001-MAT001-1', DATE '2026-02-02', 'S', '10001', 'MAT001');
+INSERT INTO attendances (attendance_id, attendance_date, attended, enrollment_group_group_nrc, enrollment_group_enrollment_enrollment_id) VALUES ('AT10001-MAT001-2', DATE '2026-02-09', 'S', '10001', 'MAT001');
+INSERT INTO attendances (attendance_id, attendance_date, attended, enrollment_group_group_nrc, enrollment_group_enrollment_enrollment_id) VALUES ('AT10001-MAT001-3', DATE '2026-02-16', 'S', '10001', 'MAT001');
+INSERT INTO attendances (attendance_id, attendance_date, attended, enrollment_group_group_nrc, enrollment_group_enrollment_enrollment_id) VALUES ('AT10001-MAT001-4', DATE '2026-02-23', 'S', '10001', 'MAT001');
+INSERT INTO attendances (attendance_id, attendance_date, attended, enrollment_group_group_nrc, enrollment_group_enrollment_enrollment_id) VALUES ('AT10001-MAT001-5', DATE '2026-03-02', 'S', '10001', 'MAT001');
+-- MAT001 en el grupo 10002: 1 inasistencia(s) de 5 clases
+INSERT INTO attendances (attendance_id, attendance_date, attended, enrollment_group_group_nrc, enrollment_group_enrollment_enrollment_id) VALUES ('AT10002-MAT001-1', DATE '2026-02-02', 'S', '10002', 'MAT001');
+INSERT INTO attendances (attendance_id, attendance_date, attended, enrollment_group_group_nrc, enrollment_group_enrollment_enrollment_id) VALUES ('AT10002-MAT001-2', DATE '2026-02-09', 'N', '10002', 'MAT001');
+INSERT INTO attendances (attendance_id, attendance_date, attended, enrollment_group_group_nrc, enrollment_group_enrollment_enrollment_id) VALUES ('AT10002-MAT001-3', DATE '2026-02-16', 'S', '10002', 'MAT001');
+INSERT INTO attendances (attendance_id, attendance_date, attended, enrollment_group_group_nrc, enrollment_group_enrollment_enrollment_id) VALUES ('AT10002-MAT001-4', DATE '2026-02-23', 'S', '10002', 'MAT001');
+INSERT INTO attendances (attendance_id, attendance_date, attended, enrollment_group_group_nrc, enrollment_group_enrollment_enrollment_id) VALUES ('AT10002-MAT001-5', DATE '2026-03-02', 'S', '10002', 'MAT001');
+-- MAT011 en el grupo 10011: 2 inasistencia(s) de 5 clases
+INSERT INTO attendances (attendance_id, attendance_date, attended, enrollment_group_group_nrc, enrollment_group_enrollment_enrollment_id) VALUES ('AT10011-MAT011-1', DATE '2026-02-02', 'S', '10011', 'MAT011');
+INSERT INTO attendances (attendance_id, attendance_date, attended, enrollment_group_group_nrc, enrollment_group_enrollment_enrollment_id) VALUES ('AT10011-MAT011-2', DATE '2026-02-09', 'S', '10011', 'MAT011');
+INSERT INTO attendances (attendance_id, attendance_date, attended, enrollment_group_group_nrc, enrollment_group_enrollment_enrollment_id) VALUES ('AT10011-MAT011-3', DATE '2026-02-16', 'N', '10011', 'MAT011');
+INSERT INTO attendances (attendance_id, attendance_date, attended, enrollment_group_group_nrc, enrollment_group_enrollment_enrollment_id) VALUES ('AT10011-MAT011-4', DATE '2026-02-23', 'N', '10011', 'MAT011');
+INSERT INTO attendances (attendance_id, attendance_date, attended, enrollment_group_group_nrc, enrollment_group_enrollment_enrollment_id) VALUES ('AT10011-MAT011-5', DATE '2026-03-02', 'S', '10011', 'MAT011');
+-- MAT011 en el grupo 10002: 0 inasistencia(s) de 5 clases
+INSERT INTO attendances (attendance_id, attendance_date, attended, enrollment_group_group_nrc, enrollment_group_enrollment_enrollment_id) VALUES ('AT10002-MAT011-1', DATE '2026-02-02', 'S', '10002', 'MAT011');
+INSERT INTO attendances (attendance_id, attendance_date, attended, enrollment_group_group_nrc, enrollment_group_enrollment_enrollment_id) VALUES ('AT10002-MAT011-2', DATE '2026-02-09', 'S', '10002', 'MAT011');
+INSERT INTO attendances (attendance_id, attendance_date, attended, enrollment_group_group_nrc, enrollment_group_enrollment_enrollment_id) VALUES ('AT10002-MAT011-3', DATE '2026-02-16', 'S', '10002', 'MAT011');
+INSERT INTO attendances (attendance_id, attendance_date, attended, enrollment_group_group_nrc, enrollment_group_enrollment_enrollment_id) VALUES ('AT10002-MAT011-4', DATE '2026-02-23', 'S', '10002', 'MAT011');
+INSERT INTO attendances (attendance_id, attendance_date, attended, enrollment_group_group_nrc, enrollment_group_enrollment_enrollment_id) VALUES ('AT10002-MAT011-5', DATE '2026-03-02', 'S', '10002', 'MAT011');
+-- MAT002 en el grupo 10003: 1 inasistencia(s) de 5 clases
+INSERT INTO attendances (attendance_id, attendance_date, attended, enrollment_group_group_nrc, enrollment_group_enrollment_enrollment_id) VALUES ('AT10003-MAT002-1', DATE '2026-02-02', 'S', '10003', 'MAT002');
+INSERT INTO attendances (attendance_id, attendance_date, attended, enrollment_group_group_nrc, enrollment_group_enrollment_enrollment_id) VALUES ('AT10003-MAT002-2', DATE '2026-02-09', 'S', '10003', 'MAT002');
+INSERT INTO attendances (attendance_id, attendance_date, attended, enrollment_group_group_nrc, enrollment_group_enrollment_enrollment_id) VALUES ('AT10003-MAT002-3', DATE '2026-02-16', 'S', '10003', 'MAT002');
+INSERT INTO attendances (attendance_id, attendance_date, attended, enrollment_group_group_nrc, enrollment_group_enrollment_enrollment_id) VALUES ('AT10003-MAT002-4', DATE '2026-02-23', 'S', '10003', 'MAT002');
+INSERT INTO attendances (attendance_id, attendance_date, attended, enrollment_group_group_nrc, enrollment_group_enrollment_enrollment_id) VALUES ('AT10003-MAT002-5', DATE '2026-03-02', 'N', '10003', 'MAT002');
+-- MAT002 en el grupo 10004: 0 inasistencia(s) de 5 clases
+INSERT INTO attendances (attendance_id, attendance_date, attended, enrollment_group_group_nrc, enrollment_group_enrollment_enrollment_id) VALUES ('AT10004-MAT002-1', DATE '2026-02-02', 'S', '10004', 'MAT002');
+INSERT INTO attendances (attendance_id, attendance_date, attended, enrollment_group_group_nrc, enrollment_group_enrollment_enrollment_id) VALUES ('AT10004-MAT002-2', DATE '2026-02-09', 'S', '10004', 'MAT002');
+INSERT INTO attendances (attendance_id, attendance_date, attended, enrollment_group_group_nrc, enrollment_group_enrollment_enrollment_id) VALUES ('AT10004-MAT002-3', DATE '2026-02-16', 'S', '10004', 'MAT002');
+INSERT INTO attendances (attendance_id, attendance_date, attended, enrollment_group_group_nrc, enrollment_group_enrollment_enrollment_id) VALUES ('AT10004-MAT002-4', DATE '2026-02-23', 'S', '10004', 'MAT002');
+INSERT INTO attendances (attendance_id, attendance_date, attended, enrollment_group_group_nrc, enrollment_group_enrollment_enrollment_id) VALUES ('AT10004-MAT002-5', DATE '2026-03-02', 'S', '10004', 'MAT002');
+-- MAT003 en el grupo 10005: 3 inasistencia(s) de 5 clases
+INSERT INTO attendances (attendance_id, attendance_date, attended, enrollment_group_group_nrc, enrollment_group_enrollment_enrollment_id) VALUES ('AT10005-MAT003-1', DATE '2026-02-02', 'S', '10005', 'MAT003');
+INSERT INTO attendances (attendance_id, attendance_date, attended, enrollment_group_group_nrc, enrollment_group_enrollment_enrollment_id) VALUES ('AT10005-MAT003-2', DATE '2026-02-09', 'N', '10005', 'MAT003');
+INSERT INTO attendances (attendance_id, attendance_date, attended, enrollment_group_group_nrc, enrollment_group_enrollment_enrollment_id) VALUES ('AT10005-MAT003-3', DATE '2026-02-16', 'N', '10005', 'MAT003');
+INSERT INTO attendances (attendance_id, attendance_date, attended, enrollment_group_group_nrc, enrollment_group_enrollment_enrollment_id) VALUES ('AT10005-MAT003-4', DATE '2026-02-23', 'N', '10005', 'MAT003');
+INSERT INTO attendances (attendance_id, attendance_date, attended, enrollment_group_group_nrc, enrollment_group_enrollment_enrollment_id) VALUES ('AT10005-MAT003-5', DATE '2026-03-02', 'S', '10005', 'MAT003');
+-- MAT003 en el grupo 10006: 2 inasistencia(s) de 5 clases
+INSERT INTO attendances (attendance_id, attendance_date, attended, enrollment_group_group_nrc, enrollment_group_enrollment_enrollment_id) VALUES ('AT10006-MAT003-1', DATE '2026-02-02', 'S', '10006', 'MAT003');
+INSERT INTO attendances (attendance_id, attendance_date, attended, enrollment_group_group_nrc, enrollment_group_enrollment_enrollment_id) VALUES ('AT10006-MAT003-2', DATE '2026-02-09', 'S', '10006', 'MAT003');
+INSERT INTO attendances (attendance_id, attendance_date, attended, enrollment_group_group_nrc, enrollment_group_enrollment_enrollment_id) VALUES ('AT10006-MAT003-3', DATE '2026-02-16', 'N', '10006', 'MAT003');
+INSERT INTO attendances (attendance_id, attendance_date, attended, enrollment_group_group_nrc, enrollment_group_enrollment_enrollment_id) VALUES ('AT10006-MAT003-4', DATE '2026-02-23', 'N', '10006', 'MAT003');
+INSERT INTO attendances (attendance_id, attendance_date, attended, enrollment_group_group_nrc, enrollment_group_enrollment_enrollment_id) VALUES ('AT10006-MAT003-5', DATE '2026-03-02', 'S', '10006', 'MAT003');
+-- MAT004 en el grupo 10007: 0 inasistencia(s) de 5 clases
+INSERT INTO attendances (attendance_id, attendance_date, attended, enrollment_group_group_nrc, enrollment_group_enrollment_enrollment_id) VALUES ('AT10007-MAT004-1', DATE '2026-02-02', 'S', '10007', 'MAT004');
+INSERT INTO attendances (attendance_id, attendance_date, attended, enrollment_group_group_nrc, enrollment_group_enrollment_enrollment_id) VALUES ('AT10007-MAT004-2', DATE '2026-02-09', 'S', '10007', 'MAT004');
+INSERT INTO attendances (attendance_id, attendance_date, attended, enrollment_group_group_nrc, enrollment_group_enrollment_enrollment_id) VALUES ('AT10007-MAT004-3', DATE '2026-02-16', 'S', '10007', 'MAT004');
+INSERT INTO attendances (attendance_id, attendance_date, attended, enrollment_group_group_nrc, enrollment_group_enrollment_enrollment_id) VALUES ('AT10007-MAT004-4', DATE '2026-02-23', 'S', '10007', 'MAT004');
+INSERT INTO attendances (attendance_id, attendance_date, attended, enrollment_group_group_nrc, enrollment_group_enrollment_enrollment_id) VALUES ('AT10007-MAT004-5', DATE '2026-03-02', 'S', '10007', 'MAT004');
+-- MAT004 en el grupo 10008: 0 inasistencia(s) de 5 clases
+INSERT INTO attendances (attendance_id, attendance_date, attended, enrollment_group_group_nrc, enrollment_group_enrollment_enrollment_id) VALUES ('AT10008-MAT004-1', DATE '2026-02-02', 'S', '10008', 'MAT004');
+INSERT INTO attendances (attendance_id, attendance_date, attended, enrollment_group_group_nrc, enrollment_group_enrollment_enrollment_id) VALUES ('AT10008-MAT004-2', DATE '2026-02-09', 'S', '10008', 'MAT004');
+INSERT INTO attendances (attendance_id, attendance_date, attended, enrollment_group_group_nrc, enrollment_group_enrollment_enrollment_id) VALUES ('AT10008-MAT004-3', DATE '2026-02-16', 'S', '10008', 'MAT004');
+INSERT INTO attendances (attendance_id, attendance_date, attended, enrollment_group_group_nrc, enrollment_group_enrollment_enrollment_id) VALUES ('AT10008-MAT004-4', DATE '2026-02-23', 'S', '10008', 'MAT004');
+INSERT INTO attendances (attendance_id, attendance_date, attended, enrollment_group_group_nrc, enrollment_group_enrollment_enrollment_id) VALUES ('AT10008-MAT004-5', DATE '2026-03-02', 'S', '10008', 'MAT004');
+-- MAT005 en el grupo 10009: 1 inasistencia(s) de 5 clases
+INSERT INTO attendances (attendance_id, attendance_date, attended, enrollment_group_group_nrc, enrollment_group_enrollment_enrollment_id) VALUES ('AT10009-MAT005-1', DATE '2026-02-02', 'N', '10009', 'MAT005');
+INSERT INTO attendances (attendance_id, attendance_date, attended, enrollment_group_group_nrc, enrollment_group_enrollment_enrollment_id) VALUES ('AT10009-MAT005-2', DATE '2026-02-09', 'S', '10009', 'MAT005');
+INSERT INTO attendances (attendance_id, attendance_date, attended, enrollment_group_group_nrc, enrollment_group_enrollment_enrollment_id) VALUES ('AT10009-MAT005-3', DATE '2026-02-16', 'S', '10009', 'MAT005');
+INSERT INTO attendances (attendance_id, attendance_date, attended, enrollment_group_group_nrc, enrollment_group_enrollment_enrollment_id) VALUES ('AT10009-MAT005-4', DATE '2026-02-23', 'S', '10009', 'MAT005');
+INSERT INTO attendances (attendance_id, attendance_date, attended, enrollment_group_group_nrc, enrollment_group_enrollment_enrollment_id) VALUES ('AT10009-MAT005-5', DATE '2026-03-02', 'S', '10009', 'MAT005');
+-- MAT005 en el grupo 10010: 0 inasistencia(s) de 5 clases
+INSERT INTO attendances (attendance_id, attendance_date, attended, enrollment_group_group_nrc, enrollment_group_enrollment_enrollment_id) VALUES ('AT10010-MAT005-1', DATE '2026-02-02', 'S', '10010', 'MAT005');
+INSERT INTO attendances (attendance_id, attendance_date, attended, enrollment_group_group_nrc, enrollment_group_enrollment_enrollment_id) VALUES ('AT10010-MAT005-2', DATE '2026-02-09', 'S', '10010', 'MAT005');
+INSERT INTO attendances (attendance_id, attendance_date, attended, enrollment_group_group_nrc, enrollment_group_enrollment_enrollment_id) VALUES ('AT10010-MAT005-3', DATE '2026-02-16', 'S', '10010', 'MAT005');
+INSERT INTO attendances (attendance_id, attendance_date, attended, enrollment_group_group_nrc, enrollment_group_enrollment_enrollment_id) VALUES ('AT10010-MAT005-4', DATE '2026-02-23', 'S', '10010', 'MAT005');
+INSERT INTO attendances (attendance_id, attendance_date, attended, enrollment_group_group_nrc, enrollment_group_enrollment_enrollment_id) VALUES ('AT10010-MAT005-5', DATE '2026-03-02', 'S', '10010', 'MAT005');
+-- MAT006 en el grupo 20001: 0 inasistencia(s) de 5 clases
+INSERT INTO attendances (attendance_id, attendance_date, attended, enrollment_group_group_nrc, enrollment_group_enrollment_enrollment_id) VALUES ('AT20001-MAT006-1', DATE '2026-08-03', 'S', '20001', 'MAT006');
+INSERT INTO attendances (attendance_id, attendance_date, attended, enrollment_group_group_nrc, enrollment_group_enrollment_enrollment_id) VALUES ('AT20001-MAT006-2', DATE '2026-08-10', 'S', '20001', 'MAT006');
+INSERT INTO attendances (attendance_id, attendance_date, attended, enrollment_group_group_nrc, enrollment_group_enrollment_enrollment_id) VALUES ('AT20001-MAT006-3', DATE '2026-08-17', 'S', '20001', 'MAT006');
+INSERT INTO attendances (attendance_id, attendance_date, attended, enrollment_group_group_nrc, enrollment_group_enrollment_enrollment_id) VALUES ('AT20001-MAT006-4', DATE '2026-08-24', 'S', '20001', 'MAT006');
+INSERT INTO attendances (attendance_id, attendance_date, attended, enrollment_group_group_nrc, enrollment_group_enrollment_enrollment_id) VALUES ('AT20001-MAT006-5', DATE '2026-08-31', 'S', '20001', 'MAT006');
+-- MAT006 en el grupo 20002: 2 inasistencia(s) de 5 clases
+INSERT INTO attendances (attendance_id, attendance_date, attended, enrollment_group_group_nrc, enrollment_group_enrollment_enrollment_id) VALUES ('AT20002-MAT006-1', DATE '2026-08-03', 'S', '20002', 'MAT006');
+INSERT INTO attendances (attendance_id, attendance_date, attended, enrollment_group_group_nrc, enrollment_group_enrollment_enrollment_id) VALUES ('AT20002-MAT006-2', DATE '2026-08-10', 'S', '20002', 'MAT006');
+INSERT INTO attendances (attendance_id, attendance_date, attended, enrollment_group_group_nrc, enrollment_group_enrollment_enrollment_id) VALUES ('AT20002-MAT006-3', DATE '2026-08-17', 'S', '20002', 'MAT006');
+INSERT INTO attendances (attendance_id, attendance_date, attended, enrollment_group_group_nrc, enrollment_group_enrollment_enrollment_id) VALUES ('AT20002-MAT006-4', DATE '2026-08-24', 'N', '20002', 'MAT006');
+INSERT INTO attendances (attendance_id, attendance_date, attended, enrollment_group_group_nrc, enrollment_group_enrollment_enrollment_id) VALUES ('AT20002-MAT006-5', DATE '2026-08-31', 'N', '20002', 'MAT006');
+-- MAT007 en el grupo 20003: 1 inasistencia(s) de 5 clases
+INSERT INTO attendances (attendance_id, attendance_date, attended, enrollment_group_group_nrc, enrollment_group_enrollment_enrollment_id) VALUES ('AT20003-MAT007-1', DATE '2026-08-03', 'S', '20003', 'MAT007');
+INSERT INTO attendances (attendance_id, attendance_date, attended, enrollment_group_group_nrc, enrollment_group_enrollment_enrollment_id) VALUES ('AT20003-MAT007-2', DATE '2026-08-10', 'S', '20003', 'MAT007');
+INSERT INTO attendances (attendance_id, attendance_date, attended, enrollment_group_group_nrc, enrollment_group_enrollment_enrollment_id) VALUES ('AT20003-MAT007-3', DATE '2026-08-17', 'S', '20003', 'MAT007');
+INSERT INTO attendances (attendance_id, attendance_date, attended, enrollment_group_group_nrc, enrollment_group_enrollment_enrollment_id) VALUES ('AT20003-MAT007-4', DATE '2026-08-24', 'S', '20003', 'MAT007');
+INSERT INTO attendances (attendance_id, attendance_date, attended, enrollment_group_group_nrc, enrollment_group_enrollment_enrollment_id) VALUES ('AT20003-MAT007-5', DATE '2026-08-31', 'N', '20003', 'MAT007');
+-- MAT007 en el grupo 20004: 0 inasistencia(s) de 5 clases
+INSERT INTO attendances (attendance_id, attendance_date, attended, enrollment_group_group_nrc, enrollment_group_enrollment_enrollment_id) VALUES ('AT20004-MAT007-1', DATE '2026-08-03', 'S', '20004', 'MAT007');
+INSERT INTO attendances (attendance_id, attendance_date, attended, enrollment_group_group_nrc, enrollment_group_enrollment_enrollment_id) VALUES ('AT20004-MAT007-2', DATE '2026-08-10', 'S', '20004', 'MAT007');
+INSERT INTO attendances (attendance_id, attendance_date, attended, enrollment_group_group_nrc, enrollment_group_enrollment_enrollment_id) VALUES ('AT20004-MAT007-3', DATE '2026-08-17', 'S', '20004', 'MAT007');
+INSERT INTO attendances (attendance_id, attendance_date, attended, enrollment_group_group_nrc, enrollment_group_enrollment_enrollment_id) VALUES ('AT20004-MAT007-4', DATE '2026-08-24', 'S', '20004', 'MAT007');
+INSERT INTO attendances (attendance_id, attendance_date, attended, enrollment_group_group_nrc, enrollment_group_enrollment_enrollment_id) VALUES ('AT20004-MAT007-5', DATE '2026-08-31', 'S', '20004', 'MAT007');
+-- MAT012 en el grupo 20003: 4 inasistencia(s) de 5 clases
+INSERT INTO attendances (attendance_id, attendance_date, attended, enrollment_group_group_nrc, enrollment_group_enrollment_enrollment_id) VALUES ('AT20003-MAT012-1', DATE '2026-08-03', 'S', '20003', 'MAT012');
+INSERT INTO attendances (attendance_id, attendance_date, attended, enrollment_group_group_nrc, enrollment_group_enrollment_enrollment_id) VALUES ('AT20003-MAT012-2', DATE '2026-08-10', 'N', '20003', 'MAT012');
+INSERT INTO attendances (attendance_id, attendance_date, attended, enrollment_group_group_nrc, enrollment_group_enrollment_enrollment_id) VALUES ('AT20003-MAT012-3', DATE '2026-08-17', 'N', '20003', 'MAT012');
+INSERT INTO attendances (attendance_id, attendance_date, attended, enrollment_group_group_nrc, enrollment_group_enrollment_enrollment_id) VALUES ('AT20003-MAT012-4', DATE '2026-08-24', 'N', '20003', 'MAT012');
+INSERT INTO attendances (attendance_id, attendance_date, attended, enrollment_group_group_nrc, enrollment_group_enrollment_enrollment_id) VALUES ('AT20003-MAT012-5', DATE '2026-08-31', 'N', '20003', 'MAT012');
+-- MAT012 en el grupo 20004: sin registros de asistencia (prueba el caso 'Sin registros').
+-- MAT008 en el grupo 20005: 0 inasistencia(s) de 5 clases
+INSERT INTO attendances (attendance_id, attendance_date, attended, enrollment_group_group_nrc, enrollment_group_enrollment_enrollment_id) VALUES ('AT20005-MAT008-1', DATE '2026-08-03', 'S', '20005', 'MAT008');
+INSERT INTO attendances (attendance_id, attendance_date, attended, enrollment_group_group_nrc, enrollment_group_enrollment_enrollment_id) VALUES ('AT20005-MAT008-2', DATE '2026-08-10', 'S', '20005', 'MAT008');
+INSERT INTO attendances (attendance_id, attendance_date, attended, enrollment_group_group_nrc, enrollment_group_enrollment_enrollment_id) VALUES ('AT20005-MAT008-3', DATE '2026-08-17', 'S', '20005', 'MAT008');
+INSERT INTO attendances (attendance_id, attendance_date, attended, enrollment_group_group_nrc, enrollment_group_enrollment_enrollment_id) VALUES ('AT20005-MAT008-4', DATE '2026-08-24', 'S', '20005', 'MAT008');
+INSERT INTO attendances (attendance_id, attendance_date, attended, enrollment_group_group_nrc, enrollment_group_enrollment_enrollment_id) VALUES ('AT20005-MAT008-5', DATE '2026-08-31', 'S', '20005', 'MAT008');
+-- MAT008 en el grupo 20006: 1 inasistencia(s) de 5 clases
+INSERT INTO attendances (attendance_id, attendance_date, attended, enrollment_group_group_nrc, enrollment_group_enrollment_enrollment_id) VALUES ('AT20006-MAT008-1', DATE '2026-08-03', 'S', '20006', 'MAT008');
+INSERT INTO attendances (attendance_id, attendance_date, attended, enrollment_group_group_nrc, enrollment_group_enrollment_enrollment_id) VALUES ('AT20006-MAT008-2', DATE '2026-08-10', 'S', '20006', 'MAT008');
+INSERT INTO attendances (attendance_id, attendance_date, attended, enrollment_group_group_nrc, enrollment_group_enrollment_enrollment_id) VALUES ('AT20006-MAT008-3', DATE '2026-08-17', 'S', '20006', 'MAT008');
+INSERT INTO attendances (attendance_id, attendance_date, attended, enrollment_group_group_nrc, enrollment_group_enrollment_enrollment_id) VALUES ('AT20006-MAT008-4', DATE '2026-08-24', 'S', '20006', 'MAT008');
+INSERT INTO attendances (attendance_id, attendance_date, attended, enrollment_group_group_nrc, enrollment_group_enrollment_enrollment_id) VALUES ('AT20006-MAT008-5', DATE '2026-08-31', 'N', '20006', 'MAT008');
+-- MAT009 en el grupo 20007: 2 inasistencia(s) de 5 clases
+INSERT INTO attendances (attendance_id, attendance_date, attended, enrollment_group_group_nrc, enrollment_group_enrollment_enrollment_id) VALUES ('AT20007-MAT009-1', DATE '2026-08-03', 'N', '20007', 'MAT009');
+INSERT INTO attendances (attendance_id, attendance_date, attended, enrollment_group_group_nrc, enrollment_group_enrollment_enrollment_id) VALUES ('AT20007-MAT009-2', DATE '2026-08-10', 'N', '20007', 'MAT009');
+INSERT INTO attendances (attendance_id, attendance_date, attended, enrollment_group_group_nrc, enrollment_group_enrollment_enrollment_id) VALUES ('AT20007-MAT009-3', DATE '2026-08-17', 'S', '20007', 'MAT009');
+INSERT INTO attendances (attendance_id, attendance_date, attended, enrollment_group_group_nrc, enrollment_group_enrollment_enrollment_id) VALUES ('AT20007-MAT009-4', DATE '2026-08-24', 'S', '20007', 'MAT009');
+INSERT INTO attendances (attendance_id, attendance_date, attended, enrollment_group_group_nrc, enrollment_group_enrollment_enrollment_id) VALUES ('AT20007-MAT009-5', DATE '2026-08-31', 'S', '20007', 'MAT009');
+-- MAT009 en el grupo 20008: 0 inasistencia(s) de 5 clases
+INSERT INTO attendances (attendance_id, attendance_date, attended, enrollment_group_group_nrc, enrollment_group_enrollment_enrollment_id) VALUES ('AT20008-MAT009-1', DATE '2026-08-03', 'S', '20008', 'MAT009');
+INSERT INTO attendances (attendance_id, attendance_date, attended, enrollment_group_group_nrc, enrollment_group_enrollment_enrollment_id) VALUES ('AT20008-MAT009-2', DATE '2026-08-10', 'S', '20008', 'MAT009');
+INSERT INTO attendances (attendance_id, attendance_date, attended, enrollment_group_group_nrc, enrollment_group_enrollment_enrollment_id) VALUES ('AT20008-MAT009-3', DATE '2026-08-17', 'S', '20008', 'MAT009');
+INSERT INTO attendances (attendance_id, attendance_date, attended, enrollment_group_group_nrc, enrollment_group_enrollment_enrollment_id) VALUES ('AT20008-MAT009-4', DATE '2026-08-24', 'S', '20008', 'MAT009');
+INSERT INTO attendances (attendance_id, attendance_date, attended, enrollment_group_group_nrc, enrollment_group_enrollment_enrollment_id) VALUES ('AT20008-MAT009-5', DATE '2026-08-31', 'S', '20008', 'MAT009');
+-- MAT010 en el grupo 20009: 0 inasistencia(s) de 5 clases
+INSERT INTO attendances (attendance_id, attendance_date, attended, enrollment_group_group_nrc, enrollment_group_enrollment_enrollment_id) VALUES ('AT20009-MAT010-1', DATE '2026-08-03', 'S', '20009', 'MAT010');
+INSERT INTO attendances (attendance_id, attendance_date, attended, enrollment_group_group_nrc, enrollment_group_enrollment_enrollment_id) VALUES ('AT20009-MAT010-2', DATE '2026-08-10', 'S', '20009', 'MAT010');
+INSERT INTO attendances (attendance_id, attendance_date, attended, enrollment_group_group_nrc, enrollment_group_enrollment_enrollment_id) VALUES ('AT20009-MAT010-3', DATE '2026-08-17', 'S', '20009', 'MAT010');
+INSERT INTO attendances (attendance_id, attendance_date, attended, enrollment_group_group_nrc, enrollment_group_enrollment_enrollment_id) VALUES ('AT20009-MAT010-4', DATE '2026-08-24', 'S', '20009', 'MAT010');
+INSERT INTO attendances (attendance_id, attendance_date, attended, enrollment_group_group_nrc, enrollment_group_enrollment_enrollment_id) VALUES ('AT20009-MAT010-5', DATE '2026-08-31', 'S', '20009', 'MAT010');
+-- MAT010 en el grupo 20010: 1 inasistencia(s) de 5 clases
+INSERT INTO attendances (attendance_id, attendance_date, attended, enrollment_group_group_nrc, enrollment_group_enrollment_enrollment_id) VALUES ('AT20010-MAT010-1', DATE '2026-08-03', 'S', '20010', 'MAT010');
+INSERT INTO attendances (attendance_id, attendance_date, attended, enrollment_group_group_nrc, enrollment_group_enrollment_enrollment_id) VALUES ('AT20010-MAT010-2', DATE '2026-08-10', 'S', '20010', 'MAT010');
+INSERT INTO attendances (attendance_id, attendance_date, attended, enrollment_group_group_nrc, enrollment_group_enrollment_enrollment_id) VALUES ('AT20010-MAT010-3', DATE '2026-08-17', 'S', '20010', 'MAT010');
+INSERT INTO attendances (attendance_id, attendance_date, attended, enrollment_group_group_nrc, enrollment_group_enrollment_enrollment_id) VALUES ('AT20010-MAT010-4', DATE '2026-08-24', 'N', '20010', 'MAT010');
+INSERT INTO attendances (attendance_id, attendance_date, attended, enrollment_group_group_nrc, enrollment_group_enrollment_enrollment_id) VALUES ('AT20010-MAT010-5', DATE '2026-08-31', 'S', '20010', 'MAT010');
+
 --Guardar los cambios
 COMMIT;
