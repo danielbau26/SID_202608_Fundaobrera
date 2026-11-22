@@ -189,6 +189,15 @@ ALTER TABLE programs_subjects ADD CONSTRAINT program_subject_semester_ck CHECK (
 ALTER TABLE teachers ADD CONSTRAINT teacher_document_type_ck CHECK (document_type IN ('CC', 'CE', 'PA'));
 -- Materias y grupos: el correo del docente debe tener una arroba y un punto después de ella
 ALTER TABLE teachers ADD CONSTRAINT teacher_email_ck CHECK (email LIKE '%_@_%._%');
+-- Estado académico: una matrícula retirada debe tener fecha y motivo de retiro,
+-- y una matrícula en otro estado (cursando o graduado) no puede tener datos de retiro
+ALTER TABLE enrollments ADD CONSTRAINT enrollment_withdrawal_ck CHECK (
+    (status_name = 'retirado' AND withdrawal_date IS NOT NULL AND withdrawal_reason IS NOT NULL)
+    OR
+    (status_name <> 'retirado' AND withdrawal_date IS NULL AND withdrawal_reason IS NULL)
+);
+-- Estado académico: el documento del acta de grado debe ser un archivo PDF
+ALTER TABLE graduates ADD CONSTRAINT graduated_certificate_pdf_ck CHECK (LOWER(certificate_document) LIKE '%.pdf');
 
 
 -- FOREIGN KEYS

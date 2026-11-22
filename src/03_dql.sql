@@ -129,3 +129,55 @@ FROM (
 GROUP BY document_number, student_name, program_name
 ORDER BY average_grade DESC NULLS LAST, student_name
 FETCH FIRST 10 ROWS ONLY;
+
+-- MÓDULO ESTADO ACADÉMICO
+
+-- Reporte 8. Estudiantes activos (cursando), retirados y graduados por programa.
+-- Cuenta cuántos estudiantes hay en cada estado dentro de cada programa.
+-- Combina todos los programas con todos los estados (CROSS JOIN) y usa LEFT JOIN hacia las
+-- matrículas, así una combinación sin estudiantes aparece con conteo cero en lugar de desaparecer.
+-- Agrupa por programa y estado, y ordena por nombre del programa y estado.
+SELECT p.program_id, p.name AS program_name, st.name AS status_name,
+       COUNT(DISTINCT e.student_document_number) AS student_count
+FROM programs p
+CROSS JOIN statuses st
+LEFT JOIN enrollments e ON e.program_program_id = p.program_id
+                       AND e.status_name = st.name
+GROUP BY p.program_id, p.name, st.name
+ORDER BY p.name, st.name;
+
+-- Reporte 9. Estudiantes retirados y sus motivos.
+-- Muestra cada matrícula en estado retirado con el estudiante, el programa, el periodo,
+-- el semestre que cursaba, la fecha y el motivo del retiro (INNER JOIN con estudiantes y programas).
+-- Ordena del retiro más reciente al más antiguo.
+SELECT s.document_number, s.full_name AS student_name, p.name AS program_name,
+       e.academic_term_academic_term_id AS academic_term_id, e.semester_number,
+       e.withdrawal_date, e.withdrawal_reason
+FROM enrollments e
+INNER JOIN students s ON s.document_number = e.student_document_number
+INNER JOIN programs p ON p.program_id = e.program_program_id
+WHERE e.status_name = 'retirado'
+ORDER BY e.withdrawal_date DESC, s.full_name;
+
+-- Reporte 10. Estudiantes graduados y sus fechas de graduación.
+-- Lista cada graduación con el estudiante, el programa del que se graduó, la fecha,
+-- el número de acta y el documento del acta (INNER JOIN con estudiantes y programas).
+-- Ordena por fecha de graduación, programa y nombre del estudiante.
+SELECT s.document_number, s.full_name AS student_name, p.name AS program_name,
+       gr.graduation_date, gr.certificate_number, gr.certificate_document
+FROM graduates gr
+INNER JOIN students s ON s.document_number = gr.student_document_number
+INNER JOIN programs p ON p.program_id = gr.program_program_id
+ORDER BY gr.graduation_date, p.name, s.full_name;
+
+-- Reporte 11 (TOP). Los 3 programas con más estudiantes retirados.
+-- Cuenta las matrículas retiradas de cada programa, las ordena de mayor a menor
+-- y devuelve solo las 3 primeras (FETCH FIRST 3 ROWS ONLY es el TOP de Oracle).
+-- Sirve para identificar en qué programas hay más deserción.
+SELECT p.program_id, p.name AS program_name, COUNT(*) AS withdrawn_count
+FROM enrollments e
+INNER JOIN programs p ON p.program_id = e.program_program_id
+WHERE e.status_name = 'retirado'
+GROUP BY p.program_id, p.name
+ORDER BY withdrawn_count DESC, p.name
+FETCH FIRST 3 ROWS ONLY;
