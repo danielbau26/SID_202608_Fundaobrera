@@ -166,5 +166,197 @@ INSERT INTO enrollments_groups (group_nrc, enrollment_enrollment_id) VALUES ('20
 INSERT INTO enrollments_groups (group_nrc, enrollment_enrollment_id) VALUES ('20009', 'MAT010');
 INSERT INTO enrollments_groups (group_nrc, enrollment_enrollment_id) VALUES ('20010', 'MAT010');
 
+
+-- CALIFICACIONES
+
+-- Actividades evaluativas. Cada grupo tiene tres actividades: Parcial 1 (30 %), Parcial 2 (30 %)
+-- y Examen final (40 %), que suman 100 %. Las fechas caen dentro del periodo del grupo.
+-- El id de la actividad es ACT + NRC + número de la actividad.
+-- Grupo 10001
+INSERT INTO activities (activity_id, name, percentage, group_nrc, activity_date) VALUES ('ACT10001-1', 'Parcial 1', 30, '10001', DATE '2026-03-13');
+INSERT INTO activities (activity_id, name, percentage, group_nrc, activity_date) VALUES ('ACT10001-2', 'Parcial 2', 30, '10001', DATE '2026-04-24');
+INSERT INTO activities (activity_id, name, percentage, group_nrc, activity_date) VALUES ('ACT10001-3', 'Examen final', 40, '10001', DATE '2026-06-05');
+-- Grupo 10002
+INSERT INTO activities (activity_id, name, percentage, group_nrc, activity_date) VALUES ('ACT10002-1', 'Parcial 1', 30, '10002', DATE '2026-03-13');
+INSERT INTO activities (activity_id, name, percentage, group_nrc, activity_date) VALUES ('ACT10002-2', 'Parcial 2', 30, '10002', DATE '2026-04-24');
+INSERT INTO activities (activity_id, name, percentage, group_nrc, activity_date) VALUES ('ACT10002-3', 'Examen final', 40, '10002', DATE '2026-06-05');
+-- Grupo 10003
+INSERT INTO activities (activity_id, name, percentage, group_nrc, activity_date) VALUES ('ACT10003-1', 'Parcial 1', 30, '10003', DATE '2026-03-13');
+INSERT INTO activities (activity_id, name, percentage, group_nrc, activity_date) VALUES ('ACT10003-2', 'Parcial 2', 30, '10003', DATE '2026-04-24');
+INSERT INTO activities (activity_id, name, percentage, group_nrc, activity_date) VALUES ('ACT10003-3', 'Examen final', 40, '10003', DATE '2026-06-05');
+-- Grupo 10004
+INSERT INTO activities (activity_id, name, percentage, group_nrc, activity_date) VALUES ('ACT10004-1', 'Parcial 1', 30, '10004', DATE '2026-03-13');
+INSERT INTO activities (activity_id, name, percentage, group_nrc, activity_date) VALUES ('ACT10004-2', 'Parcial 2', 30, '10004', DATE '2026-04-24');
+INSERT INTO activities (activity_id, name, percentage, group_nrc, activity_date) VALUES ('ACT10004-3', 'Examen final', 40, '10004', DATE '2026-06-05');
+-- Grupo 10005
+INSERT INTO activities (activity_id, name, percentage, group_nrc, activity_date) VALUES ('ACT10005-1', 'Parcial 1', 30, '10005', DATE '2026-03-13');
+INSERT INTO activities (activity_id, name, percentage, group_nrc, activity_date) VALUES ('ACT10005-2', 'Parcial 2', 30, '10005', DATE '2026-04-24');
+INSERT INTO activities (activity_id, name, percentage, group_nrc, activity_date) VALUES ('ACT10005-3', 'Examen final', 40, '10005', DATE '2026-06-05');
+-- Grupo 10006
+INSERT INTO activities (activity_id, name, percentage, group_nrc, activity_date) VALUES ('ACT10006-1', 'Parcial 1', 30, '10006', DATE '2026-03-13');
+INSERT INTO activities (activity_id, name, percentage, group_nrc, activity_date) VALUES ('ACT10006-2', 'Parcial 2', 30, '10006', DATE '2026-04-24');
+INSERT INTO activities (activity_id, name, percentage, group_nrc, activity_date) VALUES ('ACT10006-3', 'Examen final', 40, '10006', DATE '2026-06-05');
+-- Grupo 10007
+INSERT INTO activities (activity_id, name, percentage, group_nrc, activity_date) VALUES ('ACT10007-1', 'Parcial 1', 30, '10007', DATE '2026-03-13');
+INSERT INTO activities (activity_id, name, percentage, group_nrc, activity_date) VALUES ('ACT10007-2', 'Parcial 2', 30, '10007', DATE '2026-04-24');
+INSERT INTO activities (activity_id, name, percentage, group_nrc, activity_date) VALUES ('ACT10007-3', 'Examen final', 40, '10007', DATE '2026-06-05');
+-- Grupo 10008
+INSERT INTO activities (activity_id, name, percentage, group_nrc, activity_date) VALUES ('ACT10008-1', 'Parcial 1', 30, '10008', DATE '2026-03-13');
+INSERT INTO activities (activity_id, name, percentage, group_nrc, activity_date) VALUES ('ACT10008-2', 'Parcial 2', 30, '10008', DATE '2026-04-24');
+INSERT INTO activities (activity_id, name, percentage, group_nrc, activity_date) VALUES ('ACT10008-3', 'Examen final', 40, '10008', DATE '2026-06-05');
+-- Grupo 10009
+INSERT INTO activities (activity_id, name, percentage, group_nrc, activity_date) VALUES ('ACT10009-1', 'Parcial 1', 30, '10009', DATE '2026-03-13');
+INSERT INTO activities (activity_id, name, percentage, group_nrc, activity_date) VALUES ('ACT10009-2', 'Parcial 2', 30, '10009', DATE '2026-04-24');
+INSERT INTO activities (activity_id, name, percentage, group_nrc, activity_date) VALUES ('ACT10009-3', 'Examen final', 40, '10009', DATE '2026-06-05');
+-- Grupo 10010
+INSERT INTO activities (activity_id, name, percentage, group_nrc, activity_date) VALUES ('ACT10010-1', 'Parcial 1', 30, '10010', DATE '2026-03-13');
+INSERT INTO activities (activity_id, name, percentage, group_nrc, activity_date) VALUES ('ACT10010-2', 'Parcial 2', 30, '10010', DATE '2026-04-24');
+INSERT INTO activities (activity_id, name, percentage, group_nrc, activity_date) VALUES ('ACT10010-3', 'Examen final', 40, '10010', DATE '2026-06-05');
+-- Grupo 10011
+INSERT INTO activities (activity_id, name, percentage, group_nrc, activity_date) VALUES ('ACT10011-1', 'Parcial 1', 30, '10011', DATE '2026-03-13');
+INSERT INTO activities (activity_id, name, percentage, group_nrc, activity_date) VALUES ('ACT10011-2', 'Parcial 2', 30, '10011', DATE '2026-04-24');
+INSERT INTO activities (activity_id, name, percentage, group_nrc, activity_date) VALUES ('ACT10011-3', 'Examen final', 40, '10011', DATE '2026-06-05');
+-- Grupo 20001
+INSERT INTO activities (activity_id, name, percentage, group_nrc, activity_date) VALUES ('ACT20001-1', 'Parcial 1', 30, '20001', DATE '2026-09-11');
+INSERT INTO activities (activity_id, name, percentage, group_nrc, activity_date) VALUES ('ACT20001-2', 'Parcial 2', 30, '20001', DATE '2026-10-23');
+INSERT INTO activities (activity_id, name, percentage, group_nrc, activity_date) VALUES ('ACT20001-3', 'Examen final', 40, '20001', DATE '2026-11-27');
+-- Grupo 20002
+INSERT INTO activities (activity_id, name, percentage, group_nrc, activity_date) VALUES ('ACT20002-1', 'Parcial 1', 30, '20002', DATE '2026-09-11');
+INSERT INTO activities (activity_id, name, percentage, group_nrc, activity_date) VALUES ('ACT20002-2', 'Parcial 2', 30, '20002', DATE '2026-10-23');
+INSERT INTO activities (activity_id, name, percentage, group_nrc, activity_date) VALUES ('ACT20002-3', 'Examen final', 40, '20002', DATE '2026-11-27');
+-- Grupo 20003
+INSERT INTO activities (activity_id, name, percentage, group_nrc, activity_date) VALUES ('ACT20003-1', 'Parcial 1', 30, '20003', DATE '2026-09-11');
+INSERT INTO activities (activity_id, name, percentage, group_nrc, activity_date) VALUES ('ACT20003-2', 'Parcial 2', 30, '20003', DATE '2026-10-23');
+INSERT INTO activities (activity_id, name, percentage, group_nrc, activity_date) VALUES ('ACT20003-3', 'Examen final', 40, '20003', DATE '2026-11-27');
+-- Grupo 20004
+INSERT INTO activities (activity_id, name, percentage, group_nrc, activity_date) VALUES ('ACT20004-1', 'Parcial 1', 30, '20004', DATE '2026-09-11');
+INSERT INTO activities (activity_id, name, percentage, group_nrc, activity_date) VALUES ('ACT20004-2', 'Parcial 2', 30, '20004', DATE '2026-10-23');
+INSERT INTO activities (activity_id, name, percentage, group_nrc, activity_date) VALUES ('ACT20004-3', 'Examen final', 40, '20004', DATE '2026-11-27');
+-- Grupo 20005
+INSERT INTO activities (activity_id, name, percentage, group_nrc, activity_date) VALUES ('ACT20005-1', 'Parcial 1', 30, '20005', DATE '2026-09-11');
+INSERT INTO activities (activity_id, name, percentage, group_nrc, activity_date) VALUES ('ACT20005-2', 'Parcial 2', 30, '20005', DATE '2026-10-23');
+INSERT INTO activities (activity_id, name, percentage, group_nrc, activity_date) VALUES ('ACT20005-3', 'Examen final', 40, '20005', DATE '2026-11-27');
+-- Grupo 20006
+INSERT INTO activities (activity_id, name, percentage, group_nrc, activity_date) VALUES ('ACT20006-1', 'Parcial 1', 30, '20006', DATE '2026-09-11');
+INSERT INTO activities (activity_id, name, percentage, group_nrc, activity_date) VALUES ('ACT20006-2', 'Parcial 2', 30, '20006', DATE '2026-10-23');
+INSERT INTO activities (activity_id, name, percentage, group_nrc, activity_date) VALUES ('ACT20006-3', 'Examen final', 40, '20006', DATE '2026-11-27');
+-- Grupo 20007
+INSERT INTO activities (activity_id, name, percentage, group_nrc, activity_date) VALUES ('ACT20007-1', 'Parcial 1', 30, '20007', DATE '2026-09-11');
+INSERT INTO activities (activity_id, name, percentage, group_nrc, activity_date) VALUES ('ACT20007-2', 'Parcial 2', 30, '20007', DATE '2026-10-23');
+INSERT INTO activities (activity_id, name, percentage, group_nrc, activity_date) VALUES ('ACT20007-3', 'Examen final', 40, '20007', DATE '2026-11-27');
+-- Grupo 20008
+INSERT INTO activities (activity_id, name, percentage, group_nrc, activity_date) VALUES ('ACT20008-1', 'Parcial 1', 30, '20008', DATE '2026-09-11');
+INSERT INTO activities (activity_id, name, percentage, group_nrc, activity_date) VALUES ('ACT20008-2', 'Parcial 2', 30, '20008', DATE '2026-10-23');
+INSERT INTO activities (activity_id, name, percentage, group_nrc, activity_date) VALUES ('ACT20008-3', 'Examen final', 40, '20008', DATE '2026-11-27');
+-- Grupo 20009
+INSERT INTO activities (activity_id, name, percentage, group_nrc, activity_date) VALUES ('ACT20009-1', 'Parcial 1', 30, '20009', DATE '2026-09-11');
+INSERT INTO activities (activity_id, name, percentage, group_nrc, activity_date) VALUES ('ACT20009-2', 'Parcial 2', 30, '20009', DATE '2026-10-23');
+INSERT INTO activities (activity_id, name, percentage, group_nrc, activity_date) VALUES ('ACT20009-3', 'Examen final', 40, '20009', DATE '2026-11-27');
+-- Grupo 20010
+INSERT INTO activities (activity_id, name, percentage, group_nrc, activity_date) VALUES ('ACT20010-1', 'Parcial 1', 30, '20010', DATE '2026-09-11');
+INSERT INTO activities (activity_id, name, percentage, group_nrc, activity_date) VALUES ('ACT20010-2', 'Parcial 2', 30, '20010', DATE '2026-10-23');
+INSERT INTO activities (activity_id, name, percentage, group_nrc, activity_date) VALUES ('ACT20010-3', 'Examen final', 40, '20010', DATE '2026-11-27');
+
+-- Notas de cada estudiante en cada actividad de su grupo (entre 0.0 y 5.0).
+-- enrollment_group_id_enrollment_group es la columna que el MR agrega a la llave primaria;
+-- se usa un id por inscripción (EG001 a EG024), igual en las tres notas de esa inscripción.
+-- Varias inscripciones quedan con definitiva menor a 3.0 para probar el reporte de materias no aprobadas.
+-- EG001: matrícula MAT001 en el grupo 10001
+INSERT INTO activities_grades (activities_activity_id, grade, enrollment_group_id_enrollment_group, enrollment_group_group_nrc, enrollment_group_enrollment_enrollment_id) VALUES ('ACT10001-1', 4.5, 'EG001', '10001', 'MAT001');
+INSERT INTO activities_grades (activities_activity_id, grade, enrollment_group_id_enrollment_group, enrollment_group_group_nrc, enrollment_group_enrollment_enrollment_id) VALUES ('ACT10001-2', 4.0, 'EG001', '10001', 'MAT001');
+INSERT INTO activities_grades (activities_activity_id, grade, enrollment_group_id_enrollment_group, enrollment_group_group_nrc, enrollment_group_enrollment_enrollment_id) VALUES ('ACT10001-3', 4.2, 'EG001', '10001', 'MAT001');
+-- EG002: matrícula MAT001 en el grupo 10002
+INSERT INTO activities_grades (activities_activity_id, grade, enrollment_group_id_enrollment_group, enrollment_group_group_nrc, enrollment_group_enrollment_enrollment_id) VALUES ('ACT10002-1', 3.8, 'EG002', '10002', 'MAT001');
+INSERT INTO activities_grades (activities_activity_id, grade, enrollment_group_id_enrollment_group, enrollment_group_group_nrc, enrollment_group_enrollment_enrollment_id) VALUES ('ACT10002-2', 4.1, 'EG002', '10002', 'MAT001');
+INSERT INTO activities_grades (activities_activity_id, grade, enrollment_group_id_enrollment_group, enrollment_group_group_nrc, enrollment_group_enrollment_enrollment_id) VALUES ('ACT10002-3', 3.5, 'EG002', '10002', 'MAT001');
+-- EG003: matrícula MAT011 en el grupo 10011
+INSERT INTO activities_grades (activities_activity_id, grade, enrollment_group_id_enrollment_group, enrollment_group_group_nrc, enrollment_group_enrollment_enrollment_id) VALUES ('ACT10011-1', 2.5, 'EG003', '10011', 'MAT011');
+INSERT INTO activities_grades (activities_activity_id, grade, enrollment_group_id_enrollment_group, enrollment_group_group_nrc, enrollment_group_enrollment_enrollment_id) VALUES ('ACT10011-2', 2.0, 'EG003', '10011', 'MAT011');
+INSERT INTO activities_grades (activities_activity_id, grade, enrollment_group_id_enrollment_group, enrollment_group_group_nrc, enrollment_group_enrollment_enrollment_id) VALUES ('ACT10011-3', 2.8, 'EG003', '10011', 'MAT011');
+-- EG004: matrícula MAT011 en el grupo 10002
+INSERT INTO activities_grades (activities_activity_id, grade, enrollment_group_id_enrollment_group, enrollment_group_group_nrc, enrollment_group_enrollment_enrollment_id) VALUES ('ACT10002-1', 3.0, 'EG004', '10002', 'MAT011');
+INSERT INTO activities_grades (activities_activity_id, grade, enrollment_group_id_enrollment_group, enrollment_group_group_nrc, enrollment_group_enrollment_enrollment_id) VALUES ('ACT10002-2', 3.5, 'EG004', '10002', 'MAT011');
+INSERT INTO activities_grades (activities_activity_id, grade, enrollment_group_id_enrollment_group, enrollment_group_group_nrc, enrollment_group_enrollment_enrollment_id) VALUES ('ACT10002-3', 3.2, 'EG004', '10002', 'MAT011');
+-- EG005: matrícula MAT002 en el grupo 10003 
+INSERT INTO activities_grades (activities_activity_id, grade, enrollment_group_id_enrollment_group, enrollment_group_group_nrc, enrollment_group_enrollment_enrollment_id) VALUES ('ACT10003-1', 4.8, 'EG005', '10003', 'MAT002');
+INSERT INTO activities_grades (activities_activity_id, grade, enrollment_group_id_enrollment_group, enrollment_group_group_nrc, enrollment_group_enrollment_enrollment_id) VALUES ('ACT10003-2', 4.6, 'EG005', '10003', 'MAT002');
+INSERT INTO activities_grades (activities_activity_id, grade, enrollment_group_id_enrollment_group, enrollment_group_group_nrc, enrollment_group_enrollment_enrollment_id) VALUES ('ACT10003-3', 5.0, 'EG005', '10003', 'MAT002');
+-- EG006: matrícula MAT002 en el grupo 10004
+INSERT INTO activities_grades (activities_activity_id, grade, enrollment_group_id_enrollment_group, enrollment_group_group_nrc, enrollment_group_enrollment_enrollment_id) VALUES ('ACT10004-1', 4.0, 'EG006', '10004', 'MAT002');
+INSERT INTO activities_grades (activities_activity_id, grade, enrollment_group_id_enrollment_group, enrollment_group_group_nrc, enrollment_group_enrollment_enrollment_id) VALUES ('ACT10004-2', 3.9, 'EG006', '10004', 'MAT002');
+INSERT INTO activities_grades (activities_activity_id, grade, enrollment_group_id_enrollment_group, enrollment_group_group_nrc, enrollment_group_enrollment_enrollment_id) VALUES ('ACT10004-3', 4.4, 'EG006', '10004', 'MAT002');
+-- EG007: matrícula MAT003 en el grupo 10005 
+INSERT INTO activities_grades (activities_activity_id, grade, enrollment_group_id_enrollment_group, enrollment_group_group_nrc, enrollment_group_enrollment_enrollment_id) VALUES ('ACT10005-1', 2.0, 'EG007', '10005', 'MAT003');
+INSERT INTO activities_grades (activities_activity_id, grade, enrollment_group_id_enrollment_group, enrollment_group_group_nrc, enrollment_group_enrollment_enrollment_id) VALUES ('ACT10005-2', 3.1, 'EG007', '10005', 'MAT003');
+INSERT INTO activities_grades (activities_activity_id, grade, enrollment_group_id_enrollment_group, enrollment_group_group_nrc, enrollment_group_enrollment_enrollment_id) VALUES ('ACT10005-3', 2.4, 'EG007', '10005', 'MAT003');
+-- EG008: matrícula MAT003 en el grupo 10006 
+INSERT INTO activities_grades (activities_activity_id, grade, enrollment_group_id_enrollment_group, enrollment_group_group_nrc, enrollment_group_enrollment_enrollment_id) VALUES ('ACT10006-1', 3.6, 'EG008', '10006', 'MAT003');
+INSERT INTO activities_grades (activities_activity_id, grade, enrollment_group_id_enrollment_group, enrollment_group_group_nrc, enrollment_group_enrollment_enrollment_id) VALUES ('ACT10006-2', 3.0, 'EG008', '10006', 'MAT003');
+INSERT INTO activities_grades (activities_activity_id, grade, enrollment_group_id_enrollment_group, enrollment_group_group_nrc, enrollment_group_enrollment_enrollment_id) VALUES ('ACT10006-3', 3.3, 'EG008', '10006', 'MAT003');
+-- EG009: matrícula MAT004 en el grupo 10007
+INSERT INTO activities_grades (activities_activity_id, grade, enrollment_group_id_enrollment_group, enrollment_group_group_nrc, enrollment_group_enrollment_enrollment_id) VALUES ('ACT10007-1', 4.2, 'EG009', '10007', 'MAT004');
+INSERT INTO activities_grades (activities_activity_id, grade, enrollment_group_id_enrollment_group, enrollment_group_group_nrc, enrollment_group_enrollment_enrollment_id) VALUES ('ACT10007-2', 4.5, 'EG009', '10007', 'MAT004');
+INSERT INTO activities_grades (activities_activity_id, grade, enrollment_group_id_enrollment_group, enrollment_group_group_nrc, enrollment_group_enrollment_enrollment_id) VALUES ('ACT10007-3', 4.0, 'EG009', '10007', 'MAT004');
+-- EG010: matrícula MAT004 en el grupo 10008
+INSERT INTO activities_grades (activities_activity_id, grade, enrollment_group_id_enrollment_group, enrollment_group_group_nrc, enrollment_group_enrollment_enrollment_id) VALUES ('ACT10008-1', 3.9, 'EG010', '10008', 'MAT004');
+INSERT INTO activities_grades (activities_activity_id, grade, enrollment_group_id_enrollment_group, enrollment_group_group_nrc, enrollment_group_enrollment_enrollment_id) VALUES ('ACT10008-2', 4.3, 'EG010', '10008', 'MAT004');
+INSERT INTO activities_grades (activities_activity_id, grade, enrollment_group_id_enrollment_group, enrollment_group_group_nrc, enrollment_group_enrollment_enrollment_id) VALUES ('ACT10008-3', 4.7, 'EG010', '10008', 'MAT004');
+-- EG011: matrícula MAT005 en el grupo 10009
+INSERT INTO activities_grades (activities_activity_id, grade, enrollment_group_id_enrollment_group, enrollment_group_group_nrc, enrollment_group_enrollment_enrollment_id) VALUES ('ACT10009-1', 1.8, 'EG011', '10009', 'MAT005');
+INSERT INTO activities_grades (activities_activity_id, grade, enrollment_group_id_enrollment_group, enrollment_group_group_nrc, enrollment_group_enrollment_enrollment_id) VALUES ('ACT10009-2', 2.5, 'EG011', '10009', 'MAT005');
+INSERT INTO activities_grades (activities_activity_id, grade, enrollment_group_id_enrollment_group, enrollment_group_group_nrc, enrollment_group_enrollment_enrollment_id) VALUES ('ACT10009-3', 3.0, 'EG011', '10009', 'MAT005');
+-- EG012: matrícula MAT005 en el grupo 10010 
+INSERT INTO activities_grades (activities_activity_id, grade, enrollment_group_id_enrollment_group, enrollment_group_group_nrc, enrollment_group_enrollment_enrollment_id) VALUES ('ACT10010-1', 3.2, 'EG012', '10010', 'MAT005');
+INSERT INTO activities_grades (activities_activity_id, grade, enrollment_group_id_enrollment_group, enrollment_group_group_nrc, enrollment_group_enrollment_enrollment_id) VALUES ('ACT10010-2', 2.8, 'EG012', '10010', 'MAT005');
+INSERT INTO activities_grades (activities_activity_id, grade, enrollment_group_id_enrollment_group, enrollment_group_group_nrc, enrollment_group_enrollment_enrollment_id) VALUES ('ACT10010-3', 3.1, 'EG012', '10010', 'MAT005');
+-- EG013: matrícula MAT006 en el grupo 20001 
+INSERT INTO activities_grades (activities_activity_id, grade, enrollment_group_id_enrollment_group, enrollment_group_group_nrc, enrollment_group_enrollment_enrollment_id) VALUES ('ACT20001-1', 4.1, 'EG013', '20001', 'MAT006');
+INSERT INTO activities_grades (activities_activity_id, grade, enrollment_group_id_enrollment_group, enrollment_group_group_nrc, enrollment_group_enrollment_enrollment_id) VALUES ('ACT20001-2', 3.7, 'EG013', '20001', 'MAT006');
+INSERT INTO activities_grades (activities_activity_id, grade, enrollment_group_id_enrollment_group, enrollment_group_group_nrc, enrollment_group_enrollment_enrollment_id) VALUES ('ACT20001-3', 3.9, 'EG013', '20001', 'MAT006');
+-- EG014: matrícula MAT006 en el grupo 20002 
+INSERT INTO activities_grades (activities_activity_id, grade, enrollment_group_id_enrollment_group, enrollment_group_group_nrc, enrollment_group_enrollment_enrollment_id) VALUES ('ACT20002-1', 2.9, 'EG014', '20002', 'MAT006');
+INSERT INTO activities_grades (activities_activity_id, grade, enrollment_group_id_enrollment_group, enrollment_group_group_nrc, enrollment_group_enrollment_enrollment_id) VALUES ('ACT20002-2', 3.4, 'EG014', '20002', 'MAT006');
+INSERT INTO activities_grades (activities_activity_id, grade, enrollment_group_id_enrollment_group, enrollment_group_group_nrc, enrollment_group_enrollment_enrollment_id) VALUES ('ACT20002-3', 3.0, 'EG014', '20002', 'MAT006');
+-- EG015: matrícula MAT007 en el grupo 20003
+INSERT INTO activities_grades (activities_activity_id, grade, enrollment_group_id_enrollment_group, enrollment_group_group_nrc, enrollment_group_enrollment_enrollment_id) VALUES ('ACT20003-1', 3.5, 'EG015', '20003', 'MAT007');
+INSERT INTO activities_grades (activities_activity_id, grade, enrollment_group_id_enrollment_group, enrollment_group_group_nrc, enrollment_group_enrollment_enrollment_id) VALUES ('ACT20003-2', 4.0, 'EG015', '20003', 'MAT007');
+INSERT INTO activities_grades (activities_activity_id, grade, enrollment_group_id_enrollment_group, enrollment_group_group_nrc, enrollment_group_enrollment_enrollment_id) VALUES ('ACT20003-3', 3.8, 'EG015', '20003', 'MAT007');
+-- EG016: matrícula MAT007 en el grupo 20004
+INSERT INTO activities_grades (activities_activity_id, grade, enrollment_group_id_enrollment_group, enrollment_group_group_nrc, enrollment_group_enrollment_enrollment_id) VALUES ('ACT20004-1', 4.6, 'EG016', '20004', 'MAT007');
+INSERT INTO activities_grades (activities_activity_id, grade, enrollment_group_id_enrollment_group, enrollment_group_group_nrc, enrollment_group_enrollment_enrollment_id) VALUES ('ACT20004-2', 4.2, 'EG016', '20004', 'MAT007');
+INSERT INTO activities_grades (activities_activity_id, grade, enrollment_group_id_enrollment_group, enrollment_group_group_nrc, enrollment_group_enrollment_enrollment_id) VALUES ('ACT20004-3', 4.9, 'EG016', '20004', 'MAT007');
+-- EG017: matrícula MAT012 en el grupo 20003
+INSERT INTO activities_grades (activities_activity_id, grade, enrollment_group_id_enrollment_group, enrollment_group_group_nrc, enrollment_group_enrollment_enrollment_id) VALUES ('ACT20003-1', 2.2, 'EG017', '20003', 'MAT012');
+INSERT INTO activities_grades (activities_activity_id, grade, enrollment_group_id_enrollment_group, enrollment_group_group_nrc, enrollment_group_enrollment_enrollment_id) VALUES ('ACT20003-2', 2.6, 'EG017', '20003', 'MAT012');
+INSERT INTO activities_grades (activities_activity_id, grade, enrollment_group_id_enrollment_group, enrollment_group_group_nrc, enrollment_group_enrollment_enrollment_id) VALUES ('ACT20003-3', 1.9, 'EG017', '20003', 'MAT012');
+-- EG018: matrícula MAT012 en el grupo 20004
+INSERT INTO activities_grades (activities_activity_id, grade, enrollment_group_id_enrollment_group, enrollment_group_group_nrc, enrollment_group_enrollment_enrollment_id) VALUES ('ACT20004-1', 3.0, 'EG018', '20004', 'MAT012');
+INSERT INTO activities_grades (activities_activity_id, grade, enrollment_group_id_enrollment_group, enrollment_group_group_nrc, enrollment_group_enrollment_enrollment_id) VALUES ('ACT20004-2', 2.7, 'EG018', '20004', 'MAT012');
+INSERT INTO activities_grades (activities_activity_id, grade, enrollment_group_id_enrollment_group, enrollment_group_group_nrc, enrollment_group_enrollment_enrollment_id) VALUES ('ACT20004-3', 2.5, 'EG018', '20004', 'MAT012');
+-- EG019: matrícula MAT008 en el grupo 20005
+INSERT INTO activities_grades (activities_activity_id, grade, enrollment_group_id_enrollment_group, enrollment_group_group_nrc, enrollment_group_enrollment_enrollment_id) VALUES ('ACT20005-1', 5.0, 'EG019', '20005', 'MAT008');
+INSERT INTO activities_grades (activities_activity_id, grade, enrollment_group_id_enrollment_group, enrollment_group_group_nrc, enrollment_group_enrollment_enrollment_id) VALUES ('ACT20005-2', 4.8, 'EG019', '20005', 'MAT008');
+INSERT INTO activities_grades (activities_activity_id, grade, enrollment_group_id_enrollment_group, enrollment_group_group_nrc, enrollment_group_enrollment_enrollment_id) VALUES ('ACT20005-3', 4.7, 'EG019', '20005', 'MAT008');
+-- EG020: matrícula MAT008 en el grupo 20006
+INSERT INTO activities_grades (activities_activity_id, grade, enrollment_group_id_enrollment_group, enrollment_group_group_nrc, enrollment_group_enrollment_enrollment_id) VALUES ('ACT20006-1', 4.4, 'EG020', '20006', 'MAT008');
+INSERT INTO activities_grades (activities_activity_id, grade, enrollment_group_id_enrollment_group, enrollment_group_group_nrc, enrollment_group_enrollment_enrollment_id) VALUES ('ACT20006-2', 4.1, 'EG020', '20006', 'MAT008');
+INSERT INTO activities_grades (activities_activity_id, grade, enrollment_group_id_enrollment_group, enrollment_group_group_nrc, enrollment_group_enrollment_enrollment_id) VALUES ('ACT20006-3', 4.3, 'EG020', '20006', 'MAT008');
+-- EG021: matrícula MAT009 en el grupo 20007
+INSERT INTO activities_grades (activities_activity_id, grade, enrollment_group_id_enrollment_group, enrollment_group_group_nrc, enrollment_group_enrollment_enrollment_id) VALUES ('ACT20007-1', 3.3, 'EG021', '20007', 'MAT009');
+INSERT INTO activities_grades (activities_activity_id, grade, enrollment_group_id_enrollment_group, enrollment_group_group_nrc, enrollment_group_enrollment_enrollment_id) VALUES ('ACT20007-2', 3.6, 'EG021', '20007', 'MAT009');
+INSERT INTO activities_grades (activities_activity_id, grade, enrollment_group_id_enrollment_group, enrollment_group_group_nrc, enrollment_group_enrollment_enrollment_id) VALUES ('ACT20007-3', 2.9, 'EG021', '20007', 'MAT009');
+-- EG022: matrícula MAT009 en el grupo 20008
+INSERT INTO activities_grades (activities_activity_id, grade, enrollment_group_id_enrollment_group, enrollment_group_group_nrc, enrollment_group_enrollment_enrollment_id) VALUES ('ACT20008-1', 2.7, 'EG022', '20008', 'MAT009');
+INSERT INTO activities_grades (activities_activity_id, grade, enrollment_group_id_enrollment_group, enrollment_group_group_nrc, enrollment_group_enrollment_enrollment_id) VALUES ('ACT20008-2', 3.0, 'EG022', '20008', 'MAT009');
+INSERT INTO activities_grades (activities_activity_id, grade, enrollment_group_id_enrollment_group, enrollment_group_group_nrc, enrollment_group_enrollment_enrollment_id) VALUES ('ACT20008-3', 3.2, 'EG022', '20008', 'MAT009');
+-- EG023: matrícula MAT010 en el grupo 20009
+INSERT INTO activities_grades (activities_activity_id, grade, enrollment_group_id_enrollment_group, enrollment_group_group_nrc, enrollment_group_enrollment_enrollment_id) VALUES ('ACT20009-1', 3.8, 'EG023', '20009', 'MAT010');
+INSERT INTO activities_grades (activities_activity_id, grade, enrollment_group_id_enrollment_group, enrollment_group_group_nrc, enrollment_group_enrollment_enrollment_id) VALUES ('ACT20009-2', 3.5, 'EG023', '20009', 'MAT010');
+INSERT INTO activities_grades (activities_activity_id, grade, enrollment_group_id_enrollment_group, enrollment_group_group_nrc, enrollment_group_enrollment_enrollment_id) VALUES ('ACT20009-3', 4.1, 'EG023', '20009', 'MAT010');
+-- EG024: matrícula MAT010 en el grupo 20010
+INSERT INTO activities_grades (activities_activity_id, grade, enrollment_group_id_enrollment_group, enrollment_group_group_nrc, enrollment_group_enrollment_enrollment_id) VALUES ('ACT20010-1', 4.0, 'EG024', '20010', 'MAT010');
+INSERT INTO activities_grades (activities_activity_id, grade, enrollment_group_id_enrollment_group, enrollment_group_group_nrc, enrollment_group_enrollment_enrollment_id) VALUES ('ACT20010-2', 4.4, 'EG024', '20010', 'MAT010');
+INSERT INTO activities_grades (activities_activity_id, grade, enrollment_group_id_enrollment_group, enrollment_group_group_nrc, enrollment_group_enrollment_enrollment_id) VALUES ('ACT20010-3', 3.6, 'EG024', '20010', 'MAT010');
+
 --Guardar los cambios
 COMMIT;

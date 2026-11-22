@@ -68,3 +68,35 @@ EXCEPTION
             ' o el grupo ' || :NEW.group_nrc || ' no existen');
 END;
 /
+
+-- FUNCIONES
+
+-- Función: fn_final_grade (módulo Calificaciones)
+-- Funcionalidad: calcula la nota definitiva de un estudiante en una materia, es decir, de una
+-- inscripción (matrícula en un grupo). Suma cada nota multiplicada por el porcentaje de su
+-- actividad y divide entre 100, como pide el enunciado: "la calificación definitiva de la materia
+-- se calculará a partir de las notas de las actividades y sus porcentajes".
+-- Parámetros:
+--   p_group_nrc     NRC del grupo.
+--   p_enrollment_id Id de la matrícula inscrita en ese grupo.
+-- Retorna: la definitiva redondeada a dos decimales (entre 0.0 y 5.0), o NULL si la inscripción
+-- todavía no tiene notas registradas.
+-- Ejemplo: SELECT fn_final_grade('10001', 'MAT001') FROM dual;  -- 4.23
+CREATE OR REPLACE FUNCTION fn_final_grade (
+    p_group_nrc     IN groups.nrc%TYPE,
+    p_enrollment_id IN enrollments.enrollment_id%TYPE
+) RETURN NUMBER
+IS
+    v_final_grade NUMBER;
+BEGIN
+    -- SUM sin filas devuelve NULL, así que una inscripción sin notas retorna NULL
+    SELECT ROUND(SUM(ag.grade * a.percentage) / 100, 2)
+    INTO v_final_grade
+    FROM activities_grades ag
+    INNER JOIN activities a ON a.activity_id = ag.activities_activity_id
+    WHERE ag.enrollment_group_group_nrc = p_group_nrc
+      AND ag.enrollment_group_enrollment_enrollment_id = p_enrollment_id;
+
+    RETURN v_final_grade;
+END fn_final_grade;
+/
