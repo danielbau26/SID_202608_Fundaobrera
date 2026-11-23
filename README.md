@@ -47,6 +47,7 @@ Contiene la documentación relacionada con el proyecto.
 - [Acuerdos de trabajo en equipo](doc/Acuerdos%20de%20trabajo.md)
 - [Bitácora de reuniones](doc/Bitacora%20de%20reuniones.md)
 - [Bitácora de prompts](doc/Bitacora%20de%20prompts.md)
+- [Riesgos del uso de IAg](doc/Riesgos%20del%20uso%20de%20IAg.md)
 
 #### Actas de reunión
 
@@ -116,7 +117,7 @@ En esta etapa se desarrolla:
 - Once reportes académicos, incluido un TOP 10 de promedios históricos.
 - Procedimiento para registrar retiros, funciones para calcular notas y asistencia, y triggers para validar inscripciones y fechas de asistencia.
 
-Queda pendiente cerrar la documentación de riesgos profesionales del uso de IAg y confirmar la validación final de los scripts y las rutinas en Oracle.
+- Documentación de los [riesgos del uso de IAg](doc/Riesgos%20del%20uso%20de%20IAg.md) en un contexto profesional y registro de los prompts en la [bitácora](doc/Bitacora%20de%20prompts.md).
 
 ## Caso de estudio
 
