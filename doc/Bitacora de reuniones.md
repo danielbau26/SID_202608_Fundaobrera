@@ -97,3 +97,15 @@
 | Jhoan Delgado | Corregir el MER | Realizar el MR — entrega 03/10/2026 | — |
 | Juan Meza | Corregir el MER | Realizar el MR — entrega 03/10/2026; Cambiar el dominio de cada columna y actualizar historias de usuario (con Santiago Samboni) — entrega 11/10/2026 | Próxima reunión por definir. |
 
+## Semana 9
+
+**Fecha:** 16/11/2026
+
+| Nombre | Tarea de sesión anterior | Nueva tarea asignada | Observaciones |
+|---|---|---|---|
+| Daniel Bautista | Realizar el MR | Corregir el MR — entrega 16/11/2026; Scripts SQL del módulo Matrículas y datos compartidos — entrega 16/11/2026; Actualizar Readme — entrega 22/11/2026 | Se revisó el feedback del MR; los cambios eran pequeños y se acordó hacerlos por fuera de la llamada. Se recordaron las entregas restantes del repositorio. |
+| Jeanfer Rivera | Realizar el MR | Scripts SQL del módulo Materias y grupos — entrega 17/11/2026; Acuerdos de trabajo — entrega 22/11/2026 | — |
+| Santiago Samboni | Realizar el MR; Cambiar el dominio de cada columna y actualizar historias de usuario | Scripts SQL del módulo Asistencia — entrega 20/11/2026; Revisar por última vez la descripción y las historias de usuario — entrega 22/11/2026 | — |
+| Jhoan Delgado | Realizar el MR | Scripts SQL del módulo Calificaciones — entrega 17/11/2026; Bitácora de reuniones — entrega 22/11/2026 | — |
+| Juan Meza | Realizar el MR; Cambiar el dominio de cada columna y actualizar historias de usuario | Scripts SQL del módulo Estado académico — entrega 21/11/2026; Bitácora de prompts — entrega 22/11/2026 | Como no había tiempo para hacer todos los scripts en llamadas, se repartió el trabajo por módulos. Próxima reunión: 22/11/2026. |
+
