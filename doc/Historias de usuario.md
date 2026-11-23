@@ -308,32 +308,6 @@ When el empleado intenta actualizar su información
 
 Then el sistema debe impedir la actualización y mostrar un mensaje indicando que el periodo académico no existe
 
-#### **Título: Consultar materias**
-
-Yo, como secretario/a de Fundaobrera,
-
-Quiero consultar las materias registradas,
-
-Para conocer las asignaturas disponibles en la institución.
-
-**Criterios de aceptación:**
-
-**Scenario: Consulta exitosa de materias**
-
-Given existen materias registradas en el sistema
-
-When el empleado accede a la opción de consulta de materias
-
-Then el sistema debe mostrar el listado de las materias registradas
-
-**Scenario: Consulta sin materias registradas**
-
-Given no existen materias registradas en el sistema
-
-When el empleado accede a la opción de consulta de materias
-
-Then el sistema debe mostrar un mensaje indicando que no existen materias registradas
-
 ### **Estudiantes y matrículas**
 
 #### **Título: Registrar estudiante**

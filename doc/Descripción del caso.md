@@ -19,7 +19,19 @@ Los profesores podrán consultar únicamente los grupos, materias y estudiantes 
 Los profesores deberán registrar la asistencia de los estudiantes en cada clase indicando el grupo, la fecha y si el estudiante asistió o no.
 Cada matrícula deberá tener un estado que indique la situación del estudiante en ese programa, el estudiante puede encontrarse cursando o retirado. Una matrícula en estado retirado debe tener la fecha del retiro y el motivo. Cuando el estudiante se gradúe, se registrará la fecha de graduación, número de acta y documento del acta de grado (pdf). Esta información solo debe de existir si el estudiante se graduó.
 La secretaria debe poder consultar y actualizar la información de los estudiantes, programas, materias y matrículas. Los profesores también deben de poder consultar la información de los grupos, materias y estudiantes que están asignados a sus clases, además deben de poder consultar, registrar y actualizar las notas y asistencias de sus estudiantes.
-Finalmente, la institución requiere obtener información consolidada a partir de los datos registrados, permitiendo consultar: Estudiantes matriculados por programa; porcentaje de asistencia de los estudiantes; estudiantes activos, retirados y graduados; materias cursadas por cada estudiante; calificaciones obtenidas por cada estudiante; cantidad de estudiantes por programa y periodo académico; estudiantes retirados y sus respectivos motivos; estudiantes graduados y sus fechas de graduación; promedio académico de los estudiantes por programa y periodo académico, materias aprobadas y no aprobadas.
+Finalmente, la institución requiere obtener información consolidada a partir de los datos registrados mediante los siguientes reportes, numerados según el script DQL.
+
+1. Estudiantes matriculados por programa.
+2. Cantidad de estudiantes por programa y periodo académico.
+3. Materias cursadas por cada estudiante, con programa, periodo, grupo y docente.
+4. Calificaciones definitivas obtenidas por cada estudiante en sus materias.
+5. Promedio académico de cada estudiante por programa y periodo académico.
+6. Materias aprobadas y no aprobadas por estudiante, identificando también las matrículas sin materias asignadas y las materias sin calificaciones registradas.
+7. TOP 10 de promedios históricos por estudiante y programa, calculados con las notas definitivas disponibles de todos los periodos académicos.
+8. Cantidad de estudiantes activos (cursando), retirados y graduados por programa.
+9. Estudiantes retirados con sus fechas y motivos de retiro.
+10. Estudiantes graduados con sus fechas y datos del acta de graduación.
+11. Porcentaje de asistencia de cada estudiante por materia, grupo y periodo académico.
 
 
 ## **Link de la página de fundaobrera: https://www.fundaobrera.edu.co/index.php**
