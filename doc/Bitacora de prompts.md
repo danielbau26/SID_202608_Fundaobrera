@@ -316,3 +316,37 @@ Con tu modelo actual (viendo el diagrama de Fundaobrera), ATTENDANCE tiene atten
   3. `ENROLLMENT_GROUP` relaciona `ENROLLMENT` y `GROUP`.
   4. `ACTIVITY_GRADE` conecta `ENROLLMENT_GROUP` con `ACTIVITY`.
   5. `ATTENDANCE` se vincula directamente a `ENROLLMENT_GROUP` para registrar la presencia del estudiante por clase.
+
+---
+
+# FASE 3: SQL y PL/SQL — Módulo Estado académico
+Prompt:
+
+Apartir del modelo MR adjuntado, ayúdame a crear los scripts de Oracle. En src/01_ddl.sql, crea las 15 tablas del proyecto, documenta la finalidad de cada una, coloca los DROP TABLE activos al inicio en orden de dependencias, agrega la clave primaria con ALTER TABLE justo después de crear cada tabla y deja todas las claves foráneas al final, una por línea. En src/02_dml.sql, agrega solo los datos ficticios de mi módulo y sus tablas compartidas. Carga 12 estudiantes, 5 programas, 2 periodos y 12 matrículas en estado cursando, distribuidas en 10 combinaciones de programa y periodo para que cada reporte devuelva al menos 10 filas. En src/03_dql.sql, agrega solo mis dos reportes y comenta en lenguaje natural qué hace cada consulta. En el primero usa JOIN para listar los estudiantes matriculados por programa con una fila por estudiante y programa. En el segundo, usa LEFT JOIN para contar los estudiantes por programa y periodo académico.
+
+Usé ChatGPT para generar y ajustar los scripts 01_ddl.sql, 02_dml.sql y 03_dql.sql a partir del modelo relacional que corregí en Data Modeler. Lo usé para traducir el modelo a SQL y preparar datos que cubrieran los dos reportes de Matrículas. Durante la revisión, pedí conservar los nombres del modelo, reorganizar las claves y ajustar los tipos de JOIN. Se comprobó que los inserts cubren 12 estudiantes y 10 combinaciones de programa y periodo.
+
+
+
+Para diseño y DDL:
+
+"Te paso el DDL completo de nuestro esquema [pegar]. Actúa como revisor de bases de datos y lista las reglas del enunciado [pegar enunciado] que el DDL no está garantizando. Para cada una propón un CHECK, un UNIQUE o un trigger, y explica por qué elegiste ese mecanismo."
+"Revisa si estas dependencias funcionales [pegar] son consistentes con este DDL [pegar]. Señala contradicciones entre ambos documentos."
+
+
+Para datos de prueba (DML):
+
+"Genera INSERT para Oracle sobre estas tablas [pegar DDL] con estas condiciones: al menos 10 registros por reporte, fechas dentro de los periodos académicos, y casos borde (un programa sin estudiantes en un periodo, una materia con nota menor a 3.0). Antes de los INSERT, dime qué resultado esperado debería dar cada reporte con esos datos."
+
+Para consultas (DQL):
+
+"Con este esquema [pegar], escribe la consulta para el reporte 'promedio académico por programa y periodo'. Debe usar al menos un LEFT JOIN y GROUP BY. Explica qué pasaría con los programas sin notas si usara INNER JOIN, y dame el resultado esperado con estos datos [pegar inserts]."
+"Te paso mi consulta [pegar]. Encuentra errores lógicos, casos en que devolvería filas duplicadas o resultados incorrectos, y propón una versión corregida."
+
+Para depurar:
+
+"Ejecuté estos scripts en este orden y obtuve estos errores [pegar salida completa]. Explícame la causa raíz (no cada error por separado) y el orden correcto para corregirlo, sin borrar datos que no sean del proyecto."
+
+
+"Esta es la respuesta que me diste antes [pegar]. Actúa como un profesor exigente de bases de datos y critícala: ¿qué supuestos hiciste que no están en el enunciado? ¿Qué podría estar mal?"
+"¿Qué riesgos tiene usar en producción el comando que me sugeriste? ¿Qué debería verificar antes de ejecutarlo?"
