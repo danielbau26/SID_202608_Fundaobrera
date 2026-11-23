@@ -101,8 +101,6 @@ BEGIN
 END fn_final_grade;
 /
 
--- MÓDULO ESTADO ACADÉMICO
-
 -- PROCEDIMIENTOS
 
 -- Procedimiento: pr_register_withdrawal (módulo Estado académico)
@@ -135,7 +133,8 @@ BEGIN
     SELECT status_name
     INTO v_status
     FROM enrollments
-    WHERE enrollment_id = p_enrollment_id;
+    WHERE enrollment_id = p_enrollment_id
+    FOR UPDATE;
 
     -- Validación 3: solo se retiran matrículas que se están cursando
     IF v_status <> 'cursando' THEN
@@ -154,79 +153,6 @@ EXCEPTION
         RAISE_APPLICATION_ERROR(-20022, 'La matricula ' || p_enrollment_id || ' no existe');
 END pr_register_withdrawal;
 /
-
--- FUNCIONES
-
--- Función: fn_count_students_by_status (módulo Estado académico)
--- Funcionalidad: cuenta cuántos estudiantes distintos tienen matrículas en un estado
--- (cursando, retirado o graduado), en toda la institución o solo en un programa.
--- Parámetros:
---   p_status     Estado a contar.
---   p_program_id Programa a filtrar (opcional; si se omite, cuenta en todos los programas).
--- Retorna: la cantidad de estudiantes (0 si no hay ninguno).
--- Ejemplos: SELECT fn_count_students_by_status('retirado') FROM dual;             -- 10
---           SELECT fn_count_students_by_status('retirado', 'PROG002') FROM dual;  -- 4
-CREATE OR REPLACE FUNCTION fn_count_students_by_status (
-    p_status     IN statuses.name%TYPE,
-    p_program_id IN programs.program_id%TYPE DEFAULT NULL
-) RETURN NUMBER
-IS
-    v_count NUMBER;
-BEGIN
-    SELECT COUNT(DISTINCT student_document_number)
-    INTO v_count
-    FROM enrollments
-    WHERE status_name = LOWER(p_status)
-      AND (p_program_id IS NULL OR program_program_id = p_program_id);
-
-    RETURN v_count;
-END fn_count_students_by_status;
-/
-
--- TRIGGERS
-
--- Trigger: trg_graduate_enrollment (módulo Estado académico)
--- Funcionalidad: antes de registrar una graduación (INSERT en graduates), busca la matrícula
--- más reciente del estudiante en ese programa y la cambia automáticamente a 'graduado',
--- como pide la historia "Registrar graduación de un estudiante".
--- Si el estudiante no tiene matrículas en el programa, o su última matrícula está retirada,
--- cancela la graduación con un mensaje de error.
--- Ejemplo: INSERT INTO graduates VALUES (DATE '2026-12-10', 'ACTA-2026-001', 'actas/ACTA-2026-001.pdf', '900000001', 'PROG001');
---          deja la matrícula MAT001 en estado 'graduado'.
-CREATE OR REPLACE TRIGGER trg_graduate_enrollment
-BEFORE INSERT ON graduates
-FOR EACH ROW
-DECLARE
-    v_enrollment_id enrollments.enrollment_id%TYPE;
-    v_status        enrollments.status_name%TYPE;
-BEGIN
-    -- Matrícula más reciente del estudiante en el programa (según la fecha de inicio del periodo)
-    SELECT e.enrollment_id, e.status_name
-    INTO v_enrollment_id, v_status
-    FROM enrollments e
-    INNER JOIN academics_terms t ON t.academic_term_id = e.academic_term_academic_term_id
-    WHERE e.student_document_number = :NEW.student_document_number
-      AND e.program_program_id = :NEW.program_program_id
-    ORDER BY t.start_date DESC
-    FETCH FIRST 1 ROWS ONLY;
-
-    IF v_status = 'retirado' THEN
-        RAISE_APPLICATION_ERROR(-20023, 'El estudiante ' || :NEW.student_document_number ||
-            ' esta retirado del programa ' || :NEW.program_program_id || ' y no puede graduarse');
-    END IF;
-
-    UPDATE enrollments
-    SET status_name = 'graduado'
-    WHERE enrollment_id = v_enrollment_id;
-
-EXCEPTION
-    WHEN NO_DATA_FOUND THEN
-        RAISE_APPLICATION_ERROR(-20024, 'El estudiante ' || :NEW.student_document_number ||
-            ' no tiene matriculas en el programa ' || :NEW.program_program_id);
-END;
-/
-
--- MÓDULO ASISTENCIA
 
 -- FUNCIONES
 
@@ -258,81 +184,6 @@ BEGIN
 END fn_attendance_percentage;
 /
 
--- PROCEDIMIENTOS
-
--- Procedimiento: pr_register_attendance (módulo Asistencia)
--- Funcionalidad: registra la asistencia de un estudiante en una clase, indicando el grupo, la fecha
--- y si asistió o no, como piden las historias "Registro de asistencia de estudiantes" y
--- "Actualizar asistencia de estudiantes". Si ya existe un registro de esa inscripción en esa fecha,
--- lo actualiza en lugar de crear otro (una sola asistencia por estudiante, grupo y fecha).
--- Validaciones:
---   1. El valor de asistencia debe ser 'S' (asistió) o 'N' (no asistió) y la fecha es obligatoria.
---   2. El estudiante (matrícula) debe estar inscrito en el grupo.
---   3. Solo el profesor asignado al grupo puede registrar o actualizar su asistencia.
--- La fecha debe caer dentro del periodo del grupo; eso lo valida el trigger trg_validate_attendance_date.
--- Parámetros:
---   p_attendance_id   Id del registro (solo se usa si se crea un registro nuevo).
---   p_teacher_document Documento del profesor que registra.
---   p_group_nrc       NRC del grupo.
---   p_enrollment_id   Id de la matrícula del estudiante.
---   p_attendance_date Fecha de la clase.
---   p_attended        'S' si asistió, 'N' si no asistió.
--- No hace COMMIT; quien lo llama decide si confirma (COMMIT) o deshace (ROLLBACK).
--- Ejemplo: EXEC pr_register_attendance('AT20001-MAT006-6', '800000001', '20001', 'MAT006', DATE '2026-09-07', 'S');
-CREATE OR REPLACE PROCEDURE pr_register_attendance (
-    p_attendance_id    IN attendances.attendance_id%TYPE,
-    p_teacher_document IN teachers.document_number%TYPE,
-    p_group_nrc        IN groups.nrc%TYPE,
-    p_enrollment_id    IN enrollments.enrollment_id%TYPE,
-    p_attendance_date  IN attendances.attendance_date%TYPE,
-    p_attended         IN attendances.attended%TYPE
-)
-IS
-    v_count   NUMBER;
-    v_teacher groups.teacher_document_number%TYPE;
-BEGIN
-    -- Validación 1: valor de asistencia válido y fecha obligatoria
-    IF p_attended IS NULL OR UPPER(p_attended) NOT IN ('S', 'N') OR p_attendance_date IS NULL THEN
-        RAISE_APPLICATION_ERROR(-20030, 'La fecha es obligatoria y la asistencia debe ser S (asistio) o N (no asistio)');
-    END IF;
-
-    -- Validación 2: la matrícula debe estar inscrita en el grupo
-    SELECT COUNT(*)
-    INTO v_count
-    FROM enrollments_groups
-    WHERE group_nrc = p_group_nrc
-      AND enrollment_enrollment_id = p_enrollment_id;
-
-    IF v_count = 0 THEN
-        RAISE_APPLICATION_ERROR(-20031, 'La matricula ' || p_enrollment_id ||
-            ' no esta inscrita en el grupo ' || p_group_nrc);
-    END IF;
-
-    -- Validación 3: solo el profesor asignado al grupo registra su asistencia
-    SELECT teacher_document_number
-    INTO v_teacher
-    FROM groups
-    WHERE nrc = p_group_nrc;
-
-    IF v_teacher <> p_teacher_document THEN
-        RAISE_APPLICATION_ERROR(-20032, 'El profesor ' || p_teacher_document ||
-            ' no tiene asignado el grupo ' || p_group_nrc);
-    END IF;
-
-    -- Si ya hay asistencia de esa inscripción en esa fecha, se actualiza; si no, se crea
-    UPDATE attendances
-    SET attended = UPPER(p_attended)
-    WHERE enrollment_group_group_nrc = p_group_nrc
-      AND enrollment_group_enrollment_enrollment_id = p_enrollment_id
-      AND attendance_date = p_attendance_date;
-
-    IF SQL%ROWCOUNT = 0 THEN
-        INSERT INTO attendances (attendance_id, attendance_date, attended, enrollment_group_group_nrc, enrollment_group_enrollment_enrollment_id)
-        VALUES (p_attendance_id, p_attendance_date, UPPER(p_attended), p_group_nrc, p_enrollment_id);
-    END IF;
-END pr_register_attendance;
-/
-
 -- TRIGGERS
 
 -- Trigger: trg_validate_attendance_date (módulo Asistencia)
@@ -343,7 +194,7 @@ END pr_register_attendance;
 -- Ejemplo: INSERT INTO attendances VALUES ('AT10001-MAT001-9', DATE '2026-08-03', 'S', '10001', 'MAT001');
 --          falla porque el grupo 10001 es del periodo 2026-1 (26/01/2026 a 12/06/2026).
 CREATE OR REPLACE TRIGGER trg_validate_attendance_date
-BEFORE INSERT OR UPDATE OF attendance_date ON attendances
+BEFORE INSERT OR UPDATE OF attendance_date, enrollment_group_group_nrc ON attendances
 FOR EACH ROW
 DECLARE
     v_start_date academics_terms.start_date%TYPE;

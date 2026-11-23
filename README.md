@@ -5,7 +5,7 @@
 Este repositorio contiene el desarrollo del proyecto de la asignatura Sistemas Intensivos en Datos.
 
 El proyecto tiene como objetivo diseñar una base de datos para el Sistema de Gestión del Historial Académico de Estudiantes de Fundaobrera, institución ubicada en Cali que ofrece programas técnicos laborales.
-s
+
 Actualmente, gran parte de la información relacionada con estudiantes, programas, materias, matrículas, calificaciones y demás procesos académicos es gestionada de manera manual por la secretaría académica. Esto dificulta la consulta del historial académico de los estudiantes, aumenta el tiempo empleado en la búsqueda de información y genera riesgos de pérdida de datos y errores humanos.
 
 Por esta razón, se plantea una base de datos centralizada para almacenar, organizar y consultar la información académica de la institución.
@@ -73,11 +73,13 @@ Contiene los modelos de datos desarrollados durante el proyecto.
 | Script | Contenido |
 | --- | --- |
 | [`01_ddl.sql`](src/01_ddl.sql) | Define las 15 tablas del modelo relacional y sus restricciones. |
-| [`02_dml.sql`](src/02_dml.sql) | Carga los datos ficticios. |
-| [`03_dql.sql`](src/03_dql.sql) | Contiene los reportes. |
-| [`04_plsql.sql`](src/04_plsql.sql) | Contiene el procedimiento, la función y el trigger de la entrega. |
+| [`02_dml.sql`](src/02_dml.sql) | Carga datos ficticios de matrículas, materias y grupos, calificaciones, estados académicos y asistencia. |
+| [`03_dql.sql`](src/03_dql.sql) | Contiene once reportes con joins, agrupamiento, ordenamiento y un TOP 10. |
+| [`04_plsql.sql`](src/04_plsql.sql) | Contiene un procedimiento, dos funciones y dos triggers documentados. |
 
-Para probar en Oracle, ejecuta el DDL, luego el DML, posteriormente el PLSQL y finalmente el DQL. El PLSQL va antes del DQL porque los reportes de calificaciones usan la función `fn_final_grade`. En un esquema vacío, empieza el DDL desde el primer `CREATE TABLE`. El bloque inicial de `DROP TABLE` se usa para recrear el esquema y elimina los datos existentes.
+Para probar en Oracle, ejecuta el DDL, luego el DML, después el PL/SQL y finalmente el DQL. Los reportes de calificaciones y asistencia necesitan las funciones `fn_final_grade` y `fn_attendance_percentage`. En un esquema vacío, empieza el DDL desde el primer `CREATE TABLE`. El bloque inicial de `DROP TABLE` se usa para recrear el esquema y elimina los datos existentes.
+
+Los triggers se crean después de la carga inicial. Para comprobar sus reglas, realiza pruebas de inserción y actualización una vez compilado el PL/SQL.
 
 ## Entregas del proyecto
 
@@ -109,8 +111,12 @@ En esta etapa se desarrolla:
 
 ### Entrega 3 - SQL y PL/SQL
 
-- DDL del esquema y scripts de carga y consulta de Matrículas.
-- Integración pendiente de los demás módulos, las rutinas PL/SQL y la documentación sobre los riesgos del uso de IAg.
+- DDL de las 15 tablas y sus restricciones de integridad.
+- Datos ficticios para los módulos de Matrículas, Materias y grupos, Calificaciones, Estado académico y Asistencia.
+- Once reportes académicos, incluido un TOP 10 de promedios históricos.
+- Procedimiento para registrar retiros, funciones para calcular notas y asistencia, y triggers para validar inscripciones y fechas de asistencia.
+
+Queda pendiente cerrar la documentación de riesgos profesionales del uso de IAg y confirmar la validación final de los scripts y las rutinas en Oracle.
 
 ## Caso de estudio
 
@@ -118,20 +124,21 @@ El caso de estudio corresponde a una problemática real identificada en Fundaobr
 
 El sistema busca facilitar la trazabilidad del proceso formativo de los estudiantes y permitir consultar de manera centralizada su información personal, matrículas, materias cursadas, calificaciones, asistencia y estado académico.
 
-## Reportes y consultas previstas
+## Reportes y consultas
 
-A partir de la información almacenada, el sistema permitirá obtener consultas como:
+El script [`03_dql.sql`](src/03_dql.sql) contiene los siguientes reportes.
 
-- Estudiantes matriculados por programa.
-- Cantidad de estudiantes por programa y periodo académico.
-- Porcentaje de asistencia de los estudiantes.
-- Estudiantes activos, retirados y graduados.
-- Materias cursadas por cada estudiante.
-- Calificaciones obtenidas por estudiante.
-- Estudiantes retirados y sus motivos.
-- Estudiantes graduados y sus fechas de graduación.
-- Promedio académico por programa y periodo.
-- Materias aprobadas y no aprobadas.
+1. Estudiantes matriculados por programa.
+2. Cantidad de estudiantes por programa y periodo académico.
+3. Materias cursadas por cada estudiante, con programa, periodo, grupo y docente.
+4. Calificaciones definitivas obtenidas por cada estudiante en sus materias.
+5. Promedio académico de cada estudiante por programa y periodo académico.
+6. Materias aprobadas y no aprobadas por estudiante, identificando también las matrículas sin materias asignadas y las materias sin calificaciones registradas.
+7. TOP 10 de promedios históricos por estudiante y programa, calculados con las notas definitivas disponibles de todos los periodos académicos.
+8. Cantidad de estudiantes activos (cursando), retirados y graduados por programa.
+9. Estudiantes retirados con sus fechas y motivos de retiro.
+10. Estudiantes graduados con sus fechas y datos del acta de graduación.
+11. Porcentaje de asistencia de cada estudiante por materia, grupo y periodo académico.
 
 ## Tecnologías y herramientas
 

@@ -18,12 +18,11 @@ GROUP BY p.program_id, p.name, t.academic_term_id, t.start_date
 ORDER BY t.start_date, t.academic_term_id, p.name, p.program_id;
 
 -- Reporte 3. Materias cursadas por cada estudiante.
--- Muestra, para cada estudiante, las materias que cursa o cursó en cada una de sus matrículas,
--- con el periodo académico, el programa, el NRC del grupo y el docente que dicta la materia.
--- Se ordena por nombre del estudiante, periodo y nombre de la materia.
---flujo : student tiene el nombre del estudiante, pero no sabe que materias ve. 
--- enrollments no da la matricula de ese estudiante, enrollments group dice a que grupos esta inscrito esa matricula
--- groups dice que materia es cada grupo especifico y pues subject ya tiene el nombre de la materia..
+-- Muestra el documento y nombre del estudiante, el periodo académico,
+-- el programa, la materia, el NRC del grupo y el docente asignado.
+-- Relaciona cada matrícula con sus grupos para identificar las materias.
+-- Incluye únicamente las matrículas que tienen grupos asignados.
+-- Ordena por nombre del estudiante, fecha de inicio del periodo y materia.
 SELECT s.document_number, s.full_name AS student_name, t.academic_term_id, p.name AS program_name,
        sub.name AS subject_name, g.nrc, te.full_name AS teacher_name
 FROM students s
@@ -59,60 +58,60 @@ INNER JOIN groups g ON g.nrc = eg.group_nrc
 INNER JOIN subjects sub ON sub.subject_id = g.program_subject_subject_subject_id
 ORDER BY s.full_name, t.start_date, sub.name;
 
--- Reporte 5. Promedio académico de los estudiantes por programa y periodo académico.
--- Por cada programa y periodo cuenta los estudiantes con notas y promedia sus definitivas,
--- mostrando también la nota más baja y la más alta.
--- Parte de la combinación de todos los programas con todos los periodos (CROSS JOIN) y usa
--- LEFT JOIN hacia las matrículas e inscripciones, así un programa sin notas en un periodo
--- aparece con promedio vacío (NULL) en lugar de desaparecer.
--- Agrupa por programa y periodo, y ordena por periodo y por promedio de mayor a menor.
-SELECT p.program_id, p.name AS program_name, t.academic_term_id,
-       COUNT(DISTINCT e.student_document_number) AS enrolled_students,
-       ROUND(AVG(fn_final_grade(eg.group_nrc, eg.enrollment_enrollment_id)), 2) AS average_grade,
-       MIN(fn_final_grade(eg.group_nrc, eg.enrollment_enrollment_id)) AS lowest_grade,
-       MAX(fn_final_grade(eg.group_nrc, eg.enrollment_enrollment_id)) AS highest_grade
-FROM programs p
-CROSS JOIN academics_terms t
-LEFT JOIN enrollments e ON e.program_program_id = p.program_id
-                       AND e.academic_term_academic_term_id = t.academic_term_id
+-- Reporte 5. Promedio académico de cada estudiante por programa y periodo.
+-- Promedia las notas definitivas de las materias de cada estudiante.
+-- Si no tiene materias calificadas, su promedio aparece como NULL.
+-- Ordena por periodo, programa y promedio de mayor a menor.
+SELECT s.document_number,
+       s.full_name AS student_name,
+       p.program_id,
+       p.name AS program_name,
+       t.academic_term_id,
+       COUNT(fn_final_grade(eg.group_nrc, eg.enrollment_enrollment_id)) AS graded_subjects,
+       ROUND(AVG(fn_final_grade(eg.group_nrc, eg.enrollment_enrollment_id)), 2) AS average_grade
+FROM enrollments e
+JOIN students s ON s.document_number = e.student_document_number
+JOIN programs p ON p.program_id = e.program_program_id
+JOIN academics_terms t ON t.academic_term_id = e.academic_term_academic_term_id
 LEFT JOIN enrollments_groups eg ON eg.enrollment_enrollment_id = e.enrollment_id
-GROUP BY p.program_id, p.name, t.academic_term_id, t.start_date
-ORDER BY t.start_date, average_grade DESC NULLS LAST, p.name;
+GROUP BY s.document_number, s.full_name, p.program_id, p.name,
+         t.academic_term_id, t.start_date
+ORDER BY t.start_date, t.academic_term_id, p.name, p.program_id,
+         average_grade DESC NULLS LAST, s.full_name, s.document_number;
 
--- Reporte 6. Materias aprobadas y no aprobadas.
--- Lista cada materia que cursó cada estudiante con su definitiva y su resultado:
--- 'Aprobada' si la definitiva es 3.0 o más, 'No aprobada' si es menor y 'Sin calificar'
--- si todavía no tiene notas (la función devuelve NULL).
--- La subconsulta calcula la definitiva una sola vez por inscripción.
--- Ordena primero las no aprobadas, luego las aprobadas y al final las sin calificar.
-SELECT document_number, student_name, academic_term_id, subject_name, nrc, final_grade,
+-- Reporte 6. Materias aprobadas y no aprobadas por estudiante.
+-- Muestra el estudiante, el programa, el periodo, la materia y su nota definitiva.
+-- Clasifica como aprobada una materia con nota de 3.0 o más y como no aprobada
+-- una materia con nota inferior a 3.0.
+-- Identifica las matrículas sin materias asignadas y las materias sin calificaciones.
+-- Usa LEFT JOIN para conservar esas matrículas en el resultado y CASE para clasificarlas.
+-- Obtiene la definitiva mediante fn_final_grade.
+-- Ordena por estudiante, periodo, programa, materia y grupo.
+SELECT document_number, student_name, program_name, academic_term_id, subject_name, nrc, final_grade,
        CASE
-           WHEN final_grade IS NULL THEN 'Sin calificar'
+           WHEN nrc IS NULL THEN 'Sin materias asignadas'
+           WHEN final_grade IS NULL THEN 'Sin calificaciones registradas'
            WHEN final_grade >= 3 THEN 'Aprobada'
            ELSE 'No aprobada'
        END AS result
 FROM (
-    SELECT s.document_number, s.full_name AS student_name, t.academic_term_id, t.start_date,
-           sub.name AS subject_name, g.nrc,
-           fn_final_grade(eg.group_nrc, eg.enrollment_enrollment_id) AS final_grade
-    FROM enrollments_groups eg
-    INNER JOIN enrollments e ON e.enrollment_id = eg.enrollment_enrollment_id
-    INNER JOIN students s ON s.document_number = e.student_document_number
-    INNER JOIN academics_terms t ON t.academic_term_id = e.academic_term_academic_term_id
-    INNER JOIN groups g ON g.nrc = eg.group_nrc
-    INNER JOIN subjects sub ON sub.subject_id = g.program_subject_subject_subject_id
+    SELECT s.document_number, s.full_name AS student_name, p.name AS program_name, t.academic_term_id, t.start_date, sub.name AS subject_name,
+           g.nrc,
+           fn_final_grade( eg.group_nrc, eg.enrollment_enrollment_id ) AS final_grade
+    FROM enrollments e
+    JOIN students s ON s.document_number = e.student_document_number
+    JOIN programs p ON p.program_id = e.program_program_id
+    JOIN academics_terms t ON t.academic_term_id = e.academic_term_academic_term_id
+    LEFT JOIN enrollments_groups eg ON eg.enrollment_enrollment_id = e.enrollment_id
+    LEFT JOIN groups g ON g.nrc = eg.group_nrc
+    LEFT JOIN subjects sub ON sub.subject_id = g.program_subject_subject_subject_id
 )
-ORDER BY CASE
-             WHEN final_grade IS NULL THEN 3
-             WHEN final_grade >= 3 THEN 2
-             ELSE 1
-         END,
-         student_name, start_date, subject_name;
+ORDER BY student_name, document_number, start_date, academic_term_id, program_name, subject_name, nrc;
 
--- Reporte 7 (TOP). Los 10 estudiantes con mejor promedio académico.
--- Promedia las definitivas de las materias de cada estudiante en su programa, cuenta cuántas
--- aprobó y cuántas no, y devuelve solo los 10 mejores promedios
--- (FETCH FIRST 10 ROWS ONLY es el TOP de Oracle).
+-- Reporte 7 (TOP). Los 10 estudiantes con mejor promedio académico
+-- Promedia las notas definitivas disponibles de todos los periodos académicos
+-- Muestra la cantidad de materias cursadas, aprobadas y no aprobadas
+-- Ordena de mayor a menor promedio y devuelve las primeras diez filas
 SELECT document_number, student_name, program_name,
        COUNT(*) AS subjects_taken,
        SUM(CASE WHEN final_grade >= 3 THEN 1 ELSE 0 END) AS subjects_passed,
@@ -170,18 +169,6 @@ INNER JOIN students s ON s.document_number = gr.student_document_number
 INNER JOIN programs p ON p.program_id = gr.program_program_id
 ORDER BY gr.graduation_date, p.name, s.full_name;
 
--- Reporte 11 (TOP). Los 3 programas con más estudiantes retirados.
--- Cuenta las matrículas retiradas de cada programa, las ordena de mayor a menor
--- y devuelve solo las 3 primeras (FETCH FIRST 3 ROWS ONLY es el TOP de Oracle).
--- Sirve para identificar en qué programas hay más deserción.
-SELECT p.program_id, p.name AS program_name, COUNT(*) AS withdrawn_count
-FROM enrollments e
-INNER JOIN programs p ON p.program_id = e.program_program_id
-WHERE e.status_name = 'retirado'
-GROUP BY p.program_id, p.name
-ORDER BY withdrawn_count DESC, p.name
-FETCH FIRST 3 ROWS ONLY;
-
 -- MÓDULO ASISTENCIA
 -- Cada registro de attendances es una clase de una inscripción (matrícula en un grupo):
 -- attended = 'S' si el estudiante asistió y 'N' si no asistió.
@@ -191,7 +178,7 @@ FETCH FIRST 3 ROWS ONLY;
 -- Los reportes salen del enunciado: "porcentaje de asistencia de los estudiantes" y
 -- "consultar… las notas y asistencias de sus estudiantes".
 
--- Reporte 12. Porcentaje de asistencia de los estudiantes.
+-- Reporte 11. Porcentaje de asistencia de los estudiantes.
 -- Muestra, para cada estudiante, el porcentaje de asistencia en cada materia que cursa, con el periodo,
 -- el NRC del grupo y el docente. Parte de las inscripciones (enrollments_groups) y las une con
 -- la matrícula, el estudiante, el periodo, el grupo, la materia y el docente (INNER JOIN).
@@ -216,37 +203,3 @@ FROM (
     INNER JOIN teachers te ON te.document_number = g.teacher_document_number
 )
 ORDER BY student_name, start_date, subject_name;
-
--- Reporte 13. Historial de asistencia por docente, grupo y fecha.
--- Lista cada registro de asistencia con el docente del grupo, la materia, la fecha de la clase,
--- el estudiante y si asistió o no. Permite al profesor revisar la asistencia de sus grupos
--- (filtrando por te.document_number) o la de una fecha determinada (filtrando por a.attendance_date).
--- Ordena por docente, grupo, fecha y estudiante.
-SELECT te.document_number AS teacher_document, te.full_name AS teacher_name, g.nrc, sub.name AS subject_name,
-       a.attendance_date, s.document_number, s.full_name AS student_name,
-       CASE a.attended WHEN 'S' THEN 'Asistió' ELSE 'No asistió' END AS attendance
-FROM attendances a
-INNER JOIN groups g ON g.nrc = a.enrollment_group_group_nrc
-INNER JOIN teachers te ON te.document_number = g.teacher_document_number
-INNER JOIN subjects sub ON sub.subject_id = g.program_subject_subject_subject_id
-INNER JOIN enrollments e ON e.enrollment_id = a.enrollment_group_enrollment_enrollment_id
-INNER JOIN students s ON s.document_number = e.student_document_number
-ORDER BY te.full_name, g.nrc, a.attendance_date, s.full_name;
-
--- Reporte 14. Porcentaje de asistencia por programa y periodo académico.
--- Por cada programa y periodo cuenta las clases registradas, las asistidas y calcula el porcentaje.
--- Parte de la combinación de todos los programas con todos los periodos (CROSS JOIN) y usa LEFT JOIN
--- hacia las matrículas y la asistencia, así un programa sin registros en un periodo aparece con
--- cero clases y porcentaje vacío (NULL) en lugar de desaparecer.
--- Ordena por periodo y por porcentaje de mayor a menor.
-SELECT p.program_id, p.name AS program_name, t.academic_term_id,
-       COUNT(a.attendance_id) AS registered_classes,
-       SUM(CASE WHEN a.attended = 'S' THEN 1 ELSE 0 END) AS attended_classes,
-       ROUND(100 * SUM(CASE WHEN a.attended = 'S' THEN 1 ELSE 0 END) / NULLIF(COUNT(a.attendance_id), 0), 2) AS attendance_percentage
-FROM programs p
-CROSS JOIN academics_terms t
-LEFT JOIN enrollments e ON e.program_program_id = p.program_id
-                       AND e.academic_term_academic_term_id = t.academic_term_id
-LEFT JOIN attendances a ON a.enrollment_group_enrollment_enrollment_id = e.enrollment_id
-GROUP BY p.program_id, p.name, t.academic_term_id, t.start_date
-ORDER BY t.start_date, attendance_percentage DESC NULLS LAST, p.name;

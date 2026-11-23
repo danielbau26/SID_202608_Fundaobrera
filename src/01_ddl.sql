@@ -202,6 +202,8 @@ ALTER TABLE enrollments ADD CONSTRAINT enrollment_withdrawal_ck CHECK (
 ALTER TABLE graduates ADD CONSTRAINT graduated_certificate_pdf_ck CHECK (LOWER(certificate_document) LIKE '%.pdf');
 -- Asistencia: el estudiante asistió ('S') o no asistió ('N')
 ALTER TABLE attendances ADD CONSTRAINT attendance_attended_ck CHECK (attended IN ('S', 'N'));
+-- Las calificaciones deben estar entre 0.0 y 5.0.
+ALTER TABLE activities_grades ADD CONSTRAINT activity_grade_range_ck CHECK (grade BETWEEN 0 AND 5);
 
 
 -- FOREIGN KEYS
