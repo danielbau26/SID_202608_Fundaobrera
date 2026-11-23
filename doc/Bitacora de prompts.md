@@ -1,222 +1,5 @@
 Bitácora de prompts de ChatGPT
 
-Estoy modelando el historial académico ¿Qué entidades típicas no debería olvidar en un modelo de estudiantes, matrículas y calificaciones?
-
-R/TA: Claro, crack. Desde la teoría de Sistemas Intensivos en Datos, para un sistema de historial académico no basta con tener solo Estudiante, Matrícula y Calificación. Hay que identificar las entidades que permiten representar qué estudia el estudiante, cuándo lo estudia, con quién, en qué grupo y cuál fue su resultado.
-Entidades que no deberían faltar
-Entidad	¿Para qué sirve?
-ESTUDIANTE	Guarda la información personal y de identificación del estudiante.
-PROGRAMA	Representa el programa técnico-laboral que cursa el estudiante.
-MATERIA / ASIGNATURA	Define las materias que hacen parte de los programas.
-PROGRAMA_MATERIA	Relaciona materias con programas y permite indicar, por ejemplo, el semestre en que se cursan.
-PERIODO_ACADÉMICO	Permite saber en qué periodo se realizó una matrícula o se abrió un grupo.
-MATRÍCULA	Representa la inscripción de un estudiante a un programa durante un periodo/semestre determinado.
-GRUPO	Representa el grupo específico en el que se cursa una materia.
-DOCENTE	Permite registrar el profesor encargado de los grupos.
-DETALLE_MATRÍCULA	Relaciona una matrícula con los grupos/materias que cursa el estudiante.
-CALIFICACIÓN	Permite registrar el resultado académico obtenido por el estudiante en una materia/grupo.
-ASISTENCIA	Permite registrar la asistencia del estudiante a las clases.
-PAGO	Si el sistema también maneja información financiera, registra los pagos asociados a una matrícula.
-ESTADO DE MATRÍCULA	Permite representar si el estudiante está activo, retirado o graduado.
-🔑 Lo importante desde el modelado de datos
-Hay que diferenciar entidades de relaciones.
-Por ejemplo:
-ESTUDIANTE→MATR I┴ˊ CULA→PROGRAMA
-Un estudiante puede tener varias matrículas a lo largo de su trayectoria académica.
-Después:
-MATR I┴ˊ CULA→DETALLE\_MATR I┴ˊ CULA→GRUPO
-Esto permite saber qué materias/grupos cursó ese estudiante específicamente en esa matrícula.
-Y:
-GRUPO→MATERIA
-permite saber qué asignatura estaba cursando.
-Finalmente:
-DETALLE\_MATR I┴ˊ CULA→CALIFICACI O┴ˊ N
-permite asociar la nota con ese estudiante y esa experiencia académica concreta, evitando guardar simplemente una "nota" aislada.
-🎓 Para un historial académico completo
-La estructura conceptual podría verse así:
-ESTUDIANTE
-↓
-MATRÍCULA
-↓
-DETALLE_MATRÍCULA
-↓
-GRUPO ← DOCENTE
-↓
-MATERIA ← PROGRAMA_MATERIA ← PROGRAMA
-↓
-CALIFICACIÓN
-Y el PERIODO_ACADÉMICO se relaciona con las matrículas y los grupos.
-Esto es importante porque el historial académico debe permitir responder preguntas como:
-	¿Qué programa estudió el estudiante?
-	¿En qué periodo se matriculó?
-	¿Qué materias cursó?
-	¿En qué grupo las cursó?
-	¿Quién fue su docente?
-	¿Qué calificación obtuvo?
-	¿Aprobó o perdió?
-	¿Cuánto asistió?
-	¿Se retiró o se graduó?
-En resumen: las entidades fundamentales serían Estudiante, Programa, Materia, Programa_Materia, Periodo Académico, Matrícula, Grupo, Docente, Detalle de Matrícula y Calificación; y dependiendo del alcance, Asistencia, Pago y Estado de Matrícula.
-
-¿Tiene sentido que ENROLLMENT y DETAIL_ENROLLMENT sean entidades separadas, o debería fusionarlas? ¿Qué ventajas tiene separarlas?
-
-Sí, tiene mucho sentido mantener ENROLLMENT y DETAIL_ENROLLMENT como entidades separadas. De hecho, para el modelo que estás construyendo, separarlas es lo más adecuado.
-1. ¿Qué representa cada una?
-ENROLLMENT (Matrícula) representa la inscripción general de un estudiante:
-	Qué estudiante se matriculó.
-	En qué programa.
-	En qué periodo académico.
-	En qué semestre.
-	Cuánto debe pagar por ese semestre.
-	Estado de la matrícula.
-Por ejemplo:
-Juan se matriculó en el programa de Desarrollo de Software en el periodo 2026-2.
-En cambio, DETAIL_ENROLLMENT (Detalle de matrícula) representa las materias/grupos concretos que hacen parte de esa matrícula.
-Por ejemplo:
-En esa matrícula, Juan cursa Matemáticas en el grupo 101, Programación en el grupo 102 y Bases de Datos en el grupo 103.
-________________________________________
-2. ¿Por qué no fusionarlas?
-Porque existiría una relación 1:N:
-ENROLLMENT"  " 1⟶N"  " DETAIL\_ENROLLMENT
-Una matrícula puede tener varios detalles.
-Por ejemplo:
-ENROLLMENT
-ID: 5001
-Estudiante: Juan
-Programa: Desarrollo de Software
-Periodo: 2026-2
-        |
-        |---- DETAIL_ENROLLMENT → Programación → Grupo 101 → Nota 4.5
-        |
-        |---- DETAIL_ENROLLMENT → Bases de Datos → Grupo 103 → Nota 4.2
-        |
-        |---- DETAIL_ENROLLMENT → Matemáticas → Grupo 105 → Nota 3.8
-Si las fusionáramos, tendríamos que repetir los datos de la matrícula para cada materia:
-ID Matrícula | Estudiante | Programa | Periodo | Materia | Grupo | Nota
-5001         | Juan       | Software | 2026-2  | Prog.   | 101   | 4.5
-5001         | Juan       | Software | 2026-2  | BD      | 103   | 4.2
-5001         | Juan       | Software | 2026-2  | Matem.   | 105   | 3.8
-Eso genera redundancia.
-3. Ventajas de separarlas
-a. Evita duplicación de información
-Los datos de la matrícula se almacenan una sola vez.
-b. Permite representar múltiples materias
-Una matrícula puede tener muchos detalles sin repetir toda la información del estudiante.
-c. Facilita registrar las calificaciones
-En tu modelo, DETAIL_ENROLLMENT tiene el atributo grade. Esto tiene sentido porque la calificación corresponde a una materia/grupo específico dentro de una matrícula, no a la matrícula completa.
-d. Facilita el historial académico
-Puedes consultar:
-Estudiante→Matr ı┴ˊ cula→Detalles→Grupo→Materia→Calificaci o┴ˊ n
-Así puedes reconstruir qué estudió y qué nota obtuvo el estudiante en cada periodo.
-e. Respeta la normalización
-Separar la matrícula de sus detalles ayuda a evitar anomalías de inserción, actualización y eliminación, uno de los objetivos fundamentales del diseño relacional.
-✅ Conclusión para tu pregunta
-No conviene fusionarlas. ENROLLMENT representa la cabecera o inscripción general, mientras que DETAIL_ENROLLMENT representa cada materia/grupo que el estudiante cursa dentro de esa inscripción.
-Una forma corta de responderlo en un trabajo sería:
-Sí, tiene sentido mantenerlas separadas porque representan conceptos diferentes. ENROLLMENT registra la matrícula general del estudiante en un programa y periodo académico, mientras que DETAIL_ENROLLMENT registra las materias o grupos asociados a dicha matrícula y sus calificaciones. Separarlas evita redundancia, facilita la normalización y permite que una matrícula tenga múltiples materias sin repetir los datos generales de la inscripción.
-
-¿Cómo se modela normalmente la relación entre estudiante, programa y semestre cuando un estudiante puede repetir materias?
-
-Normalmente se modela a través de la matrícula, no poniendo directamente al estudiante y al semestre en una relación con las materias.
-En tu modelo, la idea sería:
-ESTUDIANTE→ENROLLMENT→PROGRAMA
-y ENROLLMENT contiene el semestre que está cursando el estudiante. En el modelo que estamos trabajando, ENROLLMENT tiene precisamente semester y amount_semester.
-¿Y qué pasa si repite una materia?
-Aquí está lo importante: cada vez que el estudiante vuelve a cursar una materia, debe existir un nuevo DETAIL_ENROLLMENT asociado a la nueva matrícula.
-Por ejemplo:
-ESTUDIANTE: Juan
-       |
-       ├── ENROLLMENT #001
-       │       Programa: Sistemas
-       │       Semestre: 1
-       │       └── Matemáticas → Nota: 2.8 ❌
-       │
-       └── ENROLLMENT #002
-               Programa: Sistemas
-               Semestre: 2
-               └── Matemáticas → Nota: 4.0 ✅
-De esta manera no sobrescribes la nota anterior. Conservas el historial.
-¿Por qué es importante?
-Porque el historial académico debe permitir distinguir:
-"Materia"+"Matr"  "ı" ┴ˊ "cula"+"Calificaci"  "o" ┴ˊ "n" 
-Una misma materia puede aparecer varias veces para el mismo estudiante, pero en matrículas diferentes.
-Por eso, no sería correcto poner una restricción como:
-Un estudiante solo puede tener una calificación para una materia.
-La restricción debería ser más cercana a:
-Un estudiante no puede tener la misma materia más de una vez dentro de una misma matrícula.
-Esto encaja con DETAIL_ENROLLMENT, que en tu modelo contiene la grade, mientras que ENROLLMENT representa la inscripción general.
-🎯 Respuesta para entregar
-La relación se modela mediante la entidad ENROLLMENT, que relaciona al estudiante con el programa y el semestre académico. Los detalles de las materias se almacenan en DETAIL_ENROLLMENT. Si un estudiante repite una materia, se registra nuevamente en un detalle correspondiente a una nueva matrícula, conservando la calificación obtenida anteriormente. De esta manera se mantiene el historial académico y se evita sobrescribir información.
-
-¿GRADUATED y WITHDRAWAL deberían ser subtipos de una entidad ACTIVE/estado del estudiante, o entidades independientes? ¿Qué patrón de modelado aplica acá?
-
-Sí. En tu modelo, lo más coherente es interpretar ACTIVE, WITHDRAWAL y GRADUATED como estados o subtipos de ENROLLMENT, no como entidades independientes completamente desconectadas.
-De hecho, el diagrama que estamos trabajando representa ACTIVE, WITHDRAWAL y GRADUATED debajo de ENROLLMENT, y WITHDRAWAL y GRADUATED tienen información específica propia.
-¿Qué patrón de modelado aplica?
-Aquí aplica el patrón de supertipo–subtipo (generalización/especialización).
-La idea sería:
-ENROLLMENT
-como supertipo, que contiene los datos comunes:
-	enrollment_id
-	semester
-	amount_semester
-	estudiante
-	programa
-	periodo académico
-Y luego:
-ENROLLMENT{■(ACTIVE@WITHDRAWAL@GRADUATED)┤
-como subtipos/estados especializados.
-Por ejemplo:
-WITHDRAWAL necesita información que una matrícula activa no necesariamente necesita:
-	withdrawal_date
-	reason
-Mientras que GRADUATED necesita:
-	graduation_date
-	certificate_number
-	certificate_document
-Estos atributos aparecen específicamente en el modelo.
-¿Por qué no hacer tres entidades independientes?
-Porque terminarías duplicando información.
-Por ejemplo, si GRADUATED fuera completamente independiente, tendrías que volver a relacionarlo con estudiante, programa, periodo, etc. Eso puede generar redundancia y complicar el historial.
-En cambio:
-                 ENROLLMENT
-                      |
-          ┌───────────┼───────────┐
-          ↓           ↓           ↓
-       ACTIVE     WITHDRAWAL   GRADUATED
-                      |           |
-                fecha/motivo   fecha/certificado
-La matrícula conserva la información común, mientras que cada estado aporta únicamente la información particular.
-⚠️ Una precisión importante
-Hay una diferencia conceptual entre estado y subtipo.
-Si ACTIVE, WITHDRAWAL y GRADUATED solamente indican el estado actual de una matrícula, una alternativa más sencilla sería:
-ENROLLMENT
-----------------
-enrollment_id
-semester
-amount_semester
-status
-donde:
-status∈{Aⓜ,Cⓜ,TIVEWITHDRAWALGRADUATED}
-Pero como en tu modelo retiro y graduación tienen atributos propios, usar especialización/supertipo-subtipo tiene sentido.
-🎯 Respuesta para entregar
-GRADUATED y WITHDRAWAL pueden modelarse como subtipos de ENROLLMENT mediante el patrón de generalización/especialización. ENROLLMENT funciona como el supertipo que contiene los atributos comunes de cualquier matrícula, mientras que ACTIVE, WITHDRAWAL y GRADUATED representan estados especializados. Los subtipos permiten almacenar información específica, como la fecha y motivo del retiro o la fecha y datos del certificado de graduación, evitando duplicar los datos generales de la matrícula.
-
-¿Qué cardinalidad tendría normalmente la relación entre STUDENT y ATTENDANCE en un sistema de gestión académica?
-
-En un sistema de gestión académica típico, la relación entre STUDENT y ATTENDANCE normalmente es uno a muchos (1:N):
-	Un estudiante puede tener muchos registros de asistencia (uno por cada sesión/clase a la que asista o falte).
-	Un registro de asistencia (ATTENDANCE) pertenece a un solo estudiante.
-Pero ojo: en la práctica casi nunca es una relación directa STUDENT↔ATTENDANCE aislada, sino que suele pasar por una entidad intermedia, porque la asistencia normalmente se registra por materia/grupo y por sesión, no de forma genérica. Lo más común es algo así:
-STUDENT ──1:N── ATTENDANCE ──N:1── GROUP (o SUBJECT/sesión de clase)
-Es decir, cada fila de ATTENDANCE típicamente tiene:
-	student_id (FK a STUDENT)
-	group_id o nrc (FK a GROUP) → para saber de qué clase es esa asistencia
-	date
-	attended (booleano)
-Con tu modelo actual (viendo el diagrama de Fundaobrera), ATTENDANCE tiene attendance_id, date, attended — pero para que tenga sentido completo necesitaría relacionarse tanto con STUDENT como con GROUP (o con DETAIL_ENROLLMENT, que ya conecta estudiante-materia-semestre). Así evitas ambigüedad sobre a qué clase/sesión corresponde cada registro de asistencia.
-¿Quieres que revisemos cómo conectarías ATTENDANCE con DETAIL_ENROLLMENT o GROUP en el diagrama?
-
 # FASE 1: Concepción y Modelado Inicial
 
 ### Prompt 1: Entidades fundamentales del dominio académico
@@ -243,17 +26,11 @@ Con tu modelo actual (viendo el diagrama de Fundaobrera), ATTENDANCE tiene atten
 * **Respuesta de la IA:**  
   Aplicación del patrón Supertipo/Subtipo (Especialización) sobre `ENROLLMENT` o vinculación con atributos opcionales/entidades debilidades para almacenar atributos exclusivos (como `withdrawal_reason` o `certificate_document`).
 
-### Prompt 5: Asistencia y cardinalidad
-* **Pregunta del estudiante:**  
-  > *"¿Qué cardinalidad tendría normalmente la relación entre STUDENT y ATTENDANCE en un sistema de gestión académica?"*
-* **Respuesta de la IA:**  
-  Relación 1:N que no se conecta aisladamente a `STUDENT`, sino que se contextualiza mediante la inscripción al grupo (`ENROLLMENT_GROUP`) para asociar fecha y estado de asistencia a una clase específica.
-
 ---
 
 # FASE 2: Ajuste de Requerimientos, MER Corregido, Normalización (3NF) y Dependencias Funcionales
 
-### Prompt 6: Normalización a 3NF y Análisis de Dependencias Funcionales (DF)
+### Prompt 5: Normalización a 3NF y Análisis de Dependencias Funcionales (DF)
 * **Pregunta del estudiante:**  
   > *"Oye bro, necesito sacar las Dependencias Funcionales del modelo relacional para justificar que está en 3NF. ¿Cómo expreso formalmente las DF de tablas como `ENROLLMENT_GROUP`, `ACTIVITY_GRADE` y `PROGRAM_SUBJECT` para que el profe no me ponga problema?"*
 * **Respuesta de la IA:**  
@@ -269,7 +46,7 @@ Con tu modelo actual (viendo el diagrama de Fundaobrera), ATTENDANCE tiene atten
 
 ---
 
-### Prompt 7: Corrección de Criterios de Aceptación Gherkin para Historias de Usuario
+### Prompt 6: Corrección de Criterios de Aceptación Gherkin para Historias de Usuario
 * **Pregunta del estudiante:**  
   > *"Parse, estamos ajustando las Historias de Usuario para la entrega final del caso Fundaobrera. ¿Cómo estructuro los escenarios de 'Matricular estudiante', 'Registrar nota de actividad' y 'Registrar graduación' en formato Gherkin exacto para que coincidan con la base de datos?"*
 * **Respuesta de la IA:**  
@@ -295,18 +72,7 @@ Con tu modelo actual (viendo el diagrama de Fundaobrera), ATTENDANCE tiene atten
 
 ---
 
-### Prompt 8: Asignación y Sintaxis de Dominios en Data Modeler
-* **Pregunta del estudiante:**  
-  > *"¿Cómo configuro en Oracle Data Modeler los tipos de datos exactos, tamaños y las restricciones CHECK para la tabla `STUDENT` y `ATTENDANCE`?"*
-* **Respuesta de la IA:**  
-  Guía paso a paso en Data Modeler especificando:
-  * `STUDENT.stratum`: `NUMBER(1,0)` con regla de valor `CHECK (stratum BETWEEN 1 AND 6)`.
-  * `ATTENDANCE.attended`: `VARCHAR2(1)` con regla de valor `CHECK (attended IN ('Y', 'N'))`.
-  * `ACTIVITY_GRADE.grade`: `NUMBER(3,2)` con regla de valor `CHECK (grade BETWEEN 0.0 AND 5.0)`.
-
----
-
-### Prompt 9: Correcciones del Modelo Entidad-Relación (MER PDF)
+### Prompt 7: Correcciones del Modelo Entidad-Relación (MER PDF)
 * **Pregunta del estudiante:**  
   > *"El profesor nos pidió corregir el MER para que no haya ambigüedad entre las actividades, los grupos y los profesores. ¿Cómo debe ser la jerarquía visual del MER de Fundaobrera?"*
 * **Respuesta de la IA:**  
@@ -319,34 +85,162 @@ Con tu modelo actual (viendo el diagrama de Fundaobrera), ATTENDANCE tiene atten
 
 ---
 
-# FASE 3: SQL y PL/SQL — Módulo Estado académico
-Prompt:
+# FASE 3: Implementación SQL y PL/SQL
 
-Apartir del modelo MR adjuntado, ayúdame a crear los scripts de Oracle. En src/01_ddl.sql, crea las 15 tablas del proyecto, documenta la finalidad de cada una, coloca los DROP TABLE activos al inicio en orden de dependencias, agrega la clave primaria con ALTER TABLE justo después de crear cada tabla y deja todas las claves foráneas al final, una por línea. En src/02_dml.sql, agrega solo los datos ficticios de mi módulo y sus tablas compartidas. Carga 12 estudiantes, 5 programas, 2 periodos y 12 matrículas en estado cursando, distribuidas en 10 combinaciones de programa y periodo para que cada reporte devuelva al menos 10 filas. En src/03_dql.sql, agrega solo mis dos reportes y comenta en lenguaje natural qué hace cada consulta. En el primero usa JOIN para listar los estudiantes matriculados por programa con una fila por estudiante y programa. En el segundo, usa LEFT JOIN para contar los estudiantes por programa y periodo académico.
+Las entradas indicadas como reconstruidas resumen el trabajo realizado. Los prompts sugeridos se acompañan de respuestas resumidas reconstruidas durante la revisión del proyecto. Las fases anteriores conservan las respuestas históricas, que pueden diferir del modelo final.
 
-Usé ChatGPT para generar y ajustar los scripts 01_ddl.sql, 02_dml.sql y 03_dql.sql a partir del modelo relacional que corregí en Data Modeler. Lo usé para traducir el modelo a SQL y preparar datos que cubrieran los dos reportes de Matrículas. Durante la revisión, pedí conservar los nombres del modelo, reorganizar las claves y ajustar los tipos de JOIN. Se comprobó que los inserts cubren 12 estudiantes y 10 combinaciones de programa y periodo.
+### Prompt 8: DDL general y módulo de Matrículas (prompt consolidado)
 
+* **Pregunta del estudiante:**
 
+  > *"Apartir del modelo MR adjuntado, ayúdame a crear los scripts de Oracle. En src/01_ddl.sql, crea las 15 tablas del proyecto, documenta la finalidad de cada una, coloca los DROP TABLE activos al inicio en orden de dependencias, agrega la clave primaria con ALTER TABLE justo después de crear cada tabla y deja todas las claves foráneas al final, una por línea. En src/02_dml.sql, agrega solo los datos ficticios de mi módulo y sus tablas compartidas. Carga 12 estudiantes, 5 programas, 2 periodos y 12 matrículas en estado cursando, distribuidas en 10 combinaciones de programa y periodo para que cada reporte devuelva al menos 10 filas. En src/03_dql.sql, agrega solo mis dos reportes y comenta en lenguaje natural qué hace cada consulta. En el primero usa JOIN para listar los estudiantes matriculados por programa con una fila por estudiante y programa. En el segundo, usa LEFT JOIN para contar los estudiantes por programa y periodo académico."*
 
-Para diseño y DDL:
+* **Respuesta de la IA:**
 
-"Te paso el DDL completo de nuestro esquema [pegar]. Actúa como revisor de bases de datos y lista las reglas del enunciado [pegar enunciado] que el DDL no está garantizando. Para cada una propón un CHECK, un UNIQUE o un trigger, y explica por qué elegiste ese mecanismo."
-"Revisa si estas dependencias funcionales [pegar] son consistentes con este DDL [pegar]. Señala contradicciones entre ambos documentos."
+  Usé ChatGPT para generar y ajustar los scripts 01_ddl.sql, 02_dml.sql y 03_dql.sql a partir del modelo relacional que corregí en Data Modeler. Lo usé para traducir el modelo a SQL y preparar datos que cubrieran los dos reportes de Matrículas. Durante la revisión, pedí conservar los nombres del modelo, reorganizar las claves y ajustar los tipos de JOIN. Se comprobó que los inserts cubren 12 estudiantes y 10 combinaciones de programa y periodo.
 
+---
 
-Para datos de prueba (DML):
+### Prompt 9: Revisión de reglas de integridad del DDL (prompt sugerido)
 
-"Genera INSERT para Oracle sobre estas tablas [pegar DDL] con estas condiciones: al menos 10 registros por reporte, fechas dentro de los periodos académicos, y casos borde (un programa sin estudiantes en un periodo, una materia con nota menor a 3.0). Antes de los INSERT, dime qué resultado esperado debería dar cada reporte con esos datos."
+* **Pregunta del estudiante:**
 
-Para consultas (DQL):
+  > *"Te paso el DDL completo de nuestro esquema [pegar]. Actúa como revisor de bases de datos y lista las reglas del enunciado [pegar enunciado] que el DDL no está garantizando. Para cada una propón un CHECK, un UNIQUE o un trigger, y explica por qué elegiste ese mecanismo."*
 
-"Con este esquema [pegar], escribe la consulta para el reporte 'promedio académico por programa y periodo'. Debe usar al menos un LEFT JOIN y GROUP BY. Explica qué pasaría con los programas sin notas si usara INNER JOIN, y dame el resultado esperado con estos datos [pegar inserts]."
-"Te paso mi consulta [pegar]. Encuentra errores lógicos, casos en que devolvería filas duplicadas o resultados incorrectos, y propón una versión corregida."
+* **Respuesta de la IA:**
 
-Para depurar:
+  Se propuso agregar un CHECK para limitar las notas al rango de 0 a 5, una restricción UNIQUE para impedir dos notas de la misma actividad en una inscripción y una clave foránea compuesta para garantizar que la actividad pertenezca al grupo. Para las reglas que relacionan programa y periodo entre tablas se revisó el uso de triggers. La revisión también identificó el problema de consultar enrollments_groups desde su propio trigger por fila.
 
-"Ejecuté estos scripts en este orden y obtuve estos errores [pegar salida completa]. Explícame la causa raíz (no cada error por separado) y el orden correcto para corregirlo, sin borrar datos que no sean del proyecto."
+---
 
+### Prompt 10: Coherencia de las dependencias funcionales con el DDL (prompt sugerido)
 
-"Esta es la respuesta que me diste antes [pegar]. Actúa como un profesor exigente de bases de datos y critícala: ¿qué supuestos hiciste que no están en el enunciado? ¿Qué podría estar mal?"
-"¿Qué riesgos tiene usar en producción el comando que me sugeriste? ¿Qué debería verificar antes de ejecutarlo?"
+* **Pregunta del estudiante:**
+
+  > *"Revisa si estas dependencias funcionales [pegar] son consistentes con este DDL [pegar]. Señala contradicciones entre ambos documentos."*
+
+* **Respuesta de la IA:**
+
+  Se señaló que la inscripción a un grupo está identificada en el DDL por la pareja grupo y matrícula, mientras que algunos ejemplos anteriores de dependencias funcionales usaban un identificador sintético. Se recomendó alinear las dependencias con las claves reales del modelo. También se confirmó que la unicidad del documento en works_experiences corresponde a la regla de conservar únicamente la experiencia laboral actual.
+
+---
+
+### Prompt 11: Generación de datos de prueba (prompt sugerido)
+
+* **Pregunta del estudiante:**
+
+  > *"Genera INSERT para Oracle sobre estas tablas [pegar DDL] con estas condiciones: al menos 10 registros por reporte, fechas dentro de los periodos académicos, y casos borde (un programa sin estudiantes en un periodo, una materia con nota menor a 3.0). Antes de los INSERT, dime qué resultado esperado debería dar cada reporte con esos datos."*
+
+* **Respuesta de la IA:**
+
+  Se planteó cargar primero programas, periodos, estados y estudiantes, y luego matrículas, grupos e inscripciones, respetando las claves foráneas. Para comprobar los reportes se incluyeron casos de aprobación y no aprobación, matrículas retiradas y graduadas, y una inscripción sin asistencia. Los conteos calculados sobre los inserts permiten anticipar al menos diez filas por reporte; la ejecución en Oracle sigue siendo la comprobación final. La carga de 2025 requiere completar grupos y notas si se desea mostrar el historial académico de esos estudiantes.
+
+---
+
+### Prompt 12: Promedio por programa y periodo (prompt sugerido)
+
+* **Pregunta del estudiante:**
+
+  > *"Con este esquema [pegar], escribe la consulta para el reporte 'promedio académico por programa y periodo'. Debe usar al menos un LEFT JOIN y GROUP BY. Explica qué pasaría con los programas sin notas si usara INNER JOIN, y dame el resultado esperado con estos datos [pegar inserts]."*
+
+* **Respuesta de la IA:**
+
+  Se explicó que LEFT JOIN conserva las matrículas aunque todavía no tengan grupos asignados. AVG calcula el promedio de las notas disponibles y devuelve NULL cuando no hay notas, mientras que COUNT de la nota devuelve cero en ese caso. En la revisión posterior se acordó agrupar por estudiante, programa y periodo para cumplir el reporte individual. Si se usa JOIN hacia las inscripciones, las matrículas sin grupos desaparecen. Con los inserts revisados se esperan 32 filas para la versión individual.
+
+---
+
+### Prompt 13: Revisión lógica de consultas (prompt sugerido)
+
+* **Pregunta del estudiante:**
+
+  > *"Te paso mi consulta [pegar]. Encuentra errores lógicos, casos en que devolvería filas duplicadas o resultados incorrectos, y propón una versión corregida."*
+
+* **Respuesta de la IA:**
+
+  Se recomendó comprobar qué representa cada fila antes de añadir DISTINCT o GROUP BY. Para listar estudiantes por programa se usó DISTINCT, porque las matrículas de distintos periodos pueden repetir al mismo estudiante. En los conteos se utilizó COUNT(DISTINCT documento). También se revisó que el TOP 10 corresponda a promedios históricos y que las matrículas sin notas se identifiquen con NULL, evitando interpretarlas como una nota de cero.
+
+---
+
+### Prompt 14: Depuración de scripts (prompt sugerido)
+
+* **Pregunta del estudiante:**
+
+  > *"Ejecuté estos scripts en este orden y obtuve estos errores [pegar salida completa]. Explícame la causa raíz (no cada error por separado) y el orden correcto para corregirlo, sin borrar datos que no sean del proyecto."*
+
+* **Respuesta de la IA:**
+
+  Se identificó que un punto y coma antes de FOR UPDATE cerraba el SELECT y provocaba un error de compilación. Se corrigió colocando FOR UPDATE antes del punto y coma final. Se indicó ejecutar DDL, DML, PL/SQL y DQL, ya que las consultas de notas y asistencia utilizan funciones. Los errores de DROP TABLE en un esquema vacío deben distinguirse de errores en la creación de objetos. Cada corrección debe recompilarse y probarse en Oracle.
+
+---
+
+### Prompt 15: Revisión crítica de una respuesta de IAg (prompt sugerido)
+
+* **Pregunta del estudiante:**
+
+  > *"Esta es la respuesta que me diste antes [pegar]. Actúa como un profesor exigente de bases de datos y critícala: ¿qué supuestos hiciste que no están en el enunciado? ¿Qué podría estar mal?"*
+
+* **Respuesta de la IA:**
+
+  Se señaló que los umbrales de aprobación de 3.0 y de asistencia del 80 % deben confirmarse como reglas del proyecto. También se aclaró que una nota ponderada con evaluaciones faltantes representa un acumulado, aunque la función la denomine definitiva. El equipo decidió conservar ese cálculo y conoce su limitación. Se revisó además que las respuestas históricas que mencionan pagos o claves sintéticas pueden diferir del alcance y del modelo finales.
+
+---
+
+### Prompt 16: Riesgos de ejecución en producción (prompt sugerido)
+
+* **Pregunta del estudiante:**
+
+  > *"¿Qué riesgos tiene usar en producción el comando que me sugeriste? ¿Qué debería verificar antes de ejecutarlo?"*
+
+* **Respuesta de la IA:**
+
+  Para un comando destructivo como DROP TABLE, se explicó que elimina la tabla y sus datos y confirma la transacción, por lo que no se revierte con ROLLBACK. Antes de ejecutarlo se debe comprobar la conexión, el esquema, las tablas afectadas, sus dependencias y la posibilidad de recuperar los datos. El bloque de borrado del proyecto está pensado para recrear el esquema de pruebas. En producción se requiere planificar el cambio y su recuperación según los procedimientos de la organización.
+
+---
+
+### Prompt 17: Consultas de Materias y grupos (prompt reconstruido)
+
+* **Pregunta del estudiante:**
+
+  > *"Estoy haciendo la parte de materias y grupos del proyecto Fundaobrera en Oracle. Necesito la consulta para ver qué materias cursó cada estudiante, mostrando su nombre, programa, periodo, materia, NRC y profesor. Tenemos students, enrollments, enrollments_groups, groups, subjects y teachers. Ayúdame a relacionarlas con join y que salga ordenado por estudiante, periodo y materia. Ponle un comentario explicando qué muestra y explícame cómo se llega del estudiante hasta la materia."*
+
+* **Respuesta de la IA:**
+
+  Resumen del apoyo recibido: se relacionaron estudiantes, matrículas, programas, periodos, inscripciones, grupos, materias y docentes mediante JOIN. La consulta muestra las materias de las matrículas con grupos asignados y se ordena por estudiante, periodo y materia.
+
+---
+
+### Prompt 18: Consultas de Calificaciones (prompt reconstruido)
+
+* **Pregunta del estudiante:**
+
+  > *"Me toca la parte de calificaciones de Fundaobrera. Ya tenemos la función fn_final_grade que recibe el grupo y la matrícula y calcula la nota. Necesito las consultas de notas por estudiante, promedio de cada estudiante por programa y periodo, materias aprobadas y no aprobadas y un top 10 de mejores promedios históricos. Usa 3 como nota mínima para aprobar. En los promedios quiero que también aparezcan las matrículas sin notas, y en el reporte de aprobación que se distinga si no tiene materias o si le faltan calificaciones. Pon comentarios y ordena los resultados para que se entiendan al mostrarlos."*
+
+* **Respuesta de la IA:**
+
+  Resumen del apoyo recibido: se prepararon los reportes de notas, promedios individuales por programa y periodo, clasificación de aprobación y TOP 10 histórico. Se usaron fn_final_grade, AVG, GROUP BY, CASE, LEFT JOIN y FETCH FIRST. Se mantuvo NULL cuando no hay notas. La revisión identificó que la función puede devolver un acumulado si faltan evaluaciones y el equipo decidió conservar ese comportamiento.
+
+---
+
+### Prompt 19: Consultas de Estado académico (prompt reconstruido)
+
+* **Pregunta del estudiante:**
+
+  > *"Estoy con el módulo de estado académico del proyecto. Los estados de las matrículas son cursando, retirado y graduado. Necesito una consulta que cuente los estudiantes por programa y estado, otra que muestre los retirados con la fecha y el motivo y otra de graduados con su fecha y los datos del acta. Usa las tablas que ya tenemos en el modelo. En el conteo quiero que aparezca cero cuando un programa no tenga estudiantes en algún estado. Agrega comentarios y un orden que sirva para revisar los resultados."*
+
+* **Respuesta de la IA:**
+
+  Resumen del apoyo recibido: se usaron CROSS JOIN y LEFT JOIN para contar estudiantes por programa y estado, incluyendo combinaciones con cero estudiantes. Se prepararon también los reportes detallados de retiros y graduaciones con JOIN hacia estudiantes y programas.
+
+---
+
+### Prompt 20: Consulta de Asistencia (prompt reconstruido)
+
+* **Pregunta del estudiante:**
+
+  > *"Me falta la consulta de asistencia de Fundaobrera. Ya existe fn_attendance_percentage, que recibe el NRC y la matrícula. Quiero mostrar el estudiante, periodo, materia, grupo, docente y porcentaje de asistencia. Si no tiene registros que diga “Sin registros”, y con el umbral del 80 % que estamos usando que muestre “Cumple” o “En riesgo”. Ayúdame con los joins, pon un comentario que explique el cálculo y ordena por estudiante, periodo y materia."*
+
+* **Respuesta de la IA:**
+
+  Resumen del apoyo recibido: se relacionaron las inscripciones con estudiantes, matrículas, periodos, grupos, materias y docentes. Se utilizó fn_attendance_percentage para calcular el porcentaje y CASE para mostrar Sin registros, Cumple o En riesgo. El umbral del 80 % se identificó como una regla que el equipo debe confirmar.
+
+---
